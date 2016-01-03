@@ -15,11 +15,55 @@ define(['d3', 'angular', 'angular-ui-router'], function (d3) {
     var d3Layout = {
       init: function () {
         this.centerPoint();
+        this.loadSvg();
       },
       centerPoint: function () {
-        var scene = d3.select('#center-point').append('svg').style('width', '100%').style('height', '100%').style('color', '#777');
-        var width = parseInt(scene.style('width').replace('px', ''));
-        var height = parseInt(scene.style('height').replace('px', ''));
+        this.createCenterPoint('center-point');
+      },
+      loadSvg: function () {
+        // var scene = this.createScene('load-svg-file');
+        // console.log("xxvzxcv");
+        // scene.append("svg")
+        //   .attr("data", "static/svg/d3.svg")
+        //   .attr("width", 90)
+        //   .attr("height", 90)
+        //   .attr("type", "image/svg+xml");
+        var that = this;
+        d3.xml("static/svg/d3.svg", "image/svg+xml", function(error, xml) {
+          if (error) throw error;
+
+          var importedNode = document.importNode(xml.documentElement, true);
+
+          var g = that.createG('load-svg-file')
+            .each(function (x, y) {
+              this.appendChild(importedNode.cloneNode(true));
+            });
+
+        });
+      },
+      createScene: function (id) {
+        return d3.select('#' + id).append('svg').style('width', '100%').style('height', '100%').style('color', '#777');
+      },
+      getSceneWidth: function (scene){
+        return parseInt(scene.style('width').replace('px', ''));
+      },
+      getSceneHeight: function (scene){
+        return parseInt(scene.style('height').replace('px', ''));
+      },
+      createG: function (id) {
+        var scene = this.createScene(id);
+        var width = this.getSceneWidth(scene);
+        var height = this.getSceneHeight(scene);
+
+        return scene.append('g')
+          .attr('width', width)
+          .attr('height', height)
+          .attr('transform', 'translate(' + width / 2 + ', ' + height / 2 + ')scale(0.3)');
+      },
+      createCenterPoint: function (id) {
+        var scene = this.createScene(id);
+        var width = this.getSceneWidth(scene);
+        var height = this.getSceneHeight(scene);
 
         var g = scene.append('g').attr('transform', 'translate(' + width / 2 + ', ' + height / 2 + ')');
 
@@ -29,6 +73,7 @@ define(['d3', 'angular', 'angular-ui-router'], function (d3) {
               .attr('r', 5)
               .attr('class', 'node-point');
       }
+
     };
 
     d3Layout.init();
