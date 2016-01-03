@@ -1,0 +1,29 @@
+{
+  "name": "angular-demo-two",
+  "version": "0.0.0",
+  "dependencies": {
+    "requirejs": "~2.1.22",
+    "requirejs-domready": "~2.0.1",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "jquery-ui": "~1.11.4",
+    "bootstrap-wysihtml5": "*",
+    "font-awesome": "~4.5.0",
+    "d3": "~3.5.12"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.0",
+    "angular-ui-router": "~0.2.15"
+  },
+  "appPath": "app",
+  "moduleName": "angularDemoTwoApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}

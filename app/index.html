@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css"/>
+  <link rel="stylesheet" type="text/css" href="../bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="static/style/AdminLTE.css">
+</head>
+<body class="skin-blue">
+  <header ui-view="header" class="header"></header>
+  <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+           <aside ui-view="left-side" class="left-side sidebar-offcanvas ng-scope"></aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside ui-view="container" class="right-side"></aside>
+  </div><!-- ./wrapper -->
+  <!-- <footer ui-view="footer" class="footer"></footer> -->
+
+  <!-- Some necessory js. They should golabe.-->
+  <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="static/script/treeview.js"></script>
+
+  <!-- The main js. The angular controllers, services and views. -->
+  <script data-main="main.js" src="../bower_components/requirejs/require.js"></script>
+</body>
+</html>
