@@ -1,7 +1,7 @@
-define(['d3', 'angular', 'angular-ui-router'], function (d3) {
+define(['d3', 'marked', 'angular', 'angular-ui-router'], function (d3, marked) {
 
   var app = angular.module('app.dashboard.controller', ['ui.router']);
-  app.controller('dashboardIndexController', function ($scope, breadcrumb){
+  app.controller('dashboardIndexController', function ($scope, $http, $sce, breadcrumb){
 
     breadcrumb.title = 'Dashboard';
     breadcrumb.subTitle = 'Dashboard Panel';
@@ -9,8 +9,17 @@ define(['d3', 'angular', 'angular-ui-router'], function (d3) {
     var self = this;
 
     self.info = {
-      centerPoint: '在一个div的最中心添加一个点'
+      centerPoint: '在一个Div的最中心添加一个点。',
+      loadSvgFile: '将d3.svg文件，加载到Div上。'
     };
+
+    self.marks = '';
+
+    $http.get("marks/test.md")
+    .success(function(data) {
+      console.log(marked(data));
+      self.marks = $sce.trustAsHtml(marked(data));
+    });
 
     var d3Layout = {
       init: function () {
