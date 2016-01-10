@@ -1,6 +1,9 @@
 {
   "name": "angulardemotwo",
   "private": true,
+  "script": {
+    "init": "bower install && node install"
+  },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "grunt": "^0.4.5",
