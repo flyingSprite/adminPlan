@@ -58,6 +58,7 @@ define(['adminApp',
   ;
 
     $urlRouterProvider
+      .when('/main.dashboard.index', '/dashboard/index')
       .when('/main', '/dashboard/index')
       .otherwise('main.dashboard.index');
   });

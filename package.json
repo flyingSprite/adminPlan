@@ -1,8 +1,10 @@
 {
   "name": "angulardemotwo",
   "private": true,
-  "script": {
-    "init": "bower install && node install"
+  "scripts": {
+    "init": "node install && bower install --allow-root",
+    "install": "npm install",
+    "bower": "bower install --allow-root"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
