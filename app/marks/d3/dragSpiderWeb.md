@@ -15,3 +15,11 @@ scene.call(drag);
 ```
 
 其中`scene`表示`svg`对象，而`d3.event.dx`表示偏移的`x`坐标量，`d3.event.dy`偏移的`y`坐标量
+
+此外，拖拽事件还包括如下：
+```javascript
+d3.behavior.drag().on('dragstart', function (){
+});
+d3.behavior.drag().on('dragend', function (){
+});
+```

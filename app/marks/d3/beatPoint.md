@@ -56,7 +56,7 @@ var center = group.append('circle')
     function particle(circle) {
       group.insert("circle", "rect")
           .attr("cx", circle.attr('cx'))
-          .attr("cy", circle.attr('cx'))
+          .attr("cy", circle.attr('cy'))
           .attr("r", 1e-6)
           .style("stroke", d3.hsl((i = (i + 10) % 360), 1, .5))
           .style("stroke-opacity", 1)

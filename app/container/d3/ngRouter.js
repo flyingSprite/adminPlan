@@ -41,6 +41,14 @@ define(function () {
       templateUrl: tempatePath + 'dragSpiderWeb/index.html',
       controller: 'D3DragSpiderWebController',
       controllerUrl: tempatePath + 'dragSpiderWeb/controller'
+    },
+    {
+      title: 'Zoom Spider Web',
+      name: 'zoomSpiderWeb',
+      uiSref: defaultUiSref + 'zoomSpiderWeb',
+      templateUrl: tempatePath + 'zoomSpiderWeb/index.html',
+      controller: 'D3ZoomSpiderWebController',
+      controllerUrl: tempatePath + 'zoomSpiderWeb/controller'
     }
   ];
 });

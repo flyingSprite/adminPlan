@@ -1,14 +1,14 @@
 define(['adminApp', 'd3'], function (adminApp, d3) {
 
   //var app = angular.module('app.d3', ['ui.router']);
-  adminApp.controller('D3DragSpiderWebController', function ($scope, breadcrumb){
+  adminApp.controller('D3ZoomSpiderWebController', function ($scope, breadcrumb){
     breadcrumb.title = 'D3';
-    breadcrumb.subTitle = 'Drag Spider Web';
+    breadcrumb.subTitle = 'Zoom Spider Web';
     var self = this;
 
-    self.title = 'Drag Spider Web';
-    self.markTemplate = 'marks/d3/dragSpiderWeb.md';
-    self.info = '使用d3绘制一个虚拟的蜘蛛网，并实现拖拽的功能';
+    self.title = 'Zoom Spider Web';
+    self.markTemplate = 'marks/d3/zoomSpiderWeb.md';
+    self.info = '在Drag Spider Web基础上，实现放大缩小的功能。';
 
     var scene = d3.select('#d3select').append('svg').style('width', '100%').style('height', '100%').style('color', '#777');
     var width = parseInt(scene.style('width').replace('px', ''));
@@ -27,6 +27,7 @@ define(['adminApp', 'd3'], function (adminApp, d3) {
     dashedTierCreator(posititions);
     dashedPointCreator(posititions);
 
+
     // 实现拖拽功能
     var dx = width / 2, dy = height / 2;
     var drag = d3.behavior.drag().on('drag', function (d){
@@ -35,6 +36,15 @@ define(['adminApp', 'd3'], function (adminApp, d3) {
         group.attr('transform', 'translate(' + dx  + ', ' + dy + ')');
     });
     scene.call(drag);
+
+    // 实现放大缩小功能
+    var zoom = d3.behavior.zoom()
+      .scaleExtent([0.1, 10])
+      .on('zoom', function (){
+        group.attr('transform',
+          'translate(' + dx  + ', ' + dy + ')scale(' + d3.event.scale + ')');
+      });
+    scene.call(zoom);
 
 
 
