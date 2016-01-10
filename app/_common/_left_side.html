@@ -3,10 +3,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="statics/images/avatar3.png" class="img-circle" alt="User Image" />
+                <img src="static/image/pic.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>Hello, Jane</p>
+                <p>Hello, Master</p>
 
                 <a href="#"> <i class="fa fa-circle text-success"></i>
                     Online
@@ -36,9 +36,31 @@
                 <a ui-sref="main.widgets.index">
                     <i class="fa fa-th"></i>
                     <span>Widgets</span>
-                    <small class="badge pull-right bg-green">new</small>
+                    <!-- <small class="badge pull-right bg-green">new</small> -->
                 </a>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <span>D3</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a ui-sref="main.d3.centerPoint">
+                            <i class="fa fa-angle-double-right"></i>
+                            Center Point
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="main.d3.loadSVG">
+                            <i class="fa fa-angle-double-right"></i>
+                            Load SVG
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!--
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-bar-chart-o"></i>
@@ -218,6 +240,7 @@
                     </li>
                 </ul>
             </li>
+            -->
         </ul>
     </section>
     <!-- /.sidebar -->

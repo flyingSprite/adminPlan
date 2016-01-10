@@ -1,9 +1,10 @@
 
 
-define(['require', 'angular', 'app'], function (require){
+define(['require', 'angular', 'angular', 'app'], function (require){
   'use strict';
 
   require(['domReady!'], function (document) {
-    angular.bootstrap(document, ['app']);
+    // This ngApp must be angular.module('ngApp', [])
+    angular.bootstrap(document, ['ngApp']);
   });
 });

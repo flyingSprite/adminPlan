@@ -1,10 +1,11 @@
-define(['angular', 'angular-ui-router',
-  './views/ngTemplate'
-  ], function () {
+define(['adminApp',
+  './container/ngTemplate',
+  './templates/services/initService'
+  ], function (adminApp) {
+    console.log(adminApp);
   // Load route module in application by adding it as a dependent module.
-  var app = angular.module('app', ['app.template', 'ui.router']);
 
-  app.service('init', function () {
+  adminApp.service('init', function () {
     return {
       imagePath: 'static/image/',
       treeview: function () {
@@ -14,14 +15,14 @@ define(['angular', 'angular-ui-router',
     }
   });
 
-  app.service('breadcrumb', function () {
+  adminApp.service('breadcrumb', function () {
     return {
       title: '',
       subTitle: '',
     }
   });
 
-  app.config(function ($stateProvider, $urlRouterProvider) {
+  adminApp.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
@@ -56,8 +57,11 @@ define(['angular', 'angular-ui-router',
     // })
   ;
 
-    $urlRouterProvider.otherwise('main');
+    $urlRouterProvider
+      .when('/main', '/dashboard/index')
+      .otherwise('main.dashboard.index');
   });
+
 
 });
 

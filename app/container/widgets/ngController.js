@@ -1,7 +1,6 @@
-define(['angular', 'angular-ui-router'], function () {
+define(['adminApp'], function (adminApp) {
 
-  var app = angular.module('app.widgets.controller', ['ui.router']);
-  app.controller('widgetsIndexController', function ($scope, breadcrumb){
+  adminApp.controller('widgetsIndexController', function ($scope, breadcrumb){
 
     breadcrumb.title = 'Widgets';
     breadcrumb.subTitle = 'Widgets Panel';
