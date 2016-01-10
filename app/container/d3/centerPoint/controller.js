@@ -1,4 +1,4 @@
-define(['adminApp', 'd3', 'marked'], function (adminApp, d3, marked) {
+define(['adminApp', 'd3'], function (adminApp, d3) {
 
   //var app = angular.module('app.d3', ['ui.router']);
   adminApp.controller('D3CenterPointController', function ($scope, breadcrumb){

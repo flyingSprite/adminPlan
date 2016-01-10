@@ -46,22 +46,10 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li>
-                        <a ui-sref="main.d3.centerPoint">
+                    <li ng-repeat="node in d3List">
+                        <a ui-sref="{{ node.uiSref }}">
                             <i class="fa fa-angle-double-right"></i>
-                            Center Point
-                        </a>
-                    </li>
-                    <li>
-                        <a ui-sref="main.d3.loadSVG">
-                            <i class="fa fa-angle-double-right"></i>
-                            Load SVG
-                        </a>
-                    </li>
-                    <li>
-                        <a ui-sref="main.d3.drawSpiderWeb">
-                            <i class="fa fa-angle-double-right"></i>
-                            Draw Spider Web
+                            {{ node.title }}
                         </a>
                     </li>
                 </ul>

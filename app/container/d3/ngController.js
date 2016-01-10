@@ -15,7 +15,7 @@ define(['adminApp', './ngRouter'], function (adminApp, ngRouter) {
      */
     angular.forEach(ngRouter, function (value, index) {
       $stateProvider
-      .state('main.d3.' + value.name, {
+      .state(value.uiSref, {
         url: '/' + value.name,
         templateUrl: value.templateUrl,
         controller: value.controller,

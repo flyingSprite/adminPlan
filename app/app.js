@@ -1,7 +1,8 @@
 define(['adminApp',
+  './container/d3/ngRouter',
   './container/ngTemplate',
   './templates/services/initService'
-  ], function (adminApp) {
+  ], function (adminApp, d3NgRouter) {
 
   adminApp.service('init', function () {
     return {
@@ -42,6 +43,7 @@ define(['adminApp',
           templateUrl: '_common/_left_side.html',
           controller: function ($scope, init){
             init.treeview();
+            $scope.d3List = d3NgRouter;
           }
         }
       }

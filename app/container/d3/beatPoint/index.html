@@ -1,36 +1,11 @@
 <style type="text/css">
-.node-point {
-  stroke: #8BABC5;
-  fill: #483D3D;
-}
-
-polyline {
+circle {
   fill: none;
-  stroke: #000;
-  stroke-width: 0.8px;
-  stroke-dasharray: 5px;
-  opacity: 0.5;
+  stroke-width: 2.5px;
 }
-
-.line-pitchon {
-  fill: none;
-  stroke: #2DD841;
-  stroke-width: 1px;
-  stroke-dasharray: 0px;
-  opacity: 1;
-}
-
-.node-center {
-  fill: #E80000;
-  stroke: #000;
-  stroke-width: 0.5px;
-}
-
-.node-dashednet {
-  fill: #FFF;
-  stroke: #000;
-  stroke-width: 0.5px;
-  stroke-dasharray: 2px;
+.node-point{
+  fill: #000;
+  stroke-width: 2.5px;
 }
 </style>
 <section class="col-lg-12 connectedSortable">
@@ -45,7 +20,7 @@ polyline {
       <div class="row">
         <div class="col-sm-12">
           <!-- bar chart -->
-          <div id="d3select" style="height: 300px;"></div>
+          <div id="center-point" style="height: 300px;"></div>
         </div>
       <!-- /.row - inside box --> </div>
     <!-- /.box-body -->
@@ -64,3 +39,4 @@ polyline {
 <section class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
   <markd markurl="{{ ctrl.markTemplate }}"></markd>
 </section>
+
