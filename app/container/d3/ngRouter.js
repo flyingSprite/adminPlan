@@ -12,6 +12,12 @@ define(function () {
       templateUrl: tempatePath + 'loadSVG/index.html',
       controller: 'D3LoadSVGController',
       controllerUrl: tempatePath + 'loadSVG/controller'
+    },
+    {
+      name: 'drawSpiderWeb',
+      templateUrl: tempatePath + 'drawSpiderWeb/index.html',
+      controller: 'D3DrawSpiderWebController',
+      controllerUrl: tempatePath + 'drawSpiderWeb/controller'
     }
   ];
 });

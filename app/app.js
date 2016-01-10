@@ -2,8 +2,6 @@ define(['adminApp',
   './container/ngTemplate',
   './templates/services/initService'
   ], function (adminApp) {
-    console.log(adminApp);
-  // Load route module in application by adding it as a dependent module.
 
   adminApp.service('init', function () {
     return {
@@ -47,15 +45,7 @@ define(['adminApp',
           }
         }
       }
-    })
-    // .state('main.dashboard', {
-    //   url: 'dashboard',
-    //   templateUrl: 'views/dashboard.html',
-    //   controller: function ($scope){
-    //     console.log("xvzxcvzxcv");
-    //   }
-    // })
-  ;
+    });
 
     $urlRouterProvider
       .when('/main.dashboard.index', '/dashboard/index')

@@ -17,10 +17,7 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
       controller: function ($scope, $sce, $http) {
         $http.get($scope.markurl)
           .success(function(data) {
-            console.log($scope.markurl);
-            console.log(data);
             $scope.markdownHtml = $sce.trustAsHtml(marked(data));
-            console.log($scope.markdownHtml);
           });
       }
     }
