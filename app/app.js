@@ -21,7 +21,15 @@ define(['adminApp',
     }
   });
 
-  adminApp.config(function ($stateProvider, $urlRouterProvider) {
+  adminApp
+
+  .run(['$rootScope', '$location', function ($rootScope, $location) {
+      $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams){
+        // console.log('StateChange', event, toState, toParams, fromState, fromParams);
+      });
+    }])
+
+  .config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
