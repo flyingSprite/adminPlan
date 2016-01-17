@@ -4,7 +4,6 @@ require.config({
   baseUrl: "",
   paths:{
     'angular': '../bower_components/angular/angular',
-    'angularAMD': '../bower_components/angularAMD/angularAMD.min',
 
     'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
     'd3': '../bower_components/d3/d3.min',
