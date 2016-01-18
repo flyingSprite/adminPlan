@@ -7,7 +7,6 @@ define(['adminApp',
 
 
   adminApp.config(function ($stateProvider, $urlRouterProvider) {
-
     var templatePath = 'container/dashboard/'
 
     $stateProvider

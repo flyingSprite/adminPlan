@@ -27,6 +27,7 @@ define(['adminApp',
       $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams){
         // console.log('StateChange', event, toState, toParams, fromState, fromParams);
       });
+      console.warn('ssss');
     }])
 
   .config(function ($stateProvider, $urlRouterProvider) {
