@@ -35,7 +35,8 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
       }
     }
   })
-  .service('socket', function (logging) {
+  .service('socket', [ '$http', 'logging', function ($http, logging) {
+    $http.defaults.useXDomain = true;
     var socket = new WebSocket('ws://localhost:8080/solutions/point');
     var self = this;
     var temporyList = [];
@@ -49,8 +50,17 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
     }
 
     socket.onmessage = function(event){
-      logging.log(event.data);
+      logging.info(event.data);
     }
+
+    $http({
+        url: 'http://localhost:8080/solutions/record',
+        method: 'GET'
+      }).then(function (data){
+        console.log("====>", data);
+      }).then(function (err){
+        console.log(err);
+      });
 
 
 
@@ -63,6 +73,6 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
       }
     }
 
-  });
+  }]);
 
 });

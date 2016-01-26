@@ -4,13 +4,13 @@ define(['adminApp',
 
   adminApp.config(function ($stateProvider, $urlRouterProvider) {
 
-    var templatePath = 'container/widgets/'
+    var templatePath = 'container/record/'
 
     $stateProvider
-      .state('main.widgets.index', {
+      .state('main.record.index', {
         url: '/index',
-        templateUrl: templatePath + 'widgets.html',
-        controller: 'widgetsIndexController as ctrl'
+        templateUrl: templatePath + 'record.html',
+        controller: 'recordIndexController as ctrl'
       });
   });
 });

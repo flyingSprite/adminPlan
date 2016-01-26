@@ -4,7 +4,7 @@ require.config({
   baseUrl: "",
   paths:{
     'angular': '../bower_components/angular/angular',
-
+    'angular-translate': '../bower_components/angular-translate/angular-translate.min',
     'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
     'd3': '../bower_components/d3/d3.min',
     'domReady': '../bower_components/requirejs-domready/domReady',
@@ -17,9 +17,9 @@ require.config({
     'adminApp': 'adminApp'
   },
   shim: {
-    'angularAMD': ['angular'],
-    'angular-ui-router': ['angular'],
-    'ngRequire': ['angular']
+    'angular-translate': ['angular'],
+    'angular-ui-router': ['angular-translate'],
+    'ngRequire': ['angular-ui-router']
   },
   deps: ['bootstrap']
 });

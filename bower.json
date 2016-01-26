@@ -12,7 +12,8 @@
     "d3": "~3.5.12",
     "Ionicons": "ionicons#~2.0.1",
     "raphael": "~2.1.4",
-    "marked": "~0.3.5"
+    "marked": "~0.3.5",
+    "angular-translate": "~2.9.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",

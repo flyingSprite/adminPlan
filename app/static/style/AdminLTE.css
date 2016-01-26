@@ -1005,12 +1005,12 @@ body > .header .logo .icon {
    All form elements including input, select, textarea etc.
 -----------------------------------------------------------------
 */
-.form-control {
+/*.form-control {
   -webkit-border-radius: 0px !important;
   -moz-border-radius: 0px !important;
   border-radius: 0px !important;
   box-shadow: none;
-}
+}*/
 .form-control:focus {
   border-color: #3c8dbc !important;
   box-shadow: none;

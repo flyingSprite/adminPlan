@@ -32,12 +32,20 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a ui-sref="main.widgets.index">
-                    <i class="fa fa-th"></i>
-                    <span>Widgets</span>
-                    <!-- <small class="badge pull-right bg-green">new</small> -->
+            <li class="treeview">
+                <a href="">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <span>Record</span>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
+                <ul class="treeview-menu">
+                    <li ng-repeat="node in recordList">
+                        <a ui-sref="{{ node.uiSref }}">
+                            <i class="fa fa-angle-double-right"></i>
+                            {{ node.title }}
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="treeview">
                 <a href="#">

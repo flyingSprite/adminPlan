@@ -1,8 +1,9 @@
 define(['adminApp',
   './container/d3/ngRouter',
+  './container/record/ngRouter',
   './container/ngTemplate',
   './templates/services/initService'
-  ], function (adminApp, d3NgRouter) {
+  ], function (adminApp, d3NgRouter, recordNgRouter) {
 
   adminApp.service('init', function () {
     return {
@@ -27,7 +28,7 @@ define(['adminApp',
       $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams){
         // console.log('StateChange', event, toState, toParams, fromState, fromParams);
       });
-      console.warn('ssss');
+
     }])
 
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -53,6 +54,7 @@ define(['adminApp',
           controller: function ($scope, init){
             init.treeview();
             $scope.d3List = d3NgRouter;
+            $scope.recordList = recordNgRouter;
           }
         }
       }
