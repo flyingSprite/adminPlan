@@ -13,7 +13,10 @@
     "Ionicons": "ionicons#~2.0.1",
     "raphael": "~2.1.4",
     "marked": "~0.3.5",
-    "angular-translate": "~2.9.0"
+    "angular-translate": "~2.9.0",
+    "codemirror": "~5.11.0",
+    "angular-ui-codemirror": "~0.3.0",
+    "prettyprint": "*"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",

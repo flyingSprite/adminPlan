@@ -17,6 +17,14 @@ define(function () {
       templateUrl: tempatePath + 'list/index.html',
       controller: 'RecordListController',
       controllerUrl: tempatePath + 'list/controller'
+    },
+    {
+      title: 'Editor',
+      name: 'editor',
+      uiSref: defaultUiSref + 'editor',
+      templateUrl: tempatePath + 'editor/index.html',
+      controller: 'EditorController',
+      controllerUrl: tempatePath + 'editor/controller'
     }
   ];
 });
