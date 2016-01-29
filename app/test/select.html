@@ -12,26 +12,44 @@
   <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-          
+
+  <link rel="stylesheet" type="text/css" href="../../bower_components/Materialize/dist/css/materialize.min.css">
 
 
-
-<div class="row">
-    <div class="input-field col s12">
-      <select class="input-field">
-        <option value="" >Choose your option</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-      </select>
-      <label>Materialize Select</label>
-    </div>
+  <form action="#">
+  <div class="input-field col s12 m6">
+    <select class="icons">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="" data-icon="images/sample-1.jpg" class="circle">example 1</option>
+      <option value="" data-icon="images/office.jpg" class="circle">example 2</option>
+      <option value="" data-icon="images/yuna.jpg" class="circle">example 1</option>
+    </select>
+    <label>Images in select</label>
   </div>
 
 
+    <p>
+      <input name="group1" type="radio" id="test1" />
+      <label for="test1">Red</label>
+    </p>
+    <p>
+      <input name="group1" type="radio" id="test2" />
+      <label for="test2">Yellow</label>
+    </p>
+    <p>
+      <input class="with-gap" name="group1" type="radio" id="test3"  />
+      <label for="test3">Green</label>
+    </p>
+      <p>
+        <input name="group1" type="radio" id="test4" disabled="disabled" />
+        <label for="test4">Brown</label>
+    </p>
+  </form>
+        
   <!-- Compiled and minified CSS -->
  
-
+  <script type="text/javascript" src="http://demo.geekslabs.com/materialize/v2.1/layout03/js/materialize.js"></script>
+  <script type="text/javascript" src="http://demo.geekslabs.com/materialize/v2.1/layout03/js/plugins.js"></script>
  
   <script type="text/javascript" src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
 
