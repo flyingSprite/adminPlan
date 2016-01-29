@@ -37,40 +37,40 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
   })
   .service('socket', [ '$http', 'logging', function ($http, logging) {
     $http.defaults.useXDomain = true;
-    var socket = new WebSocket('ws://localhost:8080/solutions/point');
-    var self = this;
-    var temporyList = [];
-    socket.onopen = function (){
+    // var socket = new WebSocket('ws://localhost:8080/solutions/point');
+    // var self = this;
+    // var temporyList = [];
+    // socket.onopen = function (){
 
-      self.connectSuccess = true;
-      angular.forEach(temporyList, function(value){
-        socket.send(value);
-      });
-      temporyList.length = 0;
-    }
+    //   self.connectSuccess = true;
+    //   angular.forEach(temporyList, function(value){
+    //     socket.send(value);
+    //   });
+    //   temporyList.length = 0;
+    // }
 
-    socket.onmessage = function(event){
-      logging.info(event.data);
-    }
+    // socket.onmessage = function(event){
+    //   logging.info(event.data);
+    // }
 
-    $http({
-        url: 'http://localhost:8080/solutions/record',
-        method: 'GET'
-      }).then(function (data){
-        console.log("====>", data);
-      }).then(function (err){
-        console.log(err);
-      });
+    // $http({
+    //     url: 'http://localhost:8080/solutions/record',
+    //     method: 'GET'
+    //   }).then(function (data){
+    //     console.log("====>", data);
+    //   }).then(function (err){
+    //     console.log(err);
+    //   });
 
 
 
     this.send = function (data) {
-      if(self.connectSuccess){
-        socket.send(data);
-      } else {
-        temporyList.push(data);
-        logging.warn("Web Socket is connecting ... ");
-      }
+      // if(self.connectSuccess){
+      //   socket.send(data);
+      // } else {
+      //   temporyList.push(data);
+      //   logging.warn("Web Socket is connecting ... ");
+      // }
     }
 
   }]);
