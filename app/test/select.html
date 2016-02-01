@@ -9,7 +9,7 @@
 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
  <!-- Some necessory js. They should golabe.-->
-  <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 
@@ -17,14 +17,14 @@
 
 
   <form action="#">
-  <div class="input-field col s12 m6">
-    <select class="icons">
+<div class="input-field col s12">
+    <select>
       <option value="" disabled selected>Choose your option</option>
-      <option value="" data-icon="images/sample-1.jpg" class="circle">example 1</option>
-      <option value="" data-icon="images/office.jpg" class="circle">example 2</option>
-      <option value="" data-icon="images/yuna.jpg" class="circle">example 1</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
     </select>
-    <label>Images in select</label>
+    <label>Materialize Select</label>
   </div>
 
 
@@ -45,13 +45,14 @@
         <label for="test4">Brown</label>
     </p>
   </form>
-        
   <!-- Compiled and minified CSS -->
- 
-  <script type="text/javascript" src="http://demo.geekslabs.com/materialize/v2.1/layout03/js/materialize.js"></script>
-  <script type="text/javascript" src="http://demo.geekslabs.com/materialize/v2.1/layout03/js/plugins.js"></script>
- 
-  <script type="text/javascript" src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../../bower_components/Materialize/bin/materialize.js"></script>
+  <script type="text/javascript">
+   $(document).ready(function() {
+    $('select').material_select();
+  });
+  </script>
 
 </body>
 </html>

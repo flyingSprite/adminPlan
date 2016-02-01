@@ -3,29 +3,20 @@
   <div class="row">
     <div class="input-field col s12">
       <input id="id-title" ng-model="ctrl.blog.title" type="text" class="validate">
-      <label for="id-title">Title</label>
+      <label for="id-title">{{ 'Title' | translate }}</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <select class="input-field">
-        <option value="" >Choose your option</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-      </select>
-      <label>Materialize Select</label>
-    </div>
+    <select>
+      <option value="" disabled selected>{{'Choose Type' | translate}}</option>
+      <option value="angularjs">Angular.js</option>
+      <option value="reactjs">React.js</option>
+      <option value="d3js">D3.js</option>
+    </select>
+    <label>{{'Record Type' | translate}}</label>
   </div>
-  <div class="input-field col s12 m6">
-                <div class="select-wrapper"><span class="caret">▼</span><input class="select-dropdown" readonly="true" data-activates="select-options-d453f2c0-2f98-0cd5-df15-83735af27a3d" value="Choose your option" type="text"><ul style="width: 320px; position: absolute; top: 0px; left: 0px; opacity: 1; display: none;" id="select-options-d453f2c0-2f98-0cd5-df15-83735af27a3d" class="dropdown-content select-dropdown"><li class="disabled"><span>Choose your option</span></li><li class=""><span>Option 1</span></li><li class=""><span>Option 2</span></li><li class=""><span>Option 3</span></li></ul><select class="initialized">
-                  <option value="" disabled="" selected="">Choose your option</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
-                </select></div>
-                <label>Materialize Select</label>
-              </div>
+  </div>
 
   <!-- markdown content -->
   <div class="row">
@@ -35,4 +26,16 @@
       ></div>
     </div>
   </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <button class="btn waves-effect waves-light pull-right" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
 </section>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
