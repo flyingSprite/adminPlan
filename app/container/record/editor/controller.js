@@ -1,6 +1,6 @@
 define(['adminApp', 'ui-codemirror'], function (adminApp) {
 
-  adminApp.controller('EditorController', function ($scope, $http, breadcrumb){
+  adminApp.controller('EditorController', function ($scope, $http, breadcrumb, adminhttp){
 
     var self = this;
 
@@ -14,11 +14,24 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
 
     self.blog = {
       title: '',
+      type: '',
       content: ''
     };
 
-    self.message = 'var i = 10;';
+    self.submitBlog = function () {
+      if(self.blog === undefined || self.blog.title === undefined
+        || self.blog.title === ''){
+        return ;
+      }
 
+      // Send a post record to web server.
+      adminhttp.POST({
+        url: '/blog',
+        data: self.blog
+      });
+
+
+    };
   });
 
 });

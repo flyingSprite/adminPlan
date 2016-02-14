@@ -1,14 +1,15 @@
 <section>
   <!-- title -->
+  <form name="blogForm">
   <div class="row">
     <div class="input-field col s12">
-      <input id="id-title" ng-model="ctrl.blog.title" type="text" class="validate">
+      <input id="id-title" ng-model="ctrl.blog.title" type="text" class="ng-invalid ng-invalid-required validate" required>
       <label for="id-title">{{ 'Title' | translate }}</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-    <select>
+    <select ng-model="ctrl.blog.type">
       <option value="" disabled selected>{{'Choose Type' | translate}}</option>
       <option value="angularjs">Angular.js</option>
       <option value="reactjs">React.js</option>
@@ -28,11 +29,15 @@
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <button class="btn waves-effect waves-light pull-right" type="submit" name="action">Submit
-        <i class="material-icons right">send</i>
+      <button class="btn waves-effect waves-light pull-right" type="button"
+        ng-click="ctrl.submitBlog();"
+        ng-disabled="blogForm.$invalid"
+        name="action">{{ 'Submit' | translate }}
+        <i class="material-icons right">{{ 'send' | translate }}</i>
       </button>
     </div>
   </div>
+  </form>
 </section>
 <script type="text/javascript">
   $(document).ready(function() {
