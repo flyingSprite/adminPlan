@@ -35,35 +35,64 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
       }
     }
   })
-  .service('adminhttp', ['$http', function ($http){
+  .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
-    // $http({
-    //     url: 'http://localhost:8080/solutions/record',
-    //     method: 'GET'
-    //   }).then(function (data){
-    //     console.log("====>", data);
-    //   }).then(function (err){
-    //     console.log(err);
-    //   });
-
-    this.POST = function (args){
-      $http({
-        url:'http://localhost:8080/solutions' + args.url,
-        method:"POST",
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        transformRequest : function(data){
-          if (data === undefined) {
-            return data;
+    var serverUrl = 'http://localhost:8080/solutions';
+    return function (config){
+      if(config.method.toUpperCase() == 'POST' || config.method.toUpperCase() == 'PUT') {
+        return $http({
+          url: serverUrl + config.url,
+          method: config.method.toUpperCase(),
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          transformRequest : function(data){
+            if (data === undefined) {
+              return data;
+            }
+            return $.param(data)
+          },
+          data: config.data
+        });
+      } else if (config.method.toUpperCase() == 'DELETE') {
+        return $http({
+          url: serverUrl + config.url,
+          method:"GET",
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
           }
-          return $.param(data)
-        },
-        data: args.data
-      }).then(function (response){
-      });
-    }
+      }
+    };
   }])
+  // .service('adminhttp', ['$http', function ($http){
+  //   $http.defaults.useXDomain = true;
+  //   // $http({
+  //   //     url: 'http://localhost:8080/solutions/record',
+  //   //     method: 'GET'
+  //   //   }).then(function (data){
+  //   //     console.log("====>", data);
+  //   //   }).then(function (err){
+  //   //     console.log(err);
+  //   //   });
+
+  //   this.POST = function (args){
+  //     $http({
+  //       url:'http://localhost:8080/solutions' + args.url,
+  //       method:"POST",
+  //       headers: {
+  //         'Content-Type': 'application/x-www-form-urlencoded'
+  //       },
+  //       transformRequest : function(data){
+  //         if (data === undefined) {
+  //           return data;
+  //         }
+  //         return $.param(data)
+  //       },
+  //       data: args.data
+  //     }).then(function (response){
+  //     });
+  //   }
+  // }])
   .service('socket', [ '$http', 'logging', function ($http, logging) {
     $http.defaults.useXDomain = true;
     // var socket = new WebSocket('ws://localhost:8080/solutions/point');

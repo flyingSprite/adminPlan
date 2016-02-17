@@ -1,15 +1,13 @@
 define(['adminApp', 'ui-codemirror'], function (adminApp) {
 
-  adminApp.controller('EditorController', function ($scope, $http, breadcrumb, adminhttp){
+  adminApp.controller('EditorController', function ($scope, $http, breadcrumb, adminHttp){
 
     var self = this;
 
     self.editorOptions = {
       lineWrapping : true,
       lineNumbers: true,
-      mode: 'markdown',
-      foldGutter: true,
-      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+      mode: 'markdown'
     };
 
     self.blog = {
@@ -25,11 +23,7 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
       }
 
       // Send a post record to web server.
-      adminhttp.POST({
-        url: '/blog',
-        data: self.blog
-      });
-
+      adminHttp({url: '/blog', data: self.blog});
 
     };
   });
