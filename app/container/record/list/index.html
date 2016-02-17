@@ -1,5 +1,5 @@
 <div class="col-lg-8 col-md-8 col-xs-8 center-align">
 
 
-  <h3 ng-repeat="record in ctrl.recordList">{{record.title}} <small>{{record.content}}</small></h3>
+  <h3 ng-repeat="record in ctrl.recordList" ng-click="ctrl.getInfo(record.id)">{{record.title}}</h3>
 </div>

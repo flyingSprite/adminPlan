@@ -23,7 +23,10 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
       }
 
       // Send a post record to web server.
-      adminHttp({url: '/blog', data: self.blog});
+      adminHttp({url: '/blog', data: self.blog, method: 'POST'})
+      .success(function (response){
+        console.log("success");
+      });
 
     };
   });

@@ -54,13 +54,11 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
           },
           data: config.data
         });
-      } else if (config.method.toUpperCase() == 'DELETE') {
+      } else if (config.method.toUpperCase() == 'GET') {
         return $http({
           url: serverUrl + config.url,
-          method:"GET",
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
+          method:"GET"
+        });
       }
     };
   }])
