@@ -7,7 +7,7 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
     self.editorOptions = {
       lineWrapping : true,
       lineNumbers: true,
-      mode: 'javascript',
+      mode: 'markdown',
       foldGutter: true,
       gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
     };
