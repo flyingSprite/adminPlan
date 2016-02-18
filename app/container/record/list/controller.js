@@ -1,16 +1,25 @@
 define(['adminApp'], function (adminApp) {
 
-  adminApp.controller('RecordListController', function ($scope, $http, breadcrumb, adminHttp){
+  adminApp.controller('RecordListController', function ($scope, $state, breadcrumb, adminHttp){
 
     var self = this;
     self.recordList = [];
 
     self.getInfo = function (id){
-      adminHttp({method: 'GET', url: '/blog/info?id=' + id})
-      .success(function(response){
-        console.log(response);
-      });
+      $state.go("main.record.info", {data: {id: id}, id: id});
+      // adminHttp({method: 'GET', url: '/blog/info?id=' + id})
+      // .success(function(data){
+      //   console.log(data.currentDate);
+      //   console.log(new Date(data.currentDate).Format('yyyy-MM-dd hh:mm:ss'));
+      // });
     };
+
+    self.getDateFormat = function (time){
+      if (typeof(time) != 'number') {
+        time = 1455715613608;
+      }
+      return new Date(time).Format('yyyy-MM-dd hh:mm:ss');
+    }
 
     adminHttp({method: 'GET', url: '/blog'})
     .success(function (response){
@@ -21,12 +30,6 @@ define(['adminApp'], function (adminApp) {
       }, self.recordList);
     }).error(function (err){
     });
-    // for(var i = 0; i < 10; i ++){
-    //   self.recordList.push({
-    //     title: 'This is a test. Count: ' + i,
-    //     content: 'This is a message.'
-    //   });
-    // }
   });
 
 });

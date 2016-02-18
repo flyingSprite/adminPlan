@@ -24,20 +24,33 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
       restrict: 'E',
       replace: true,
       scope: {
-        markurl: '@'
+        markurl: '@',
+        markData: '@'
       },
       template: '<div ng-bind-html="markdownHtml"></div>',
       controller: function ($scope, $sce, $http) {
-        $http.get($scope.markurl)
-          .success(function(data) {
-            $scope.markdownHtml = $sce.trustAsHtml(marked(data));
+        if ($scope.markData != undefined) {
+          $scope.markdownHtml = $sce.trustAsHtml(marked($scope.markData));
+          $scope.$watch(function () {
+            return $scope.markData;
+          }, function () {
+            $scope.markdownHtml = $sce.trustAsHtml(marked($scope.markData));
           });
+        }
+
+        if($scope.markData == undefined || $scope.markurl != undefined){
+          $http.get($scope.markurl)
+            .success(function(data) {
+              $scope.markdownHtml = $sce.trustAsHtml(marked(data));
+            });
+        }
       }
     }
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
-    var serverUrl = 'http://localhost:8080/solutions';
+    // var serverUrl = 'http://localhost:8080/solutions';
+    var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){
       if(config.method.toUpperCase() == 'POST' || config.method.toUpperCase() == 'PUT') {
         return $http({

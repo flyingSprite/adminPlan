@@ -15,14 +15,16 @@ require.config({
 
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
+    'dateFormat': 'static/lib/date-format',
 
     'adminApp': 'adminApp'
   },
   shim: {
+    'angular': ['dateFormat'],
     'angular-translate': ['angular'],
     'angular-ui-router': ['angular-translate'],
     'ngRequire': ['angular-ui-router'],
-    'ui-codemirror': ['codemirror']
+    'ui-codemirror': ['angular', 'codemirror']
   },
   deps: ['bootstrap']
 });
