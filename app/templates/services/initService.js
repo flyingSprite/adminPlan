@@ -29,6 +29,11 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
       },
       template: '<div ng-bind-html="markdownHtml"></div>',
       controller: function ($scope, $sce, $http) {
+        marked.setOptions({
+          highlight: function (code) {
+            return hljs.highlightAuto(code).value;
+          }
+        });
         if ($scope.markData != undefined) {
           $scope.markdownHtml = $sce.trustAsHtml(marked($scope.markData));
           $scope.$watch(function () {
