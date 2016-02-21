@@ -4,7 +4,8 @@
   <div class="row">
     <div class="input-field col s12">
       <input id="id-title" ng-model="ctrl.blog.title" type="text" class="ng-invalid ng-invalid-required validate" required>
-      <label for="id-title">{{ 'Title' | translate }}</label>
+      <label for="id-title" ng-if="!ctrl.isUpdateModel">{{ 'Title' | translate }}</label>
+      <label for="id-title" ng-if="ctrl.isUpdateModel" class="active">{{ 'Title' | translate }}</label>
     </div>
   </div>
   <div class="row">
@@ -29,10 +30,13 @@
   </div>
   <div class="row">
     <div class="input-field col s12">
+
       <button class="btn waves-effect waves-light pull-right" type="button"
         ng-click="ctrl.submitBlog();"
         ng-disabled="blogForm.$invalid"
-        name="action">{{ 'Submit' | translate }}
+        name="action">
+        <span ng-hide="ctrl.isUpdateModel">{{ 'OK' | translate }}</span>
+        <span ng-show="ctrl.isUpdateModel">{{ 'Update' | translate }}</span>
         <i class="material-icons right">{{ 'send' | translate }}</i>
       </button>
     </div>

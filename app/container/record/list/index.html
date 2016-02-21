@@ -5,12 +5,14 @@
 
   <ul class="collection">
     <li class="collection-item avatar"
-        ng-repeat="record in ctrl.recordList"
-        ng-click="ctrl.getInfo(record.id)">
+        ng-repeat="blog in ctrl.blogList">
       <img src="static/image/pic.jpg" alt="" class="circle" style="margin-top: 0; margin-button: 0;">
-      <span class="title">{{record.title}}</span><br>
-      <span class="title">{{ ctrl.getDateFormat(record.currentDate) }}</span>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <span ng-click="ctrl.getInfo(blog.id)" class="title">{{blog.title}}</span><br>
+      <span ng-click="ctrl.getInfo(blog.id)" class="title">{{ ctrl.getDateFormat(blog.currentDate) }}</span>
+      <a class="secondary-content"
+        ng-click="ctrl.editThisBlog(blog.id)"
+        ng-show="ctrl.canEdit"><i class="material-icons">edit</i></a>
+      <a href="#!" class="secondary-content" ng-show="!ctrl.canEdit"><i class="material-icons">grade</i></a>
     </li>
   </ul>
 

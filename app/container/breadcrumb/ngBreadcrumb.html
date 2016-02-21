@@ -1,4 +1,4 @@
-  <h1>
+<!--   <h1>
     {{ ctrl.breadcrumb.title }}
     <small>{{ ctrl.breadcrumb.subTitle }}</small>
   </h1>
@@ -9,4 +9,11 @@
       </a>
     </li>
     <li class="active">{{ ctrl.breadcrumb.title }}</li>
-  </ol>
+  </ol> -->
+<nav>
+  <div class="nav-wrapper">
+    <div class="col s12">
+      <a ng-repeat=" curmb in ctrl.breadcrumb.list" ui-sref="{{ curmb.sref }}" class="breadcrumb">{{ curmb.title }}</a>
+    </div>
+  </div>
+</nav>
