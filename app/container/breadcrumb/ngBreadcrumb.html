@@ -10,9 +10,9 @@
     </li>
     <li class="active">{{ ctrl.breadcrumb.title }}</li>
   </ol> -->
-<nav>
+<nav class="breakcrumb-nav" ng-if="ctrl.breadcrumb.list != undefined">
   <div class="nav-wrapper">
-    <div class="col s12">
+    <div class="col s12" style="padding: 0px 0.75rem">
       <a ng-repeat=" curmb in ctrl.breadcrumb.list" ui-sref="{{ curmb.sref }}" class="breadcrumb">{{ curmb.title }}</a>
     </div>
   </div>

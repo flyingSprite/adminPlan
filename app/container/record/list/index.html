@@ -1,18 +1,14 @@
 <div class="col-lg-8 col-md-8 col-xs-8">
-<style type="text/css" media="screen">
 
-</style>
-
-  <ul class="collection">
-    <li class="collection-item avatar"
-        ng-repeat="blog in ctrl.blogList">
-      <img src="static/image/pic.jpg" alt="" class="circle" style="margin-top: 0; margin-button: 0;">
-      <span ng-click="ctrl.getInfo(blog.id)" class="title">{{blog.title}}</span><br>
-      <span ng-click="ctrl.getInfo(blog.id)" class="title">{{ ctrl.getDateFormat(blog.currentDate) }}</span>
-      <a class="secondary-content"
-        ng-click="ctrl.editThisBlog(blog.id)"
-        ng-show="ctrl.canEdit"><i class="material-icons">edit</i></a>
-      <a href="#!" class="secondary-content" ng-show="!ctrl.canEdit"><i class="material-icons">grade</i></a>
+  <ul class="collection collapsible inner-content">
+    <li class="collection-item avatar" ng-repeat="blog in ctrl.blogList">
+        <img src="static/image/pic.jpg" alt="" class="circle" style="margin-top: 0; margin-button: 0;">
+        <span ng-click="ctrl.getInfo(blog.id)" class="title">{{blog.title}}</span><br>
+        <span ng-click="ctrl.getInfo(blog.id)" class="title">{{ ctrl.getDateFormat(blog.currentDate) }}</span>
+        <a class="secondary-content"
+          ng-click="ctrl.editThisBlog(blog.id)"
+          ng-show="ctrl.canEdit"><i class="material-icons">edit</i></a>
+        <a href="#!" class="secondary-content" ng-show="!ctrl.canEdit"><i class="material-icons">grade</i></a>
     </li>
   </ul>
 
