@@ -54,8 +54,8 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
-    var serverUrl = 'http://localhost:8080/solutions';
-    // var serverUrl = 'http://www.duastone.com/solutions';
+    // var serverUrl = 'http://localhost:8080/solutions';
+    var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){
       if(config.method.toUpperCase() == 'POST' || config.method.toUpperCase() == 'PUT') {
         return $http({
@@ -80,35 +80,6 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
       }
     };
   }])
-  // .service('adminhttp', ['$http', function ($http){
-  //   $http.defaults.useXDomain = true;
-  //   // $http({
-  //   //     url: 'http://localhost:8080/solutions/record',
-  //   //     method: 'GET'
-  //   //   }).then(function (data){
-  //   //     console.log("====>", data);
-  //   //   }).then(function (err){
-  //   //     console.log(err);
-  //   //   });
-
-  //   this.POST = function (args){
-  //     $http({
-  //       url:'http://localhost:8080/solutions' + args.url,
-  //       method:"POST",
-  //       headers: {
-  //         'Content-Type': 'application/x-www-form-urlencoded'
-  //       },
-  //       transformRequest : function(data){
-  //         if (data === undefined) {
-  //           return data;
-  //         }
-  //         return $.param(data)
-  //       },
-  //       data: args.data
-  //     }).then(function (response){
-  //     });
-  //   }
-  // }])
   .service('socket', [ '$http', 'logging', function ($http, logging) {
     $http.defaults.useXDomain = true;
     // var socket = new WebSocket('ws://localhost:8080/solutions/point');
