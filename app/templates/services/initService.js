@@ -54,8 +54,8 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
-    // var serverUrl = 'http://localhost:8080/solutions';
-    var serverUrl = 'http://www.duastone.com/solutions';
+    var serverUrl = 'http://localhost:8080/solutions';
+    // var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){
       if(config.method.toUpperCase() == 'POST' || config.method.toUpperCase() == 'PUT') {
         return $http({
@@ -68,7 +68,7 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
             if (data === undefined) {
               return data;
             }
-            return $.param(data)
+            return $.param(data);
           },
           data: config.data
         });

@@ -32,6 +32,10 @@
   <div class="row">
     <div class="input-field col s12">
 
+      <a ui-sref="main.record.list" class="btn pull-right teal lighten-5" type="button">
+        {{ 'Concal' | translate }}
+      </a>
+
       <button class="btn waves-effect waves-light pull-right" type="button"
         ng-click="ctrl.submitBlog();"
         ng-disabled="blogForm.$invalid"

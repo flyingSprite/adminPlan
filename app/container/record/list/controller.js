@@ -25,6 +25,7 @@ define(['adminApp'], function (adminApp) {
     function initBlogListController () {
       adminHttp({method: 'GET', url: '/blog'})
         .success(function (data){
+          console.log(data);
           self.blogList.length = 0;
           angular.forEach(data, function(value, index){
             this.push(value);

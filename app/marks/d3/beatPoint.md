@@ -26,45 +26,45 @@ var center = group.append('circle')
 
 使这个中心点动起来
 ```javascript
-    callStyle();
-    function callStyle(){
-      center.attr('r', 5);
-      center.transition()
-          .duration(1000)
-          .ease(Math.sqrt)
-          .attr('r', 10)
-          .style("stroke-opacity", 1e-6)
-          .each('end', function () {
-            callStyle();
-          });
-    }
+callStyle();
+function callStyle(){
+  center.attr('r', 5);
+  center.transition()
+      .duration(1000)
+      .ease(Math.sqrt)
+      .attr('r', 10)
+      .style("stroke-opacity", 1e-6)
+      .each('end', function () {
+        callStyle();
+      });
+}
 ```
 
 点击这个点，出现一个不断放大的圆圈
 ```javascript
-    center.on('click', function () {
-      particle(center);
-      showParticle(center);
-    });
+center.on('click', function () {
+  particle(center);
+  showParticle(center);
+});
 
-    function showParticle(circle){
-      setTimeout(function(){
-        particle(circle);
-      }, 100);
-    }
+function showParticle(circle){
+  setTimeout(function(){
+    particle(circle);
+  }, 100);
+}
 
-    function particle(circle) {
-      group.insert("circle", "rect")
-          .attr("cx", circle.attr('cx'))
-          .attr("cy", circle.attr('cy'))
-          .attr("r", 1e-6)
-          .style("stroke", d3.hsl((i = (i + 10) % 360), 1, .5))
-          .style("stroke-opacity", 1)
-        .transition()
-          .duration(2000)
-          .ease(Math.sqrt)
-          .attr("r", 100)
-          .style("stroke-opacity", 1e-6)
-          .remove();
-    }
+function particle(circle) {
+  group.insert("circle", "rect")
+      .attr("cx", circle.attr('cx'))
+      .attr("cy", circle.attr('cy'))
+      .attr("r", 1e-6)
+      .style("stroke", d3.hsl((i = (i + 10) % 360), 1, .5))
+      .style("stroke-opacity", 1)
+    .transition()
+      .duration(2000)
+      .ease(Math.sqrt)
+      .attr("r", 100)
+      .style("stroke-opacity", 1e-6)
+      .remove();
+}
 ```

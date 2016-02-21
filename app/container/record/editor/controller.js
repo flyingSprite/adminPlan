@@ -1,6 +1,6 @@
 define(['adminApp', 'ui-codemirror'], function (adminApp) {
 
-  adminApp.controller('EditorController', function ($scope, $http, $stateParams, breadcrumb, adminHttp){
+  adminApp.controller('EditorController', function ($scope, $http, $state, $stateParams, breadcrumb, adminHttp){
 
     breadcrumb.list = [{sref: 'main.record.list', title: "Blog List"},
                        {sref: '', title: 'Editor'}]
@@ -12,7 +12,7 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
       lineNumbers: true,
       mode: 'markdown'
     };
-    var blogObjectList = ['id', 'title', 'type', 'content', 'currentTime'];
+    var blogObjectList = ['id', 'title', 'type', 'content', 'currentDate'];
     self.blog = {
       title: '',
       type: '',
@@ -26,7 +26,6 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
       if ($_id) {
         adminHttp({method: 'GET', url: '/blog/info?id=' + $_id})
           .success(function(data){
-            console.log(data);
             if(data){
               self.isUpdateModel = true;
               objectCopy(blogObjectList, data, self.blog);
@@ -35,7 +34,6 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
             }
           })
           .error(function (err) {
-            console.log("sssss");
             self.isUpdateModel = false;
           });
       }
@@ -55,12 +53,17 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
         return ;
       }
 
-      var method = self.isUpdateModel ? 'PUT' : 'POST';
+      if(self.isUpdateModel){
+        self.blog.isUpdate = true;
+      }
 
-      // Send a post record to web server.
+      // var method = self.isUpdateModel ? 'PUT' : 'POST';
+      var method = 'POST';
+      delete self.blog.lastUpdateDate;
+      delete self.blog.currentDate;
       adminHttp({url: '/blog', data: self.blog, method: method})
       .success(function (response){
-        console.log("success");
+        $state.go("main.record.list");
       });
 
     };

@@ -19,6 +19,7 @@ define(['adminApp',
     return {
       title: '',
       subTitle: '',
+      list: []
     }
   });
 
