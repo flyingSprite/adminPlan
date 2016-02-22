@@ -10,6 +10,12 @@
     height: 50px;
     display: block;
 }
+
+.user-image {
+    width: 30px;
+    height: 30px;
+    line-height: 64px;
+}
 /** End header style **/
 
 /** Start breakcrumb style **/
