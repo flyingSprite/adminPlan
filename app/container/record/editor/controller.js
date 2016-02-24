@@ -2,8 +2,8 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
 
   adminApp.controller('EditorController', function ($scope, $http, $state, $stateParams, breadcrumb, adminHttp){
 
-    breadcrumb.list = [{sref: 'main.record.list', title: "Blog List"},
-                       {sref: '', title: 'Editor'}]
+    // breadcrumb.list = [{sref: 'main.record.list', title: "Blog List"},
+    //                    {sref: '', title: 'Editor'}]
 
     var self = this;
 
