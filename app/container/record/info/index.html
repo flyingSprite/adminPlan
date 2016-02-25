@@ -1,4 +1,6 @@
-<div class="collapsible inner-content">{{ ctrl.blog.title }}</div>
-<div class="collapsible inner-content">
-  <markd mark-data="{{ctrl.blog.content}}"></markd>
+<div ng-hide="ctrl.blog.title == undefined">
+  <div class="collapsible inner-content">{{ ctrl.blog.title }}</div>
+  <div class="collapsible inner-content">
+    <markd mark-data="{{ctrl.blog.content}}"></markd>
+  </div>
 </div>
