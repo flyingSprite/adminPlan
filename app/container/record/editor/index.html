@@ -1,55 +1,52 @@
-<section class="collapsible inner-content">
-  <!-- title -->
-  <form name="blogForm">
-  <div class="row">
-    <div class="input-field col s12">
-      <input id="id-title" ng-model="ctrl.blog.title" type="text" class="ng-invalid ng-invalid-required validate" required>
-      <label for="id-title" ng-if="!ctrl.isUpdateModel">{{ 'Title' | translate }}</label>
-      <label for="id-title" ng-if="ctrl.isUpdateModel" class="active">{{ 'Title' | translate }}</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-    <select ng-model="ctrl.blog.type">
-      <option value="" disabled selected>{{'Choose Type' | translate}}</option>
-      <option value="angularjs">Angular.js</option>
-      <option value="reactjs">React.js</option>
-      <option value="d3js">D3.js</option>
-    </select>
-    <label>{{'Record Type' | translate}}</label>
-  </div>
-  </div>
+<section flex="100" layout="row" layout-align="center center">
+  <md-card flex="80"   >
 
-  <!-- markdown content -->
-  <div class="row">
-    <div class="input-field col s12">
-      <i class="material-icons prefix">mode_edit</i>
-      <div ui-codemirror ng-model="ctrl.blog.content" ui-codemirror-opts="ctrl.editorOptions"
-        style="border-top: 1px solid #9e9e9e; border-bottom: 1px solid #9e9e9e;"
-      ></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
+    <md-content layout-padding flex>
+      <!-- title -->
+      <form name="blogForm">
+          <!-- <input id="id-title" ng-model="ctrl.blog.title" type="text" class="ng-invalid ng-invalid-required validate" required>
+          <label for="id-title" ng-if="!ctrl.isUpdateModel">{{ 'Title' | translate }}</label>
+          <label for="id-title" ng-if="ctrl.isUpdateModel" class="active">{{ 'Title' | translate }}</label> -->
+      <md-input-container class="md-block">
+        <label>{{ 'Title' | translate }}</label>
+        <input ng-model="ctrl.blog.title">
+      </md-input-container>
 
-      <a ui-sref="main.record.list" class="btn pull-right teal lighten-5" type="button">
-        {{ 'Concal' | translate }}
-      </a>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>{{'Choose Type' | translate}}</label>
+        <md-select ng-model="ctrl.blog.type">
+          <md-option value="angularjs">Angular.js</md-option>
+          <md-option value="reactjs">React.js</md-option>
+          <md-option value="d3js">D3.js</md-option>
+        </md-select>
+      </md-input-container>
 
-      <button class="btn waves-effect waves-light pull-right" type="button"
-        ng-click="ctrl.submitBlog();"
-        ng-disabled="blogForm.$invalid"
-        name="action">
-        <span ng-hide="ctrl.isUpdateModel">{{ 'OK' | translate }}</span>
-        <span ng-show="ctrl.isUpdateModel">{{ 'Update' | translate }}</span>
-        <i class="material-icons right">{{ 'send' | translate }}</i>
-      </button>
-    </div>
-  </div>
-  </form>
+      <!-- markdown content -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">mode_edit</i>
+          <div ui-codemirror ng-model="ctrl.blog.content" ui-codemirror-opts="ctrl.editorOptions"
+            style="border-top: 1px solid #9e9e9e; border-bottom: 1px solid #9e9e9e;"
+          ></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+
+          <md-button class="md-raised md-primary pull-right"
+            ng-click="ctrl.submitBlog();"
+            ng-disabled="blogForm.$invalid"
+            name="action">
+            <span ng-hide="ctrl.isUpdateModel">{{ 'OK' | translate }}</span>
+            <span ng-show="ctrl.isUpdateModel">{{ 'Update' | translate }}</span>
+          </md-button>
+
+          <md-button class="md-raised pull-right">
+            {{ 'Concal' | translate }}
+          </md-button>
+        </div>
+      </div>
+      </form>
+    </md-content>
+  </md-card>
 </section>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-</script>

@@ -1,29 +1,11 @@
 
-/** Start header style**/
-.header .logo {
-    float: left;
-    font-size: 20px;
-    padding: 0 10px;
-    width: 220px;
-    font-family: 'Kaushan Script', cursive;
-    font-weight: 500;
-    height: 50px;
-    display: block;
-}
 
-.user-image {
-    width: 30px;
-    height: 30px;
-    line-height: 64px;
-}
-/** End header style **/
+.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+  color: white; }
 
-/** Start breakcrumb style **/
-.breakcrumb-nav {
-  background-color: #6EB2EE;
-}
-/** End breakcrumb style **/
-
-.inner-content{
-  padding: 20px;
+body {
+  width:100%;
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
 }

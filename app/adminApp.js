@@ -1,6 +1,6 @@
-define(['angular', 'ngRequire', 'angular-ui-router', 'ui-codemirror'], function () {
+define(['angular', 'ngRequire', 'angular-material', 'angular-ui-router', 'ui-codemirror'], function () {
 
-  var app = angular.module('ngApp', ['ngRequire', 'ui.codemirror', 'ui.router',
+  var app = angular.module('ngApp', ['ngRequire', 'ngMaterial', 'ui.codemirror', 'ui.router',
     'pascalprecht.translate']);
   return app;
 });
