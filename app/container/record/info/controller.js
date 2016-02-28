@@ -13,7 +13,9 @@ define(['adminApp'], function (adminApp) {
       .success(function(data){
         self.blog.title = data.title;
         self.blog.content = data.content;
-        console.log(new Date(data.currentDate).Format('yyyy-MM-dd hh:mm:ss'));
+        self.blog.currentDate = new Date(data.currentDate).Format('yyyy-MM-dd hh:mm:ss');
+        self.blog.type = data.type;
+        self.blog.author = data.author ? data.author : 'Quesle';
       });
     }
   });

@@ -41,8 +41,8 @@
             <span ng-show="ctrl.isUpdateModel">{{ 'Update' | translate }}</span>
           </md-button>
 
-          <md-button class="md-raised pull-right">
-            {{ 'Concal' | translate }}
+          <md-button class="md-raised pull-right" ng-click="ctrl.cancel();">
+            {{ 'Cancel' | translate }}
           </md-button>
         </div>
       </div>

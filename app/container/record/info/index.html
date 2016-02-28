@@ -1,6 +1,18 @@
-<div ng-hide="ctrl.blog.title == undefined">
-  <div class="collapsible inner-content">{{ ctrl.blog.title }}</div>
-  <div class="collapsible inner-content">
-    <markd mark-data="{{ctrl.blog.content}}"></markd>
-  </div>
-</div>
+<section flex="100" layout="row" layout-align="center center">
+  <md-card layout-padding flex="80" ng-hide="ctrl.blog.title == undefined">
+    <div>
+      <div class="content-list-title">
+        <span>{{ ctrl.blog.title }}</span>
+      </div>
+      <div class="content-list-info">
+        <span class="content-list-info-author">{{ ctrl.blog.author }}</span>&nbsp&nbsp&nbsp
+        <span>{{ ctrl.blog.currentDate }}</span>&nbsp&nbsp&nbsp
+        <span class="am-badge am-badge-warning" ng-hide="ctrl.blog.type == undefined || ctrl.blog.type == ''">{{ ctrl.blog.type }}</span>
+      </div>
+    </div>
+    <md-divider></md-divider>
+    <div class="collapsible inner-content">
+      <markd mark-data="{{ctrl.blog.content}}"></markd>
+    </div>
+  </md-card>
+</section>

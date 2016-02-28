@@ -15,18 +15,25 @@
 
 <md-toolbar>
       <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings">
-          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-        </md-button>
         <h2>
           <span><a href="#" class="brand-logo logo">AdminPlan</a></span>
         </h2>
         <span flex></span>
         <md-button class="md-icon-button" aria-label="Favorite">
-          <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+        <md-icon ng-style="{color: '#00A'}" ui-sref="main.record.list"
+            aria-label="view_list"
+            class="material-icons step"
+            ng-class="md-18">
+          view_list
+        </md-icon>
         </md-button>
         <md-button class="md-icon-button" aria-label="More">
-          <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+          <md-icon ng-style="{color: '#00A'}"
+            aria-label="perm_identity"
+            class="material-icons step"
+            ng-class="md-18">
+          perm_identity
+        </md-icon>
         </md-button>
       </div>
     </md-toolbar>

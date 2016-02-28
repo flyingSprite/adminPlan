@@ -1,6 +1,6 @@
 define(['adminApp', 'ui-codemirror'], function (adminApp) {
 
-  adminApp.controller('EditorController', function ($scope, $http, $state, $stateParams, breadcrumb, adminHttp){
+  adminApp.controller('EditorController', function ($scope, $http, $state, $stateParams, $mdToast, breadcrumb, adminHttp){
 
     // breadcrumb.list = [{sref: 'main.record.list', title: "Blog List"},
     //                    {sref: '', title: 'Editor'}]
@@ -47,6 +47,30 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
       }
     };
 
+    function getToastPosition() {
+      var toastPosition = {
+        bottom: false,
+        top: true,
+        center: true,
+        left: false,
+        right: false
+      };
+      return Object.keys(toastPosition)
+        .filter(function(pos) { return toastPosition[pos]; })
+        .join(' ');
+    };
+
+    function showEditorToast () {
+      var message = self.isUpdateModel ? 'Editor Success' : 'Create Success' ;
+      $mdToast.show(
+        $mdToast.simple()
+          .action('OK')
+          .textContent(message)
+          .position(getToastPosition())
+          .hideDelay(3000)
+      );
+    };
+
     self.submitBlog = function () {
       if(self.blog === undefined || self.blog.title === undefined
         || self.blog.title === ''){
@@ -63,10 +87,19 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
       delete self.blog.currentDate;
       adminHttp({url: '/blog', data: self.blog, method: method})
       .success(function (response){
+        showEditorToast();
         $state.go("main.record.list");
       });
 
     };
+
+    self.cancel = function () {
+      if ( self.isUpdateModel && self.blog.id) {
+        $state.go("main.record.info", {id: self.blog.id});
+      } else {
+        $state.go("main.record.list");
+      }
+    }
 
     initEditorController();
   });

@@ -27,6 +27,10 @@ define(['adminApp'], function (adminApp) {
         .success(function (data){
           self.blogList.length = 0;
           angular.forEach(data, function(value, index){
+            value.currentDate = self.getDateFormat(value.currentDate);
+            if (value.author == undefined ){
+              value.author = 'Quesle';
+            }
             this.push(value);
           }, self.blogList);
         }).error(function (err){
