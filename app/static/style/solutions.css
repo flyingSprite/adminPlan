@@ -19,6 +19,14 @@ button, html, input, select, textarea {
   font-family: "Microsoft YaHei", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
+p, h4 {
+    display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
 .content-list-title {
   font-size: 16px;
   font-weight: 700;
@@ -33,6 +41,34 @@ button, html, input, select, textarea {
   font-weight: 700;
 }
 
+.card-content {
+    border-radius: 0 0 2px 2px;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.white-text {
+    color: #FFFFFF !important;
+}
+
+.green {
+    background-color: #4CAF50 !important;
+}
+.purple {
+    background-color: #9c27b0 !important;
+}
+
+
+.card-stats-title, .card-stats-title i {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.card-stats-number {
+  font-size: 24px;
+}
 
 
 /********* Badge ***********/
