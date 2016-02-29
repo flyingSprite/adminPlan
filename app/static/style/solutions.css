@@ -4,6 +4,19 @@ body {
   padding:0;
   margin:0;
   box-sizing: border-box;
+  font-family: "Microsoft YaHei";
+}
+
+code {
+  font-family: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+}
+
+.CodeMirror-code {
+  font-family: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+}
+
+button, html, input, select, textarea {
+  font-family: "Microsoft YaHei", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
 .content-list-title {
