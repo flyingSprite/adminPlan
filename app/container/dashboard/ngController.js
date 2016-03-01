@@ -1,9 +1,19 @@
 define(['adminApp', 'Raphael', 'worldmap'], function (adminApp, Raphael, worldmap) {
 
-  adminApp.controller('dashboardIndexController', function ($scope, $http, $sce, breadcrumb){
+  adminApp.controller('dashboardIndexController', function ($scope, $http, $sce, adminHttp, breadcrumb){
 
     var self = this;
-
+    self.count = {
+      blog: 0
+    }
+    adminHttp({method: 'GET', url: '/dashboard/count'})
+    .success(function(count){
+      if(count && count.blog){
+        self.count.blog = count.blog;
+      }
+    })
+    .error(function (err) {
+    });
 
     // Raphael('world-map', 1000, 400, function () {
     //             var r = this;

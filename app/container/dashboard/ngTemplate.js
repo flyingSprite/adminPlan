@@ -1,7 +1,7 @@
-define(['adminApp', './ngController'
+define(['adminApp',
   ], function (adminApp) {
 
-  adminApp.config(function ($stateProvider, $urlRouterProvider) {
+  adminApp.config(function ($stateProvider, $urlRouterProvider, $requireProvider) {
 
     var templatePath = 'container/dashboard/'
 
@@ -9,7 +9,11 @@ define(['adminApp', './ngController'
       .state('main.dashboard.index', {
         url: '/index',
         templateUrl: templatePath + 'dashboard.html',
-        controller: 'dashboardIndexController as ctrl'
+        controller: 'dashboardIndexController',
+        controllerAs: 'ctrl',
+        resolve: {
+          deps: $requireProvider.requireJS([templatePath + 'ngController.js'])
+        },
       });
   });
 });
