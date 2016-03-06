@@ -8,11 +8,11 @@ body {
 }
 
 code {
-  font-family: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+  font-family: "Microsoft YaHei", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
 .CodeMirror-code {
-  font-family: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+  font-family: "Microsoft YaHei", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
 button, html, input, select, textarea {
