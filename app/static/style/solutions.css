@@ -4,19 +4,27 @@ body {
   padding:0;
   margin:0;
   box-sizing: border-box;
-  font-family: "Microsoft YaHei";
+  font-family: 'Roboto';
 }
 
 code {
+<<<<<<< Updated upstream
   font-family: "Microsoft YaHei", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
 .CodeMirror-code {
   font-family: "Microsoft YaHei", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+=======
+  font-family: 'Roboto', 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+}
+
+.CodeMirror-code {
+  font-family: 'Roboto', 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+>>>>>>> Stashed changes
 }
 
 button, html, input, select, textarea {
-  font-family: "Microsoft YaHei", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+  font-family: 'Roboto', 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
 p, h4 {
@@ -25,6 +33,10 @@ p, h4 {
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+}
+
+.cursor-link{
+cursor:pointer
 }
 
 .content-list-title {
@@ -60,6 +72,10 @@ p, h4 {
 
 .card-stats-number {
   font-size: 24px;
+}
+
+.skip-blue{
+  background-color: #00bcd4;
 }
 
 

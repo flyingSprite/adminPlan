@@ -2,7 +2,7 @@
 
 <md-content layout="row" layout-padding flex="80">
   <!-- one -->
-  <md-card flex="25" class="green">
+  <md-card flex="25" class="green cursor-link" ui-sref="main.record.list">
     <div class="card-content white-text">
       <p class="card-stats-title">
         <md-icon ng-style="{color: '#FFF'}"
@@ -23,13 +23,12 @@
             ng-class="md-18">
            keyboard_arrow_up
         </md-icon>
-        15%
-        <span class="green-text text-lighten-5">from yesterday</span>
+        <span class="green-text text-lighten-5">Be increasing</span>
       </p>
     </div>
   </md-card>
   <!-- two -->
-  <md-card flex="25" class="purple">
+  <md-card flex="25" class="purple cursor-link">
     <div class="card-content white-text">
       <p class="card-stats-title">
         <md-icon ng-style="{color: '#FFF'}"
@@ -56,7 +55,7 @@
     </div>
   </md-card>
   <!-- three -->
-  <md-card flex="25" class="green">
+  <md-card flex="25" class="green cursor-link">
     <div class="card-content white-text">
       <p class="card-stats-title">
         <md-icon ng-style="{color: '#FFF'}"
@@ -83,7 +82,7 @@
     </div>
   </md-card>
   <!-- four -->
-  <md-card flex="25" class="green">
+  <md-card flex="25" class="green cursor-link">
     <div class="card-content white-text">
       <p class="card-stats-title">
         <md-icon ng-style="{color: '#FFF'}"
@@ -114,9 +113,8 @@
 </section>
 
 <section layout="row" flex="100" layout-align="center center">
-
   <md-content layout="row" layout-padding flex="80">
-    This is part two.
+    <md-card layout="row" layout-padding flex="100"></md-card>
   </md-content>
 
 </section>
