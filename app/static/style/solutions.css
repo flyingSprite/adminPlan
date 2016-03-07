@@ -3,24 +3,17 @@ body {
   width:100%;
   padding:0;
   margin:0;
+  background-color: #f3f3f3;
   box-sizing: border-box;
   font-family: 'Roboto';
 }
 
 code {
-<<<<<<< Updated upstream
-  font-family: "Microsoft YaHei", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
-}
-
-.CodeMirror-code {
-  font-family: "Microsoft YaHei", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
-=======
-  font-family: 'Roboto', 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+  font-family: "Roboto", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
 .CodeMirror-code {
   font-family: 'Roboto', 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
->>>>>>> Stashed changes
 }
 
 button, html, input, select, textarea {

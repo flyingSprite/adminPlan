@@ -13,7 +13,7 @@ define(function () {
     // },
     {
       title: 'Record List',
-      name: 'recordList',
+      name: 'list',
       params: ':id',
       uiSref: defaultUiSref + 'list',
       templateUrl: tempatePath + 'list/index.html',

@@ -2,7 +2,8 @@ define(['adminApp',
   './breadcrumb/ngController',
   './dashboard/ngTemplate',
   './record/ngController',
-  './d3/ngController'
+  './d3/ngController',
+  './card/ngController'
   ], function (adminApp) {
 
 
@@ -43,6 +44,18 @@ define(['adminApp',
           },
           'main.container':{
             templateUrl: 'container/d3/ngTemplate.html'
+          }
+        }
+      })
+      .state('main.card', {
+        url: 'card',
+        views: {
+          'main.breadcrumb': {
+            templateUrl: 'container/breadcrumb/ngBreadcrumb.html',
+            controller: 'breadcrumbController as ctrl'
+          },
+          'main.container':{
+            templateUrl: 'container/card/ngTemplate.html'
           }
         }
       });

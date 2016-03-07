@@ -1,47 +1,19 @@
-<!-- <nav class="cyan">
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo logo">AdminPlan</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li>
-        <a ui-sref="main.record.list" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="material-icons dp48">view_list</i></a>
-      </li>
-      <li><a data-activates="chat-out"  class="waves-effect waves-block waves-light chat-collapse"><i class="material-icons dp48">perm_identity</i>
-      </a></li>
-    </ul>
-  </div>
-</nav> -->
-
-
 
 <md-toolbar >
-      <div class="md-toolbar-tools skip-blue">
-        <h2>
-          <span><a href="#" class="brand-logo logo">AdminPlan</a></span>
-        </h2>
-        <span flex></span>
-        <md-button class="md-icon-button" aria-label="Favorite">
-        <md-icon ng-style="{color: '#FFF'}" ui-sref="main.record.list"
-            aria-label="view_list"
-            class="material-icons step"
-            ng-class="md-18">
-          view_list
-        </md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="More">
-          <md-icon ng-style="{color: '#FFF'}"
-            aria-label="assignment_o"
-            class="material-icons step"
-            ng-class="md-18">assignment_o
-        </md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="More">
-          <md-icon ng-style="{color: '#FFF'}"
-            aria-label="perm_identity"
-            class="material-icons step"
-            ng-class="md-18">
-          perm_identity
-        </md-icon>
-        </md-button>
-      </div>
-    </md-toolbar>
+  <div class="md-toolbar-tools skip-blue">
+    <h2>
+      <span><a href="#" class="brand-logo logo">AdminPlan</a></span>
+    </h2>
+    <span flex></span>
+    <md-button class="md-icon-button" ui-sref="main.record.list">
+      <i class="material-icons">view_list</i>
+    </md-button>
+    <md-button class="md-icon-button" ui-sref="main.card.dashboard">
+      <i class="material-icons">assignment_o</i>
+    </md-button>
+    <md-button class="md-icon-button" >
+      <i class="material-icons">perm_identity</i>
+    </md-button>
+  </div>
+</md-toolbar>
 
