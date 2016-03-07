@@ -1,16 +1,16 @@
 define(['adminApp'], function (adminApp) {
 
-  adminApp.controller('RecordListController', function ($scope, $state, breadcrumb, adminHttp){
+  adminApp.controller('BlogListController', function ($scope, $state, breadcrumb, adminHttp){
     // breadcrumb.list = [{sref: 'main.record.list', title: "Blog List"}];
     var self = this;
     self.blogList = [];
 
     self.getInfo = function (id){
-      $state.go("main.record.info", {data: {id: id}, id: id});
+      $state.go("main.blog.info", {data: {id: id}, id: id});
     };
 
     self.editThisBlog = function (id){
-      $state.go("main.record.editor", {id: id});
+      $state.go("main.blog.editor", {id: id});
     }
 
     self.canEdit = true;

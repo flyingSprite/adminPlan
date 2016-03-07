@@ -1,6 +1,6 @@
 define(['adminApp'], function (adminApp) {
 
-  adminApp.controller('RecordInfoController', function ($scope, $stateParams, breadcrumb, adminHttp){
+  adminApp.controller('BlogInfoController', function ($scope, $stateParams, breadcrumb, adminHttp){
     var self = this;
     // breadcrumb.list = [{sref: 'main.record.list', title: "Blog List"},
     //                    {sref: '', title: 'Info'}]

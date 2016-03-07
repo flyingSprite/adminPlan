@@ -1,7 +1,7 @@
-define(function () {
+define(['adminApp'], function (adminApp) {
   var tempatePath = 'container/d3/';
   var defaultUiSref = 'main.d3.';
-  return [
+  var ngRouter = [
     {
       title: 'Center Point',
       name: 'centerPoint',
@@ -51,4 +51,30 @@ define(function () {
       controllerUrl: tempatePath + 'zoomSpiderWeb/controller'
     }
   ];
+  adminApp.config(function ($stateProvider, $urlRouterProvider, $requireProvider) {
+
+    /**
+     * value pattern:
+     * {
+     *   name: "centerPoint",
+     *   tempateUrl: "views/d3/centerPoint/index.html",
+     *   controller: "D3CenterPointController",
+     *   controllerUrl: "views/d3/centerPoint/controller"
+     * }
+     *
+     */
+    angular.forEach(ngRouter, function (value, index) {
+      $stateProvider
+      .state(value.uiSref, {
+        url: '/' + value.name,
+        templateUrl: value.templateUrl,
+        controller: value.controller,
+        controllerAs: 'ctrl',
+        resolve: {
+          deps: $requireProvider.requireJS([value.controllerUrl])
+        }
+      });
+    });
+  });
+
 });

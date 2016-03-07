@@ -1,9 +1,9 @@
 define(['adminApp',
   './breadcrumb/ngController',
   './dashboard/ngTemplate',
-  './record/ngController',
-  './d3/ngController',
-  './card/ngController'
+  './blog/ngRouter',
+  './d3/ngRouter',
+  './card/ngRouter'
   ], function (adminApp) {
 
 
@@ -23,15 +23,15 @@ define(['adminApp',
           }
         }
       })
-      .state('main.record', {
-        url: 'record',
+      .state('main.blog', {
+        url: 'blog',
         views: {
           'main.breadcrumb': {
             templateUrl: 'container/breadcrumb/ngBreadcrumb.html',
             controller: 'breadcrumbController as ctrl'
           },
           'main.container':{
-            templateUrl: 'container/record/ngTemplate.html'
+            templateUrl: 'container/blog/ngTemplate.html'
           }
         }
       })

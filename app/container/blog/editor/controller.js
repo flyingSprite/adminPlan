@@ -88,16 +88,16 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
       adminHttp({url: '/blog', data: self.blog, method: method})
       .success(function (response){
         showEditorToast();
-        $state.go("main.record.list");
+        $state.go("main.blog.list");
       });
 
     };
 
     self.cancel = function () {
       if ( self.isUpdateModel && self.blog.id) {
-        $state.go("main.record.info", {id: self.blog.id});
+        $state.go("main.blog.info", {id: self.blog.id});
       } else {
-        $state.go("main.record.list");
+        $state.go("main.blog.list");
       }
     }
 

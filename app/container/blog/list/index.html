@@ -1,6 +1,6 @@
 <section flex="100" layout="row" layout-align="center center">
   <md-content flex="80" layout-padding>
-    <a ui-sref="main.record.editor">Create New</a>
+    <a ui-sref="main.blog.editor">Create New</a>
     <md-card layout-padding ng-hide="ctrl.blogList.length==0">
       <md-list>
         <md-list-item ng-repeat="blog in ctrl.blogList" class="md-3-line" ng-click="ctrl.getInfo(blog.id)">

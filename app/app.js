@@ -1,6 +1,4 @@
 define(['adminApp',
-  './container/d3/ngRouter',
-  './container/record/ngRouter',
   './container/ngTemplate',
   './templates/services/initService'
   ], function (adminApp, d3NgRouter, recordNgRouter) {
