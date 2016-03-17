@@ -7,15 +7,15 @@ body {
 }
 
 code {
-  font-family: "Roboto", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+  font-family: 'Consolas', "Microsoft YaHei", "微软雅黑", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
 .CodeMirror-code {
-  font-family: 'Roboto', 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+  font-family: "Roboto", Arial, "Microsoft YaHei", "微软雅黑", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
 button, html, input, select, textarea {
-  font-family: 'Roboto', 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
+  font-family: "Roboto", Arial, "Microsoft YaHei", "微软雅黑", 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', 'monospace !important';
 }
 
 p, h4 {
