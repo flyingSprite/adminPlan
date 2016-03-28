@@ -1,5 +1,6 @@
 {
-  "name": "angulardemotwo",
+  "name": "admin-plan",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "init": "node install && bower install --allow-root",
