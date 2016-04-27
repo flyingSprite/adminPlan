@@ -19,7 +19,7 @@ define(['adminApp'], function (adminApp) {
       if (typeof(time) != 'number') {
         time = 1455715613608;
       }
-      return new Date(time).Format('yyyy-MM-dd hh:mm:ss');
+      return moment(time).format('YYYY-MM-DD HH:mm:ss');
     }
 
     function initBlogListController () {

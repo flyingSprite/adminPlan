@@ -13,17 +13,16 @@ require.config({
     'd3': '../bower_components/d3/d3.min',
     'domReady': '../bower_components/requirejs-domready/domReady',
     'marked': '../bower_components/marked/marked.min',
+    'moment': '../bower_components/moment/min/moment.min',
     'Raphael': '../bower_components/raphael/raphael-min',
     'ui-codemirror': '../bower_components/angular-ui-codemirror/ui-codemirror.min',
 
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
-    'dateFormat': 'static/lib/date-format',
 
     'adminApp': 'adminApp'
   },
   shim: {
-    'angular': ['dateFormat'],
     'angular-animate': ['angular'],
     'angular-aria': ['angular'],
     'angular-material': ['angular', 'angular-animate', 'angular-aria'],

@@ -1,4 +1,4 @@
-define(['adminApp'], function (adminApp) {
+define(['adminApp', 'moment'], function (adminApp, moment) {
 
   adminApp.controller('BlogInfoController', function ($scope, $stateParams, breadcrumb, adminHttp){
     var self = this;
@@ -13,7 +13,7 @@ define(['adminApp'], function (adminApp) {
       .success(function(data){
         self.blog.title = data.title;
         self.blog.content = data.content;
-        self.blog.currentDate = new Date(data.currentDate).Format('yyyy-MM-dd hh:mm:ss');
+        self.blog.currentDate = moment(data.currentDate).format('YYYY-MM-DD HH:mm:ss');
         self.blog.type = data.type;
         self.blog.author = data.author ? data.author : 'Quesle';
       });
