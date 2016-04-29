@@ -17,6 +17,7 @@ require.config({
     'Raphael': '../bower_components/raphael/raphael-min',
     'ui-codemirror': '../bower_components/angular-ui-codemirror/ui-codemirror.min',
 
+    // angular-require support domand loading.
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
 
