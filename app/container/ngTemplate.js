@@ -3,7 +3,8 @@ define(['adminApp',
   './dashboard/ngTemplate',
   './blog/ngRouter',
   './d3/ngRouter',
-  './card/ngRouter'
+  './card/ngRouter',
+  './ltaaa/ngRouter'
   ], function (adminApp) {
 
 
@@ -56,6 +57,18 @@ define(['adminApp',
           },
           'main.container':{
             templateUrl: 'container/card/ngTemplate.html'
+          }
+        }
+      })
+      .state('main.ltaaa', {
+        url: 'ltaaa',
+        views: {
+          'main.breadcrumb': {
+            templateUrl: 'container/breadcrumb/ngBreadcrumb.html',
+            controller: 'breadcrumbController as ctrl'
+          },
+          'main.container':{
+            templateUrl: 'container/ltaaa/ngTemplate.html'
           }
         }
       });

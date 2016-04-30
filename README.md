@@ -4,6 +4,7 @@
 ## 参考 ##
 
 * Angular-ui-router + Require.js实现按需加载，参考：[angular-require](https://github.com/Treri/angular-require)
+* Angular 瀑布流[Angular-masonry](https://github.com/passy/angular-masonry)
 
 ## Features ##
 

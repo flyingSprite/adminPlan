@@ -4,12 +4,15 @@ define(['adminApp', 'Raphael', 'worldmap'], function (adminApp, Raphael, worldma
 
     var self = this;
     self.count = {
-      blog: 0
+      blog: 0,
+      ltaaa: 0
     }
     adminHttp({method: 'GET', url: '/dashboard/count'})
     .success(function(count){
-      if(count && count.blog){
+      console.log(count);
+      if(count){
         self.count.blog = count.blog;
+        self.count.ltaaa = count.ltaaa;
       }
     })
     .error(function (err) {
