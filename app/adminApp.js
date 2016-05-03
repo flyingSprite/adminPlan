@@ -15,6 +15,7 @@ define([
       'ngMaterial',
       'ui.codemirror',
       'ui.router',
+      'wu.masonry',
       'pascalprecht.translate'
     ]
   );

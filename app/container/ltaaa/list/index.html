@@ -1,0 +1,12 @@
+<section flex="100" layout="row" layout-align="center center">
+  <md-content flex="80" layout-padding>
+    <md-card layout-padding ng-hide="ctrl.blogList.length==0">
+      <md-list>
+        <md-list-item ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList" class="md-3-line">
+        <img src="{{ ltaaaTitle.flag }}" style="width: 25px; height: 17px; " />
+        <a href="{{ ltaaaTitle.url }}" target="_blank">{{ ltaaaTitle.title }} </a>
+        </md-list-item>
+      </md-list>
+    </md-card>
+  </md-content>
+</section>
