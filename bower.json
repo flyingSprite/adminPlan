@@ -25,9 +25,7 @@
     "angular-aria": "^1.5.0",
     "material-design-lite": "^1.1.2",
     "roboto-fontface": "^0.4.5",
-<<<<<<< Updated upstream
-    "moment": "^2.13.0"
-=======
+    "moment": "^2.13.0",
     "masonry": "^4.0.0",
     "imagesloaded": "^4.1.0",
     "prettyphoto": "*",
@@ -36,7 +34,6 @@
     "ev-emitter": "^1.0.2",
     "matches-selector": "desandro-matches-selector#^2.0.1",
     "fizzy-ui-utils": "^2.0.1"
->>>>>>> Stashed changes
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",
