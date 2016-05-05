@@ -90,6 +90,16 @@ cursor:pointer
   margin-bottom: 10px;
 }
 
+.ltaaa-card__wide a {
+  color: #295285;
+  text-decoration: none;
+  font-weight: 200;
+}
+
+.ltaaa-card__wide a:visited {
+  color: #5f789e;
+}
+
 .ltaaa-card__flag {
   width: 25px;
   height: 17px;
