@@ -1,7 +1,7 @@
 define(['adminApp'], function (adminApp) {
-
-  adminApp.controller('LtaaaListController', function ($scope, $state, breadcrumb, adminHttp){
+  adminApp.controller('LtaaaListController', function ($scope, $state, $anchorScroll, $location, breadcrumb, adminHttp){
     // breadcrumb.list = [{sref: 'main.record.list', title: "Blog List"}];
+    $anchorScroll.yOffset = 100;   // 总是滚动额外的100像素
     var self = this;
     self.ltaaaTitleList = [];
 
@@ -9,15 +9,25 @@ define(['adminApp'], function (adminApp) {
       total: 0,
       page: 0,
       size: 20
+    };
+
+    self.prevPage = function() {
+      self.pager.page = self.pager.page - 1;
+      self.pager.page = self.pager.page < 0 ? 0 : self.pager.page;
+      findLtaaaTitle();
     }
 
-    console.log('ccccccccc');
+    self.nextPage = function() {
+      self.pager.page = self.pager.page + 1;
+      findLtaaaTitle();
+    }
 
-    self.getDateFormat = function (time){
-      if (typeof(time) != 'number') {
-        time = 1455715613608;
-      }
-      return new Date(time).Format('yyyy-MM-dd hh:mm:ss');
+    function toTop() {
+      // 将location.hash的值设置为
+      // 你想要滚动到的元素的id
+      $location.hash('ltaaa-content');
+      // 调用 $anchorScroll()
+      $anchorScroll();
     }
 
     function findLtaaaTitle() {
@@ -25,13 +35,12 @@ define(['adminApp'], function (adminApp) {
       adminHttp({method: 'GET', url: url})
         .success(function (res){
           self.ltaaaTitleList.length = 0;
-          console.log(res);
           if (res.data) {
             angular.forEach(res.data, function(value, index){
-              console.log(value);
               this.push(value);
             }, self.ltaaaTitleList);
           }
+          toTop();
         }).error(function (err){
         });
     }

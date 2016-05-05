@@ -1,12 +1,52 @@
 <section flex="100" layout="row" layout-align="center center">
   <md-content flex="80" layout-padding>
-    <md-card layout-padding ng-hide="ctrl.blogList.length==0">
+    <!-- <md-card layout-padding ng-hide="ctrl.blogList.length==0">
       <md-list>
         <md-list-item ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList" class="md-3-line">
         <img src="{{ ltaaaTitle.flag }}" style="width: 25px; height: 17px; " />
         <a href="{{ ltaaaTitle.url }}" target="_blank">{{ ltaaaTitle.title }} </a>
         </md-list-item>
       </md-list>
-    </md-card>
+    </md-card> -->
+    <div class="ltaaa-card ltaaa-card__wide mdl-card mdl-shadow--2dp" ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList" id="ltaaa-content">
+      <div class="mdl-card__title">
+        <img class="ltaaa-card__flag" src="{{ ltaaaTitle.flag}}"/>
+        <h2 class="mdl-card__title-text">
+          <a href="{{ltaaaTitle.url}}" target="_black">{{ ltaaaTitle.title }}</a>
+        </h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <P>
+          <img class="ltaaa-card__show-pic" src="{{ ltaaaTitle.pic }}"  align="left" />
+          {{ ltaaaTitle.content }}
+        </P>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <!-- <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        </a> -->
+        <span class="ltaaa-card__info">
+          <i class="fa fa-user ltaaa-card__icon"></i>
+          <a href="{{ ltaaaTitle.author_href }}" target="_black">{{ ltaaaTitle.author_name }}</a>
+        </span>
+        <span class="ltaaa-card__info">
+          <i class="fa fa-commenting-o ltaaa-card__icon"></i>
+          {{ ltaaaTitle.comments }}
+        </span>
+        <span class="ltaaa-card__info">
+          <i class="fa fa-calendar ltaaa-card__icon"></i>
+          {{ ltaaaTitle.create_date }}
+        </span>
+      </div>
+    </div>
+    <!-- Raised button with ripple -->
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="ctrl.prevPage()">
+      Prev
+    </button>
+
+    {{ ctrl.pager.page + 1 }}
+    <!-- Raised button with ripple -->
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="ctrl.nextPage()">
+      Next
+    </button>
   </md-content>
 </section>
