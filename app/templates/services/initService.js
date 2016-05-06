@@ -73,7 +73,6 @@ define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminAp
           data: config.data
         });
       } else if (config.method.toUpperCase() == 'GET') {
-        console.log(config.data);
         return $http({
           url: serverUrl + config.url,
           method:"GET",
