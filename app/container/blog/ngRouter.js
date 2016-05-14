@@ -1,5 +1,5 @@
-define(['adminApp'], function (adminApp) {
-  var tempatePath = 'container/blog/';
+define(['adminApp', 'config'], function (adminApp, config) {
+  var templatePath = config.rootPath + 'container/blog/';
   var defaultUiSref = 'main.blog.';
   var ngRouter = [
     {
@@ -7,43 +7,45 @@ define(['adminApp'], function (adminApp) {
       name: 'list',
       params: ':id',
       uiSref: defaultUiSref + 'list',
-      templateUrl: tempatePath + 'list/index.html',
+      templateUrl: templatePath + 'list/index.html',
       controller: 'BlogListController',
-      controllerUrl: tempatePath + 'list/controller'
+      controllerUrl: templatePath + 'list/controller'
     },
     {
       title: 'Blog Editor',
       name: 'editor',
       params: ':id',
       uiSref: defaultUiSref + 'editor',
-      templateUrl: tempatePath + 'editor/index.html',
+      templateUrl: templatePath + 'editor/index.html',
       controller: 'EditorController',
-      controllerUrl: tempatePath + 'editor/controller'
+      controllerUrl: templatePath + 'editor/controller'
     },
     {
       title: 'Blog Info',
       name: 'info',
       params: ':id',
       uiSref: defaultUiSref + 'info',
-      templateUrl: tempatePath + 'info/index.html',
+      templateUrl: templatePath + 'info/index.html',
       controller: 'BlogInfoController',
-      controllerUrl: tempatePath + 'info/controller'
+      controllerUrl: templatePath + 'info/controller'
     }
   ];
-  adminApp.config(function ($stateProvider, $urlRouterProvider, $requireProvider) {
-    angular.forEach(ngRouter, function (value, index) {
-      $stateProvider
-      .state(value.uiSref, {
-        url: '/' + value.name +'?'+ value.params,
-        templateUrl: value.templateUrl,
-        controller: value.controller,
-        controllerAs: 'ctrl',
-        resolve: {
-          deps: $requireProvider.requireJS([value.controllerUrl])
-        },
-        params: { data: {} }
+  adminApp.config([
+    '$stateProvider', '$urlRouterProvider', '$requireProvider',
+    function ($stateProvider, $urlRouterProvider, $requireProvider) {
+      angular.forEach(ngRouter, function (value, index) {
+        $stateProvider
+        .state(value.uiSref, {
+          url: '/' + value.name +'?'+ value.params,
+          templateUrl: value.templateUrl,
+          controller: value.controller,
+          controllerAs: 'ctrl',
+          resolve: {
+            deps: $requireProvider.requireJS([value.controllerUrl])
+          },
+          params: { data: {} }
+        });
       });
-    });
-  });
-
+    }
+  ]);
 });

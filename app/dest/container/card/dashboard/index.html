@@ -1,0 +1,8 @@
+<style type="text/css">img{
+  width: 100%;
+  height: 100%;
+}
+.masonry-brick {
+  padding: 2px 2px 2px 2px;
+  width: 200px;
+}</style><div style="width: 1200px; margin: 0 auto"><masonry item-selector=".mybrick"><div masonry-brick class="mybrick"><img src="http://imga1.pic21.com/bizhi/140222/07781/s01.jpg"></div><div masonry-brick class="mybrick"><img src="http://imga1.pic21.com/bizhi/140222/07781/s01.jpg"></div></masonry><div masonry><div class="masonry-brick" ng-repeat="pic in ctrl.pics track by $index"><img ng-src="{{ pic }}" alt="A masonry brick"></div></div></div>

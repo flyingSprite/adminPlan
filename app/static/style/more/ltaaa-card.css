@@ -1,0 +1,39 @@
+
+/********* Ltaaa Card ***********/
+.ltaaa-card__wide {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.ltaaa-card__wide a {
+  color: #295285;
+  text-decoration: none;
+  font-weight: 200;
+}
+
+.ltaaa-card__wide a:visited {
+  color: #5f789e;
+}
+
+.ltaaa-card__flag {
+  width: 25px;
+  height: 17px;
+  margin-right: 8px;
+}
+
+.ltaaa-card__show-pic {
+  width: 162px;
+  height: 90px;
+  margin-top: 6px;
+  margin-right: 10px;
+}
+
+.ltaaa-card__icon {
+  color: rgba(20, 21, 23, 0.54);
+}
+
+.ltaaa-card__info {
+  color: rgba(20, 21, 23, 0.54);
+  margin-right: 10px;
+  margin-left: 8px;
+}

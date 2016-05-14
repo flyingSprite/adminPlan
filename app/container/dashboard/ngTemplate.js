@@ -1,19 +1,20 @@
-define(['adminApp',
-  ], function (adminApp) {
+define(['adminApp', 'config'], function (adminApp, config) {
+  var templatePath = config.rootPath + 'container/dashboard/';
+  var adminApp = require('adminApp');
+  adminApp.config([
+    '$stateProvider', '$urlRouterProvider', '$requireProvider',
+    function ($stateProvider, $urlRouterProvider, $requireProvider) {
 
-  adminApp.config(function ($stateProvider, $urlRouterProvider, $requireProvider) {
-
-    var templatePath = 'container/dashboard/'
-
-    $stateProvider
-      .state('main.dashboard.index', {
-        url: '/index',
-        templateUrl: templatePath + 'dashboard.html',
-        controller: 'dashboardIndexController',
-        controllerAs: 'ctrl',
-        resolve: {
-          deps: $requireProvider.requireJS([templatePath + 'ngController.js'])
-        },
-      });
-  });
+      $stateProvider
+        .state('main.dashboard.index', {
+          url: '/index',
+          templateUrl: templatePath + 'dashboard.html',
+          controller: 'dashboardIndexController',
+          controllerAs: 'ctrl',
+          resolve: {
+            deps: $requireProvider.requireJS([templatePath + 'ngController.js'])
+          },
+        });
+    }
+]);
 });

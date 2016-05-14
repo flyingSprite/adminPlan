@@ -1,14 +1,17 @@
 define(['adminApp'], function (adminApp) {
 
-  adminApp.controller('CardDashboardController', function ($scope, $stateParams, breadcrumb, adminHttp){
-    var self = this;
-    self.pics = [];
-    for(var i = 0; i < 4; i ++) {
-      self.pics.push('http://imga1.pic21.com/bizhi/140222/07781/s01.jpg');
-      self.pics.push('http://96xx.net/uploads/allimg/151004/153KW336-3.jpg');
-      self.pics.push('http://img1.ali213.net/picfile/News/2014/12/04/584_20141204101001101.jpg');
-      self.pics.push('http://imgs.gamersky.com/ku/2014/ku_bayonetta_b.jpg');
+  adminApp.controller('CardDashboardController', [
+    '$scope', '$stateParams', 'breadcrumb', 'adminHttp',
+    function ($scope, $stateParams, breadcrumb, adminHttp){
+      var self = this;
+      self.pics = [];
+      for(var i = 0; i < 4; i ++) {
+        self.pics.push('http://imga1.pic21.com/bizhi/140222/07781/s01.jpg');
+        self.pics.push('http://96xx.net/uploads/allimg/151004/153KW336-3.jpg');
+        self.pics.push('http://img1.ali213.net/picfile/News/2014/12/04/584_20141204101001101.jpg');
+        self.pics.push('http://imgs.gamersky.com/ku/2014/ku_bayonetta_b.jpg');
+      }
+      console.log(self.pics);
     }
-    console.log(self.pics);
-  });
+  ]);
 });

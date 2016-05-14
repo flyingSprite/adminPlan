@@ -1,5 +1,5 @@
-define(['adminApp'], function (adminApp) {
-  var tempatePath = 'container/ltaaa/';
+define(['adminApp', 'config'], function (adminApp, config) {
+  var templatePath = config.rootPath + 'container/ltaaa/';
   var defaultUiSref = 'main.ltaaa.';
   var ngRouter = [
     {
@@ -7,25 +7,27 @@ define(['adminApp'], function (adminApp) {
       name: 'list',
       params: ':id',
       uiSref: defaultUiSref + 'list',
-      templateUrl: tempatePath + 'list/index.html',
+      templateUrl: templatePath + 'list/index.html',
       controller: 'LtaaaListController',
-      controllerUrl: tempatePath + 'list/controller'
+      controllerUrl: templatePath + 'list/controller'
     }
   ];
-  adminApp.config(function ($stateProvider, $urlRouterProvider, $requireProvider) {
-    angular.forEach(ngRouter, function (value, index) {
-      $stateProvider
-      .state(value.uiSref, {
-        url: '/' + value.name +'?'+ value.params,
-        templateUrl: value.templateUrl,
-        controller: value.controller,
-        controllerAs: 'ctrl',
-        resolve: {
-          deps: $requireProvider.requireJS([value.controllerUrl])
-        },
-        params: { data: {} }
+  adminApp.config([
+    '$stateProvider', '$urlRouterProvider', '$requireProvider',
+    function ($stateProvider, $urlRouterProvider, $requireProvider) {
+      angular.forEach(ngRouter, function (value, index) {
+        $stateProvider
+        .state(value.uiSref, {
+          url: '/' + value.name +'?'+ value.params,
+          templateUrl: value.templateUrl,
+          controller: value.controller,
+          controllerAs: 'ctrl',
+          resolve: {
+            deps: $requireProvider.requireJS([value.controllerUrl])
+          },
+          params: { data: {} }
+        });
       });
-    });
-  });
-
+    }
+  ]);
 });

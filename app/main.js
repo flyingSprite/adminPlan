@@ -24,6 +24,7 @@ require.config({
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
 
+    'config': 'config',
     'adminApp': 'adminApp'
   },
   shim: {

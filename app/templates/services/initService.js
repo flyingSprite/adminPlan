@@ -1,7 +1,5 @@
 define(['adminApp', 'marked', 'angular', 'angular-ui-router'], function (adminApp, marked) {
-
   adminApp.service('InitService', function ($http){
-
     this.config = function () {
       return $http({method: 'GET', url: '/config.json'});
     };
