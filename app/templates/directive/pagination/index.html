@@ -1,0 +1,18 @@
+<ul class="rc-pagination " unselectable="unselectable">
+  <li title="上一页" class="{{'rc-pagination-prev ' + ((currentPage == 1) ? 'rc-pagination-disabled' : '')}}"
+    ng-click="prevPage()">
+    <a data-reactid=".0.1.0"></a>
+  </li>
+  <li title="{{i}}" ng-repeat="i in getNumber(number) track by $index"
+      class="{{ 'rc-pagination-item rc-pagination-item-1 ' +
+                ((currentPage == i) ? 'rc-pagination-item-active' : '')
+             }}"
+      ng-click="toPage(i)">
+    <a>{{i}}</a>
+  </li>
+  <li title="上一页" class="{{'rc-pagination-next ' + ((currentPage == totalPages) ? 'rc-pagination-disabled' : '')}}"
+    ng-click="nextPage()">
+    <a data-reactid=".0.1.0"></a>
+  </li>
+</ul>
+<span style="float: right; margin-top: -35px;">Total: {{ total }}</span>

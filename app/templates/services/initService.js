@@ -1,4 +1,4 @@
-define(['adminApp', 'config', 'marked', 'angular', 'angular-ui-router'], function (adminApp, marked, config) {
+define(['adminApp', 'config', 'marked', 'angular', 'angular-ui-router'], function (adminApp, config, marked) {
   adminApp.service('InitService', function ($http){
     this.config = function () {
       return $http({method: 'GET', url: '/config.json'});
@@ -52,6 +52,7 @@ define(['adminApp', 'config', 'marked', 'angular', 'angular-ui-router'], functio
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
+    console.log(config);
     var serverUrl = 'http://' + config.serverHost + '/solutions';
     // var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){

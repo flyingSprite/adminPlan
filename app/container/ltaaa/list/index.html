@@ -1,13 +1,7 @@
 <section flex="100" layout="row" layout-align="center center">
   <md-content flex="80" layout-padding>
-    <!-- <md-card layout-padding ng-hide="ctrl.blogList.length==0">
-      <md-list>
-        <md-list-item ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList" class="md-3-line">
-        <img src="{{ ltaaaTitle.flag }}" style="width: 25px; height: 17px; " />
-        <a href="{{ ltaaaTitle.url }}" target="_blank">{{ ltaaaTitle.title }} </a>
-        </md-list-item>
-      </md-list>
-    </md-card> -->
+
+
     <div class="ltaaa-card ltaaa-card__wide mdl-card mdl-shadow--2dp" ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList" id="ltaaa-content">
       <div class="mdl-card__title">
         <img class="ltaaa-card__flag" src="{{ ltaaaTitle.flag}}"/>
@@ -38,15 +32,10 @@
         </span>
       </div>
     </div>
-    <!-- Raised button with ripple -->
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="ctrl.prevPage()">
-      Prev
-    </button>
-
-    {{ ctrl.pager.page + 1 }}
-    <!-- Raised button with ripple -->
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="ctrl.nextPage()">
-      Next
-    </button>
+    <ap-paginate
+      total="{{ ctrl.pager.total }}"
+      page="{{ ctrl.pager.page + 1 }}"
+      size="{{ ctrl.pager.size }}"
+      click="ctrl.toPage"></ap-paginate>
   </md-content>
 </section>

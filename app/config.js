@@ -1,7 +1,7 @@
 
 define(function () {
   return {
-    rootPath: 'dest/',
+    rootPath: '',
     serverHost: 'localhost:8080'
   };
 });

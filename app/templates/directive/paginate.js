@@ -29,7 +29,7 @@ define(['adminApp'], function (adminApp) {
   .directive('willPaginate', function() {
     return {
       restrict: 'ACE',
-      templateUrl: 'templates/directive/paginate.html',
+      templateUrl: 'paginator.html',
       scope: {
         params: '=',
         config: '=',

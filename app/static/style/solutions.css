@@ -1,9 +1,9 @@
 @import "more/logo.css";
 @import "more/ltaaa-card.css";
+@import "more/pagination.css";
 
 body {
   width:100%;
-  background-color: #f3f3f3;
   box-sizing: border-box;
   font-family: 'Roboto';
 }
@@ -83,7 +83,12 @@ cursor:pointer
 }
 
 .skip-blue{
-  background-color: #00bcd4;
+  background-color: #BE21A3;
+}
+
+
+.admin-header-icon {
+  font-size: 20px;
 }
 
 

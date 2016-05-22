@@ -13,6 +13,11 @@ define(['adminApp'], function (adminApp) {
         size: 20
       };
 
+      self.toPage = function (pageNumber) {
+        self.pager.page = pageNumber - 1;
+        findLtaaaTitle();
+      }
+
       self.prevPage = function() {
         self.pager.page = self.pager.page - 1;
         self.pager.page = self.pager.page < 0 ? 0 : self.pager.page;
@@ -42,11 +47,16 @@ define(['adminApp'], function (adminApp) {
                 this.push(value);
               }, self.ltaaaTitleList);
             }
+            if (res.pager) {
+              var pager = res.pager;
+              self.pager.page = pager.page;
+              self.pager.total = pager.total;
+              self.pager.size = pager.size;
+            }
             toTop();
           }).error(function (err){
           });
       }
-
       findLtaaaTitle();
     }
   ]);

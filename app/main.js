@@ -24,6 +24,8 @@ require.config({
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
 
+    'ap-directive': 'templates/directive/pagination/controller',
+
     'config': 'config',
     'adminApp': 'adminApp'
   },
@@ -35,6 +37,7 @@ require.config({
     'angular-pagtinate': ['angular'],
     'angular-translate': ['angular'],
     'angular-ui-router': ['angular-translate'],
+    'ap-directive': ['angular'],
     'ngRequire': ['angular-ui-router'],
     'ui-codemirror': ['angular', 'codemirror']
   },
