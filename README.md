@@ -30,7 +30,7 @@
 
 `Material design icons`的缺陷在于一下几点：
 * 那道墙的原因，打开icon library站点，是Google的站点，无法正常的访问
-* 与分文字排列时，默认情况下，不显的垂直居中，位置偏上
+* 与文字同在一行排列时，默认情况下，不是垂直居中，位置偏上，需要另外调节
 * 使用`Material Angular`、 `Material UI`和原生写法，都有区别
 
 ## Some Useful ##
