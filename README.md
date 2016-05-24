@@ -1,6 +1,6 @@
 # adminPlan
 
-[image](https://raw.githubusercontent.com/flyingSprite/adminPlan/master/app/favicon.ico)
+![alt](https://raw.githubusercontent.com/flyingSprite/adminPlan/master/app/favicon.ico)
 
 ## 参考 ##
 
