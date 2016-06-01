@@ -1,0 +1,82 @@
+
+.main-header {
+    z-index: 20;
+    padding-top: 20px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.main-header-before {
+    position: absolute;
+    height: 20px;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background: url(/static/images/layout/art.png) repeat-x;
+    background-size: 800px 100%;
+    -webkit-background-size: 800px 100%;
+    -moz-background-size: 800px 100%;
+}
+
+.main-header-content {
+    width: 100%;
+    height: 64px;
+    font-size: 20px;
+    max-height: 64px;
+    letter-spacing: .005em;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 0 16px;
+    margin: 0;
+}
+
+.main-header-content .logo {
+    font-size: 24px;
+    font-family: 'Grand Hotel',cursive;
+    font-weight: 600;
+    top: 0px;
+    padding: 0px;
+    left: 10px;
+    top: 0px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+    color: #FC9E00;
+}
+.main-header-content h2 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: inherit;
+}
+
+.main-header-content a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.main-header-content ul {
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #FF4B00
+}
+
+.main-header-content .flex {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    box-sizing: border-box;
+}

@@ -1,5 +1,31 @@
-
-<md-toolbar >
+<div class="main-header-before"></div>
+<div class="main-header-content">
+    <h2>
+        <span><a href="#" class="logo">AdminPlan</a></span>
+    </h2>
+    <span flex="" class="flex"></span>
+    <ul class="nav nav-pills">
+        <li role="presentation">
+            <a ui-sref="main.ltaaa.list">
+                <i class="fa fa-list-ul"></i>
+                {{ 'Ltaaa' | translate}}
+            </a>
+        </li>
+        <li role="presentation">
+            <a ui-sref="main.blog.list">
+                <i class="fa fa-list-alt"></i>
+                {{ 'Blog' | translate}}
+            </a>
+        </li>
+        <li role="presentation">
+            <a ui-sref="main.card.dashboard">
+                <i class="fa fa-futbol-o"></i>
+                {{ 'Card' | translate}}
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- <md-toolbar >
   <div class="md-toolbar-tools skip-blue">
     <h2>
       <span><a href="#" class="brand-logo logo">AdminPlan</a></span>
@@ -24,4 +50,4 @@
       <i class="fa fa-user-secret admin-header-icon"></i>
     </md-button>
   </div>
-</md-toolbar>
+</md-toolbar> -->

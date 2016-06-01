@@ -1,52 +1,14 @@
-.related-horizontal-item .hpi-wrap {
-  position:relative;
-  display:block;
-  padding-bottom:60%;
-  overflow:hidden;}
 
-
-.horizontal-post-img-w {
-    left: -50px;
-    top: -50px;
-    padding: 50px 50px;
-}
-
-.related-horizontal-item:hover .horizontal-post-img-w {
-    -webkit-transform: scale(1.2)  rotate(0deg);
-    -moz-transform: scale(1.2)  rotate(0deg);
-    -ms-transform: scale(1.2)  rotate(0deg);
-    transform: scale(1.2)  rotate(0deg);
-
-}
 
 
 .related-horizontal-item {
-    width: 50%;
+    width: 25%;
     float: left;
+    padding: 0 10px;
     margin-bottom: 15px;
     min-height: 40px;
 }
 
-
-.related-horizontal-item {
-    width: 50%;
-    float: left;
-    padding: 0 10px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
-
-.related-horizontal-content {
-    position: relative;
-}
-
-
-.inner_related_posts .horizonta-post-title, .horizonta-post-title {
-    font-size: 15px;
-    line-height: 18px;
-}
 
 .related-horizontal-item .hpi-wrap {
     -webkit-transition: opacity 0.35s;
@@ -55,7 +17,6 @@
     opacity: 1;
 }
 
-
 .related-horizontal-item .hpi-wrap {
     position: relative;
     display: block;
@@ -63,32 +24,53 @@
     overflow: hidden;
 }
 
-.related-horizontal-item .hpi-wrap {
+.related-horizontal-content {
     position: relative;
-    display: block;
-    padding-bottom: 60%;
-    overflow: hidden;
 }
 
-.hpi-text {
-    color: #333;
-    position: relative;
-    top: 0;
-    width: auto;
-    transform: translateY(0%);
-    -webkit-transform: translateY(0%);
-    -moz-transform: translateY(0%);
-    display: block;
-    margin-top: 5px;
+.horizontal-post-img-w{
+    content: "";
+    background-position: center center;
+    background-size: auto;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: 0.25s ease-in-out;
+    -ms-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+
+    /* Let image bigger */
+    left: -50px;
+    top: -50px;
+    padding: 50px;
+
+    /* The width don't contain padding */
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+
 }
+
+
+.related-horizontal-item:hover .horizontal-post-img-w {
+    -webkit-transform: scale(1.2)  rotate(0deg);
+    -moz-transform: scale(1.2)  rotate(0deg);
+    -ms-transform: scale(1.2)  rotate(0deg);
+    transform: scale(1.2)  rotate(0deg);
+}
+
 
 .horizonta-post-title .hpi-text {
     font-size: 16px;
     line-height: 20px;
     font-weight: bold;
-}
-
-.hpi-text {
     margin-top: 0;
     color: #fff;
     top: 50%;
@@ -100,43 +82,31 @@
     -moz-transform: translateY(-50%);
 }
 
-.horizontal-post-img-w, .popular-post-wdd .pop-img-stub {
+.horizonta-post-title .hpi-text > .hpi-title {
+  border-bottom:5px solid #0c7fd7;
+}
+
+/* Inner a new color #fab23a progress in hpi-title when hover */
+.horizonta-post-title .hpi-text > .hpi-title:after {
     content: "";
-    background-position: center center;
-    background-size: 100% auto;
-    -webkit-background-size: 100% auto;
-    -moz-background-size: 100% auto;
+    bottom: -5px;
+    height: 5px;
+    background: #fab23a;
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    left:0;
+    width: 0;
     -webkit-transition: 0.25s ease-in-out;
     -ms-transition: 0.25s ease-in-out;
     -moz-transition: 0.25s ease-in-out;
     -o-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out;
-    left: -20px;
-    top: -30px;
-    padding: 30px 20px;
-    -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);
 }
 
-.horizontal-post-img-w {
-    left: -50px;
-    top: -50px;
-    padding: 50px 50px;
+.related-horizontal-content:hover .hpi-text > span:after {
+  width:100%;
 }
 
-post-title .hpi-text > .hpi-title {
-    width: auto;
-    padding: 0;
-    background: none;
-    border: none;
-}
-
-post-title .hpi-text > .hpi-title {
+.horizonta-post-title .hpi-text > .hpi-title {
     width: 100%;
     display: block;
     position: relative;

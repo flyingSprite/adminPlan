@@ -1,5 +1,4 @@
 'use strict';
-var apDirective = angular.module('ap.directive', []);
 
 apDirective.directive('apPaginate', function () {
   return {
@@ -27,7 +26,7 @@ apDirective.directive('apPaginate', function () {
       };
 
       $scope.nextPage = function () {
-        var currentPage = $scope.currentPage + 1;
+        var currentPage = parseInt($scope.currentPage) + 1;
         currentPage = currentPage > $scope.totalPages ? $scope.totalPages : currentPage;
         click(currentPage);
       };

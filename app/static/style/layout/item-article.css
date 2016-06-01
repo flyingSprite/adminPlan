@@ -1,0 +1,14 @@
+.article-hp-wdd-cl {
+    border-bottom:1px solid #e9edef;
+}
+
+.article-hp-wdd-cl:hover {
+    background-color: #F9F9F9;
+}
+
+.article-hp-wdd-cl {
+    padding:20px 0px;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
