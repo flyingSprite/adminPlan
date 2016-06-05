@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.item {
+  width: 100%;
+  border-bottom: 1px solid #d5d7da;
+  padding: 20px 0px;
+  overflow:hidden;
+}
+
+.item:hover {
+  background-color: #F7F7F7;
+}
+
+.item:hover .item-link::before {
+  -webkit-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -ms-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -moz-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -o-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  background-color: #F7F7F7;
+  width: 20px;
+}
+
+.item:hover .item-info{
+  -webkit-transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  -ms-transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  -moz-transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  -o-transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  left: 20px;
+}
+
+.item:hover .item-link::after {
+  -webkit-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -ms-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -moz-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -o-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  background-color: #F7F7F7;
+  width: 0px;
+}
+
+.item-content {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+}
+
+.item-link {
+  width: 35%;
+  background-color: #C3DAB6;
+  float: left;
+  position: relative;
+}
+
+.item-link img {
+  width: 100%;
+  height: 100%;
+}
+
+.item-link::before {
+  -webkit-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -ms-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -moz-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -o-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 0px;
+  top: 0;
+  background-color: #FFF;
+  z-index: 5;
+}
+
+.item-link::after {
+  -webkit-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -ms-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -moz-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  -o-transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out, right 0.25s ease-in-out;
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 20px;
+  top: 0;
+  background-color: #FFF;
+  z-index: 5;
+}
+
+.item-info {
+  width: 65%;
+  background-color: #6AE0C1;
+  float: right;
+  overflow: visible;
+  position: relative;
+  padding-right: 30px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.item-info {
+  -webkit-transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  -ms-transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  -moz-transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  -o-transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+  left: 0px;
+}
+
+
+
+</style>
+</head>
+<body>
+================
+<article class="item">
+  <div class="item-content">
+    <div class="item-link">
+      <img style="-webkit-user-select: none; cursor: zoom-in;" src="/static/images/layout/miru.jpg">
+    </div>
+    <div class="item-info">
+    ooo sss sssss sssssss ssssssss ssssso oos  ssssssssssssssss ssssssssss s  ooossssssss ss sss ssssss ssss sssss ooos ssss ss sssssssssssssss sssss so o o s sssssss ssssss ssssssssss ssss
+    ooosssssss   ssssssssssssssooossss sss sss ssssssssss
+      s ssss oooss   sss ssssss sssssssss   sssssssooossssssssssssss ssssssssss ssssooo ss sssssssssss  sssssssssssss
+    ooossssssssssssssssssssssssssss
+    ooossssssssssssssssssssssssssssooossssssssssssssssssssssssssssooossssssssssssssssssssssssssssooossssssssssssssssssssssssssss
+    ooossssssssssssssssssssssssssss
+    ooossssssssssssssssssssssssssssooossssssssssssssssssssssssssssooossssssssssssssssssssssssssssooossssssssssssssssssssssssssss
+    ooossssssssssssssssssssssssssssooossssssssssssssssssssssssssssooossssssssssssssssssssssssssss
+    ooossssssssssssssssssssssssssss
+    ooossssssssssssssssssssssssssss
+    </div>
+  </div>
+</article>
+</body>
+</html>
