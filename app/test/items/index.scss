@@ -123,13 +123,31 @@ $hoverColor: #F7F7F7;
 
 .item:hover .item-info {
   @extend .item-default-transition-left;
-  left: 20px;
+  left: 30px;
 }
 
 .item .item-info .item-info-title {
+  font-size: 30px;
+  line-height: 1.2em;
+  position: relative;
+  font-family: "Titling Gothic FB Cond Std";
+  font-style: normal;
+  font-weight: normal;
+  color: #000;
+}
 
+.item .item-info .item-info-title a{
+  text-decoration: none;
+  color: #000;
+}
+
+.item .item-info .item-info-title a:hover{
+  text-decoration: underline;
 }
 
 .item .item-info .item-info-content {
-  
+  color: #777;
+  margin-top: 15px;
+  font-size: 15px;
+  line-height: 20px;
 }
