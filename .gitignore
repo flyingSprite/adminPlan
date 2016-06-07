@@ -22,10 +22,21 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directory
+# Dependency directory for node
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+
+# Dependency directory for bower
 bower_components
+
+# Files for mac store.
 *DS_Store
+
+# Codekit files
 config.codekit
+
+# Directory for sass cache
+.sass-cache
+
+# Project config, use config.js.dist instead it.
 app/config.js

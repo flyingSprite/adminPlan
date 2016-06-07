@@ -8,7 +8,6 @@ require.config({
     'angular-aria': '../bower_components/angular-aria/angular-aria.min',
     'angular-masonry': '../bower_components/angular-masonry/angular-masonry',
     'angular-material': '../bower_components/angular-material/angular-material.min',
-    'angular-pagtinate': '../bower_components/angular-paginate-anything/dist/paginate-anything-tpls.min',
     'angular-translate': '../bower_components/angular-translate/angular-translate.min',
     'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
     'codemirror': '../bower_components/codemirror/lib/codemirror',
@@ -16,7 +15,6 @@ require.config({
     'domReady': '../bower_components/requirejs-domready/domReady',
     'marked': '../bower_components/marked/marked.min',
     'moment': '../bower_components/moment/min/moment.min',
-    'paginate': 'templates/directive/paginate',
     'Raphael': '../bower_components/raphael/raphael-min',
     'ui-codemirror': '../bower_components/angular-ui-codemirror/ui-codemirror.min',
 
@@ -37,7 +35,6 @@ require.config({
     'angular-aria': ['angular'],
     'angular-masonry': ['angular'],
     'angular-material': ['angular', 'angular-animate', 'angular-aria'],
-    'angular-pagtinate': ['angular'],
     'angular-translate': ['angular'],
     'angular-ui-router': ['angular-translate'],
 

@@ -7,7 +7,6 @@ define([
   'angular-material',
   'angular-ui-router',
   'ui-codemirror',
-  'angular-pagtinate',
   'angular-ui-router',
   'ui-codemirror' ,
   'angular-masonry',
@@ -22,7 +21,6 @@ define([
       'ui.router',
       'wu.masonry',
       'ap.directive',
-      'bgf.paginateAnything',
       'pascalprecht.translate'
     ]
   );
