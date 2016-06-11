@@ -10,7 +10,8 @@ define([
   'angular-ui-router',
   'ui-codemirror' ,
   'angular-masonry',
-  'ap-directive'
+  'ap-directive',
+  'angular-bootstrap-toggle-switch'
 ], function () {
 
   var app = angular.module('ngApp',
@@ -21,7 +22,8 @@ define([
       'ui.router',
       'wu.masonry',
       'ap.directive',
-      'pascalprecht.translate'
+      'pascalprecht.translate',
+      'toggle-switch'
     ]
   );
   return app;

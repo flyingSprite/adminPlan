@@ -7,6 +7,8 @@ define(['adminApp'], function (adminApp) {
       var self = this;
       self.ltaaaTitleList = [];
 
+      self.newStyle = false;
+
       self.pager = {
         total: 0,
         page: 0,

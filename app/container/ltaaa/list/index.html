@@ -1,35 +1,52 @@
 <section flex="100" layout="row" layout-align="center center">
   <md-content flex="80" layout-padding>
-
-    <ap-item-article></ap-item-article>
-    <div class="ltaaa-card ltaaa-card__wide mdl-card mdl-shadow--2dp" ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList" id="ltaaa-content">
-      <div class="mdl-card__title">
-        <img class="ltaaa-card__flag" src="{{ ltaaaTitle.flag}}"/>
-        <h2 class="mdl-card__title-text">
-          <a href="{{ltaaaTitle.url}}" target="_black">{{ ltaaaTitle.title }}</a>
-        </h2>
+    <input type="checkbox" ng-model="ctrl.newStyle" ng-checked="ctrl.newStyle" />
+    <span ng-show="ctrl.newStyle">New Style</span>
+    <span ng-hide="ctrl.newStyle">Old Style</span>
+    <div class="div-none" ng-show="ctrl.newStyle">
+      <div class="div-none" ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList">
+        <ap-item-article
+          img="{{ ltaaaTitle.pic }}"
+          title="{{ ltaaaTitle.title }}"
+          url="{{ ltaaaTitle.url }}"
+          content="{{ ltaaaTitle.content }}"
+          author="{{ ltaaaTitle.author_name }}"
+          date="{{ ltaaaTitle.create_date }}"
+          comment="{{ ltaaaTitle.comments }}"
+          author-url="{{ ltaaaTitle.author_href }}"
+        ></ap-item-article>
       </div>
-      <div class="mdl-card__supporting-text">
-        <P>
-          <img class="ltaaa-card__show-pic" src="{{ ltaaaTitle.pic }}"  align="left" />
-          {{ ltaaaTitle.content }}
-        </P>
-      </div>
-      <div class="mdl-card__actions mdl-card--border">
-        <!-- <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        </a> -->
-        <span class="ltaaa-card__info">
-          <i class="fa fa-user ltaaa-card__icon"></i>
-          <a href="{{ ltaaaTitle.author_href }}" target="_black">{{ ltaaaTitle.author_name }}</a>
-        </span>
-        <span class="ltaaa-card__info">
-          <i class="fa fa-commenting-o ltaaa-card__icon"></i>
-          {{ ltaaaTitle.comments }}
-        </span>
-        <span class="ltaaa-card__info">
-          <i class="fa fa-calendar ltaaa-card__icon"></i>
-          {{ ltaaaTitle.create_date }}
-        </span>
+    </div>
+    <div class="div-none" ng-hide="ctrl.newStyle">
+      <div class="ltaaa-card ltaaa-card__wide mdl-card mdl-shadow--2dp" ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList" id="ltaaa-content">
+        <div class="mdl-card__title">
+          <img class="ltaaa-card__flag" src="{{ ltaaaTitle.flag}}"/>
+          <h2 class="mdl-card__title-text">
+            <a href="{{ltaaaTitle.url}}" target="_black">{{ ltaaaTitle.title }}</a>
+          </h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <P>
+            <img class="ltaaa-card__show-pic" src="{{ ltaaaTitle.pic }}"  align="left" />
+            {{ ltaaaTitle.content }}
+          </P>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <!-- <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          </a> -->
+          <span class="ltaaa-card__info">
+            <i class="fa fa-user ltaaa-card__icon"></i>
+            <a href="{{ ltaaaTitle.author_href }}" target="_black">{{ ltaaaTitle.author_name }}</a>
+          </span>
+          <span class="ltaaa-card__info">
+            <i class="fa fa-commenting-o ltaaa-card__icon"></i>
+            {{ ltaaaTitle.comments }}
+          </span>
+          <span class="ltaaa-card__info">
+            <i class="fa fa-calendar ltaaa-card__icon"></i>
+            {{ ltaaaTitle.create_date }}
+          </span>
+        </div>
       </div>
     </div>
     <ap-paginate

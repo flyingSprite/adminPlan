@@ -18,6 +18,9 @@ require.config({
     'Raphael': '../bower_components/raphael/raphael-min',
     'ui-codemirror': '../bower_components/angular-ui-codemirror/ui-codemirror.min',
 
+    // Bootstrap
+    'angular-bootstrap-toggle-switch': '../bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.min',
+
     // angular-require support domand loading.
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
@@ -33,6 +36,7 @@ require.config({
   shim: {
     'angular-animate': ['angular'],
     'angular-aria': ['angular'],
+    'angular-bootstrap-toggle-switch': ['angular'],
     'angular-masonry': ['angular'],
     'angular-material': ['angular', 'angular-animate', 'angular-aria'],
     'angular-translate': ['angular'],

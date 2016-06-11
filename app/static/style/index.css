@@ -1,3 +1,6 @@
+.div-none {
+  padding: 0; }
+
 /* Item default backgroup color is #F7F7F7 */
 .item-default-backgroup-color, .item-article:hover, .item-article:hover .item-article-link::before, .item-article:hover .item-article-link::after {
   background-color: #F7F7F7; }

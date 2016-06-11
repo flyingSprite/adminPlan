@@ -37,6 +37,7 @@ config.codekit
 
 # Directory for sass cache
 .sass-cache
+.scssc
 
 # Project config, use config.js.dist instead it.
 app/config.js

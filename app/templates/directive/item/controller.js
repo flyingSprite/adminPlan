@@ -3,14 +3,18 @@ apDirective.directive('apItemArticle', function () {
   return {
     restrict: 'E',
     scope: {
-      titleImg: '@',
-      content: '@',
       title: '@',
-      titleUrl: '@'
+      url: '@',
+      content: '@',
+      img: '@',
+      author: '@',
+      date: '@',
+      comment: '@',
+      authorUrl: '@'
     },
     templateUrl: '/templates/directive/item/index.html',
     controller: function ($scope) {
-      console.log('article item.');
+      console.log($scope.img);
     }
   };
 });
