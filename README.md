@@ -18,6 +18,15 @@
 * Material Design Icon - [http://zavoloklom.github.io/material-design-iconic-font/icons.html](http://zavoloklom.github.io/material-design-iconic-font/icons.html)
 * Moment JS - [http://momentjs.cn/](http://momentjs.cn/)
 
+## Framework Design ##
+
+### Common utility framework ###
+
+* 公共的组建需要直接在index.html中加载，比如`jQuery`和`Bootstrap`;
+* 公共组建包含的`js文件`文件打包在同一个`js文件`中;
+* 公共组建包含的`css文件`文件打包在同一个`css文件`中;
+
+
 ## Modify Design ##
 
 ### [Material design icons](https://materialdesignicons.com/) 和 [Font awesome](http://fontawesome.io/) ###

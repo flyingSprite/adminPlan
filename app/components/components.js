@@ -1,3 +1,0 @@
-define([
-  'badge/badge'
-]);
