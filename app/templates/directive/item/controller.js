@@ -44,8 +44,8 @@ apDirective.directive('apItemArticle', function () {
     //     </div>
     //   </article>
     // `,
-    controller: function ($scope) {
+    controller: ['$scope', function ($scope) {
       console.log('test => ', $scope.img);
-    }
+    }]
   };
 });

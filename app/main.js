@@ -25,10 +25,12 @@ require.config({
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
 
-    'ap-directive-module': 'templates/directive/directive',
-    'ap-directive': 'templates/directive/pagination/controller',
-    'ap-directive-horizontal': 'templates/directive/horizontal/controller',
-    'ap-item-article': 'templates/directive/item/controller',
+    'ap-directive': 'dest/ap.directive.all.min',
+
+    // 'ap-directive-module': 'templates/directive/directive',
+    // 'ap-directive': 'templates/directive/pagination/controller',
+    // 'ap-directive-horizontal': 'templates/directive/horizontal/controller',
+    // 'ap-item-article': 'templates/directive/item/controller',
 
     'config': 'config',
     'adminApp': 'adminApp'
@@ -42,10 +44,13 @@ require.config({
     'angular-translate': ['angular'],
     'angular-ui-router': ['angular-translate'],
 
-    'ap-directive-module': ['angular'],
-    'ap-item-article': ['ap-directive-module'],
-    'ap-directive-horizontal': ['ap-directive-module'],
-    'ap-directive': ['ap-directive-horizontal', 'ap-item-article'],
+    // 'ap-directive-module': ['angular'],
+    // 'ap-item-article': ['ap-directive-module'],
+    // 'ap-directive-horizontal': ['ap-directive-module'],
+    // 'ap-directive': ['ap-directive-horizontal', 'ap-item-article'],
+
+    'ap-directive': ['angular'],
+
 
     'ngRequire': ['angular-ui-router'],
     'ui-codemirror': ['angular', 'codemirror']

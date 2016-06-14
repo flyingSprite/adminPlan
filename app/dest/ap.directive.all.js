@@ -12,10 +12,10 @@ apDirective.directive('apHorizontal', function () {
     },
     // template: '<div ng-bind-html="markdownHtml"></div>',
     templateUrl: 'templates/directive/horizontal/index.html',
-    controller: function ($scope) {
+    controller: ['$scope', function ($scope) {
       console.log($scope.img);
       console.log($scope.content)
-    }
+    }]
   }
 });
 
@@ -65,9 +65,9 @@ apDirective.directive('apItemArticle', function () {
     //     </div>
     //   </article>
     // `,
-    controller: function ($scope) {
+    controller: ['$scope', function ($scope) {
       console.log('test => ', $scope.img);
-    }
+    }]
   };
 });
 
@@ -84,7 +84,7 @@ apDirective.directive('apPaginate', function () {
     },
     // template: '<div ng-bind-html="markdownHtml"></div>',
     templateUrl: 'templates/directive/pagination/index.html',
-    controller: function ($scope) {
+    controller: ['$scope', function ($scope) {
       $scope.currentPage = $scope.page;
       $scope.totalPages = $scope.size;
 
@@ -165,6 +165,6 @@ apDirective.directive('apPaginate', function () {
         }
         return arr;
       }
-    }
+    }]
   }
 });

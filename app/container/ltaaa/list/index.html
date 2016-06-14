@@ -20,14 +20,14 @@
     <div class="div-none" ng-hide="ctrl.newStyle">
       <div class="ltaaa-card ltaaa-card__wide mdl-card mdl-shadow--2dp" ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList" id="ltaaa-content">
         <div class="mdl-card__title">
-          <img class="ltaaa-card__flag" src="{{ ltaaaTitle.flag}}"/>
+          <img class="ltaaa-card__flag" ng-src="{{ ltaaaTitle.flag}}"/>
           <h2 class="mdl-card__title-text">
             <a href="{{ltaaaTitle.url}}" target="_black">{{ ltaaaTitle.title }}</a>
           </h2>
         </div>
         <div class="mdl-card__supporting-text">
           <P>
-            <img class="ltaaa-card__show-pic" src="{{ ltaaaTitle.pic }}"  align="left" />
+            <img class="ltaaa-card__show-pic" ng-src="{{ ltaaaTitle.pic }}"  align="left" />
             {{ ltaaaTitle.content }}
           </P>
         </div>

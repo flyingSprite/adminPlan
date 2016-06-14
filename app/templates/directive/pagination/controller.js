@@ -11,7 +11,7 @@ apDirective.directive('apPaginate', function () {
     },
     // template: '<div ng-bind-html="markdownHtml"></div>',
     templateUrl: 'templates/directive/pagination/index.html',
-    controller: function ($scope) {
+    controller: ['$scope', function ($scope) {
       $scope.currentPage = $scope.page;
       $scope.totalPages = $scope.size;
 
@@ -92,6 +92,6 @@ apDirective.directive('apPaginate', function () {
         }
         return arr;
       }
-    }
+    }]
   }
 });
