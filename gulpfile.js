@@ -2,17 +2,12 @@
 var gulp = require('gulp');
 var htmlmin = require('gulp-htmlmin');
 var uglify = require('gulp-uglify');
-var concat = require("gulp-concat");
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 
-var commonJsFiles = [
-  'bower_components/jquery/dist/jquery.min.js',
-  'bower_components/bootstrap/dist/js/bootstrap.min.js'
-];
-var commonCssFiles = [
-  'bower_components/bootstrap/dist/css/bootstrap.min.css'
-];
 
+// Gulp task demo.
 gulp.task('demo', function () {
   console.log('This is a Gulp test.');
 });
@@ -20,6 +15,10 @@ gulp.task('demo', function () {
 // Let all common js files concat in a file.
 // The file is app/dest/common/common.min.js .
 gulp.task('commonJs', () => {
+  var commonJsFiles = [
+    'bower_components/jquery/dist/jquery.min.js',
+    'bower_components/bootstrap/dist/js/bootstrap.min.js'
+  ];
   return gulp.src(commonJsFiles)
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('common.min.js'))
@@ -30,6 +29,9 @@ gulp.task('commonJs', () => {
 // Let all common css files concat in a file.
 // The file is app/dest/common/common.min.css .
 gulp.task('commonCss', () => {
+  var commonCssFiles = [
+    'bower_components/bootstrap/dist/css/bootstrap.min.css'
+  ];
   return gulp.src(commonCssFiles)
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('common.min.css'))
@@ -60,4 +62,29 @@ gulp.task('containerHtml', function () {
     .pipe(gulp.dest('app/dest/container'));
 });
 
-gulp.task('default', ['commonJs', 'commonCss', 'containerJs', 'containerHtml']);
+
+gulp.task('apDirective', function () {
+  var directiveFiles = [
+    'app/templates/directive/directive.js',
+    'app/templates/directive/**/*.js'
+  ];
+  return gulp.src(directiveFiles)
+
+    // .pipe(rename({ suffix: '.all' }))
+    .pipe(concat('ap.directive.all.js'))
+    .pipe(gulp.dest('app/dest/'))
+
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('app/dest/'));
+});
+
+gulp.task('default', [
+  'apDirective',
+  'commonJs',
+  'commonCss',
+  'containerJs',
+  'containerHtml'
+]);
