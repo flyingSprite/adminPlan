@@ -9,7 +9,7 @@ require.config({
     'angular-masonry': '../bower_components/angular-masonry/angular-masonry',
     'angular-material': '../bower_components/angular-material/angular-material.min',
     'angular-translate': '../bower_components/angular-translate/angular-translate.min',
-    'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router',
+    'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
     'codemirror': '../bower_components/codemirror/lib/codemirror',
     'd3': '../bower_components/d3/d3.min',
     'domReady': '../bower_components/requirejs-domready/domReady',
@@ -25,6 +25,8 @@ require.config({
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
 
+    // 'ap-service': 'dest/ap.service.all',
+    'ap-service': 'templates/services/index',
     'ap-directive': 'dest/ap.directive.all.min',
 
     // 'ap-directive-module': 'templates/directive/directive',
@@ -50,6 +52,7 @@ require.config({
     // 'ap-directive': ['ap-directive-horizontal', 'ap-item-article'],
 
     'ap-directive': ['angular'],
+    'ap-service': ['angular'],
 
 
     'ngRequire': ['angular-ui-router'],

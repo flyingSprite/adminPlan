@@ -27,6 +27,21 @@
 * 公共组建包含的`js文件`文件打包在同一个`js文件`中;
 * 公共组建包含的`css文件`文件打包在同一个`css文件`中;
 
+### Angular design ###
+
+* Use `angular-ui-route` to build all project.
+* Use `angular-translate` to support internationalization.
+* Use `angularModule.constant()` [http://www.tuicool.com/articles/3Mbi2y6](http://www.tuicool.com/articles/3Mbi2y6)
+
+### Editor design ###
+
+* Use `codemirror` to edit markdown.
+
+### JQuery useful ###
+
+* Use `jQuery-slimScroll` to design scroll.
+
+
 
 ## Modify Design ##
 
