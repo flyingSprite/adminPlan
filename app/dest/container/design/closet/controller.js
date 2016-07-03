@@ -1,0 +1,1 @@
+define(["adminApp"],function(o){o.controller("DesignClosetController",["$scope","$state","$anchorScroll","$location","breadcrumb","adminHttp","notification",function(o,n,t,i,c,e,a){var l=this;l.showNotification=function(){console.log(a),a.notice("This is a test!")}}])});

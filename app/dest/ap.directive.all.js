@@ -1,6 +1,43 @@
 
 var apDirective = angular.module('ap.directive', []);
 
+
+'use strict';
+
+apDirective
+
+/**
+ here: http://www.tuicool.com/articles/3Mbi2y6
+ angular.constant() for inject the apply js file.
+ */
+.constant('jquerySlimscroll', [
+  {
+    name:"jquerySlimscroll",
+    module:true,
+    files:[
+      "bower_components/jquery-slimscroll/jquery.slimscroll.min.js"
+    ]
+  }
+])
+.directive('apSlimscroll', function () {
+  return {
+    restrict: 'ACE',
+    scope: {
+      content: '@'
+    },
+    transclude: true,
+    template: '<div class="ap-slimscroll-content" ng-transclude><div>',
+    link: ['$scope', 'element', 'attrs',
+      function ($scope, element, attrs) {
+        $(element).slimscroll({
+          height: 'auto'
+        });
+      }
+    ],
+    controller: ['$scope', function ($scope) {
+    }]
+  };
+});
 'use strict';
 
 apDirective.directive('apHorizontal', function () {
@@ -13,8 +50,6 @@ apDirective.directive('apHorizontal', function () {
     // template: '<div ng-bind-html="markdownHtml"></div>',
     templateUrl: 'templates/directive/horizontal/index.html',
     controller: ['$scope', function ($scope) {
-      console.log($scope.img);
-      console.log($scope.content)
     }]
   }
 });
@@ -66,7 +101,7 @@ apDirective.directive('apItemArticle', function () {
     //   </article>
     // `,
     controller: ['$scope', function ($scope) {
-      console.log('test => ', $scope.img);
+      // console.log('test => ', $scope.img);
     }]
   };
 });
