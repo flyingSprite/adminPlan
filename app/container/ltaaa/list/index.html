@@ -3,7 +3,7 @@
     <input type="checkbox" ng-model="ctrl.newStyle" ng-checked="ctrl.newStyle" />
     <span ng-show="ctrl.newStyle">New Style</span>
     <span ng-hide="ctrl.newStyle">Old Style</span>
-    <div class="div-none" ng-show="ctrl.newStyle">
+    <div class="div-none" ng-show="ctrl.newStyle" id="ltaaa-content">
       <div class="div-none" ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList">
         <ap-item-article
           img="{{ ltaaaTitle.pic }}"

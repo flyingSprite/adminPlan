@@ -1,6 +1,5 @@
-define(['adminApp',
-  './dest/container/ngTemplate',
-  './templates/services/initService'
+define(['adminApp', 'ap-service',
+  './dest/container/ngTemplate'
   ], function (adminApp, d3NgRouter, recordNgRouter) {
 
   adminApp.service('init', function () {
