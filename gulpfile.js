@@ -22,7 +22,8 @@ var directiveFiles = [
 ];
 
 var serviceFiles = [
-  'app/templates/services/**/*.js'
+  'app/templates/services/**/*.js',
+  'app/templates/services/index.js'
 ];
 
 var jqueryModules = [

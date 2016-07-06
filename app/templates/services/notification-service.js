@@ -1,4 +1,5 @@
-define(['adminApp'], function (adminApp) {
+define('notification-service', ['adminApp'],
+  function (adminApp) {
   adminApp.service('notification', function () {
     var self = this;
     self.supportNotification = false;
