@@ -8,9 +8,8 @@ define([
   'angular-ui-router',
   'ui-codemirror',
   'angular-ui-router',
-  'ui-codemirror' ,
+  'ui-codemirror',
   'angular-masonry',
-  'ap-directive',
   'angular-bootstrap-toggle-switch'
 ], function () {
 
@@ -21,7 +20,6 @@ define([
       'ui.codemirror',
       'ui.router',
       'wu.masonry',
-      'ap.directive',
       'pascalprecht.translate',
       'toggle-switch'
     ]

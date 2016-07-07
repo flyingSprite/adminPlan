@@ -1,4 +1,4 @@
-define(['adminApp', 'ap-service',
+define(['adminApp', 'ap-service', 'ap-directive',
   './dest/container/ngTemplate'
   ], function (adminApp, d3NgRouter, recordNgRouter) {
 

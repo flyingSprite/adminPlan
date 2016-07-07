@@ -1,6 +1,4 @@
-define('initService',
-  ['adminApp', 'config', 'marked', 'angular', 'angular-ui-router'],
-  function (adminApp, config, marked) {
+define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-router'], function (adminApp, config, marked) {
 
   adminApp.service('InitService', function ($http){
     this.config = function () {
@@ -51,7 +49,7 @@ define('initService',
             });
         }
       }
-    }
+    };
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
@@ -77,13 +75,14 @@ define('initService',
       } else if (config.method.toUpperCase() == 'GET') {
         return $http({
           url: serverUrl + config.url,
-          method:"GET",
+          method: 'GET',
           data: config.data
         });
       }
     };
   }])
   .service('socket', [ '$http', 'logging', function ($http, logging) {
+    console.log(logging);
     $http.defaults.useXDomain = true;
     // var socket = new WebSocket('ws://localhost:8080/solutions/point');
     // var self = this;
@@ -113,13 +112,14 @@ define('initService',
 
 
     this.send = function (data) {
+      console.log(data);
       // if(self.connectSuccess){
       //   socket.send(data);
       // } else {
       //   temporyList.push(data);
       //   logging.warn("Web Socket is connecting ... ");
       // }
-    }
+    };
 
   }]);
 

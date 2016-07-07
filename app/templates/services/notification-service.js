@@ -1,5 +1,4 @@
-define('notification-service', ['adminApp'],
-  function (adminApp) {
+define('notification-service', ['adminApp'], function (adminApp) {
   adminApp.service('notification', function () {
     var self = this;
     self.supportNotification = false;
@@ -14,7 +13,7 @@ define('notification-service', ['adminApp'],
     else if (Notification.permission !== 'denied') {
       Notification.requestPermission(function (permission) {
         // If the user accepts, let's create a notification
-        if (permission === "granted") {
+        if (permission === 'granted') {
           self.supportNotification = true;
         }
       });
@@ -24,6 +23,6 @@ define('notification-service', ['adminApp'],
       if (self.supportNotification) {
         new Notification(message);
       }
-    }
+    };
   });
 });

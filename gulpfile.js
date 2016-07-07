@@ -115,7 +115,7 @@ gulp.task('jqueryModule', function () {
 });
 
 gulp.task('eslint', function() {
-  gulp.src(['app/container/**/*.js'])
+  gulp.src(['app/templates/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
