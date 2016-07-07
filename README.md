@@ -7,17 +7,22 @@
 * Angular-ui-router + Require.js实现按需加载，参考：[angular-require](https://github.com/Treri/angular-require)
 * 使用gulp打包require.js依赖[https://segmentfault.com/a/1190000002876583](https://segmentfault.com/a/1190000002876583)
 
-## Features ##
+## What admin plan need to do? ##
 
-* Use Angular to develop some directive
+* Add the knowledge you have learned.
+* Add what you feel beautiful things.
 
-## Credits ##
 
-* Angular Material - [https://material.angularjs.org/latest/](https://material.angularjs.org/latest/)
-* Angular 瀑布流[Angular-masonry](https://github.com/passy/angular-masonry)
-* Animate.css - [http://daneden.github.io/animate.css/](http://daneden.github.io/animate.css/)
-* Material Design Icon - [http://zavoloklom.github.io/material-design-iconic-font/icons.html](http://zavoloklom.github.io/material-design-iconic-font/icons.html)
-* Moment JS - [http://momentjs.cn/](http://momentjs.cn/)
+## What features must be in v1.0.0? ##
+
+* Support jQuery, bootstrap, fontawesome
+* Support JsLint
+* Using sass to develop style.
+* Using angular to develop framework.
+* Pack all public js files in one file.
+* Pack all public css files in one file.
+* Pack all angular directive files in one file.
+* Realize demand loading angular controller js files.
 
 ## Framework Design ##
 
@@ -35,11 +40,17 @@
 
 ### Editor design ###
 
+## Credits ##
+
+* Angular Material - [https://material.angularjs.org/latest/](https://material.angularjs.org/latest/)
+* Angular 瀑布流[Angular-masonry](https://github.com/passy/angular-masonry)
+* Animate.css - [http://daneden.github.io/animate.css/](http://daneden.github.io/animate.css/)
+* jQuery - [http://jquery.com](http://jquery.com)
+* Use `jQuery-slimScroll` to design scroll.
+* Material Design Icon - [http://zavoloklom.github.io/material-design-iconic-font/icons.html](http://zavoloklom.github.io/material-design-iconic-font/icons.html)
+* Moment JS - [http://momentjs.cn/](http://momentjs.cn/)
 * Use `codemirror` to edit markdown.
 
-### JQuery useful ###
-
-* Use `jQuery-slimScroll` to design scroll.
 
 
 
@@ -58,6 +69,9 @@
 * 那道墙的原因，打开icon library站点，是Google的站点，无法正常的访问
 * 与文字同在一行排列时，默认情况下，不是垂直居中，位置偏上，需要另外调节
 * 使用`Material Angular`、 `Material UI`和原生写法，都有区别
+
+
+
 
 ## Some Useful ##
 
@@ -98,3 +112,12 @@ Roboto Font - https://www.google.com/fonts/specimen/Roboto
 Shadow Light Font - https://www.google.com/fonts/specimen/Shadows+Into+Light
 ng-table - http://ng-table.com/
 Bootstrap SweetAlert - http://lipis.github.io/bootstrap-sweetalert/
+
+
+## LOG ##
+
+* 2016-07-07
+> Using require to develop directives.
+> Add Eslint in this project.
+
+

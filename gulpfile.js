@@ -4,6 +4,7 @@ var htmlmin = require('gulp-htmlmin');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
+var eslint = require('gulp-eslint');
 var sourcemaps = require('gulp-sourcemaps');
 
 
@@ -112,6 +113,19 @@ gulp.task('jqueryModule', function () {
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('app/dest/common'));
 });
+
+gulp.task('eslint', function() {
+  gulp.src(['app/container/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+    .pipe(eslint.result(function(results) {
+      console.log(`Total Results: ${results.length}`);
+      console.log(`Total Warnings: ${results.warningCount}`);
+      console.log(`Total Errors: ${results.errorCount}`);
+    }));
+});
+
 
 gulp.task('default', [
   'apDirective',
