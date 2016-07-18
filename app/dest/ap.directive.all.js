@@ -5,7 +5,8 @@ require([
   'angular-slimscroll',
   'horizontal',
   'item',
-  'pagination'
+  'pagination',
+  'label-wrapper'
 ]);
 
 
@@ -21,10 +22,10 @@ define('angular-slimscroll', ['adminApp'], function(adminApp) {
    */
   .constant('jquerySlimscroll', [
     {
-      name:"jquerySlimscroll",
-      module:true,
-      files:[
-        "bower_components/jquery-slimscroll/jquery.slimscroll.min.js"
+      name: 'jquerySlimscroll',
+      module: true,
+      files: [
+        'bower_components/jquery-slimscroll/jquery.slimscroll.min.js'
       ]
     }
   ])
@@ -36,19 +37,19 @@ define('angular-slimscroll', ['adminApp'], function(adminApp) {
       },
       transclude: true,
       template: '<div class="ap-slimscroll-content" ng-transclude><div>',
-      link: ['$scope', 'element', 'attrs',
-        function ($scope, element, attrs) {
+      link: ['$scope', 'element',
+        function ($scope, element) {
+          var $ = window.$;
           $(element).slimscroll({
             height: 'auto'
           });
         }
       ],
-      controller: ['$scope', function ($scope) {
+      controller: ['$scope', function() {
       }]
     };
   });
-})
-
+});
 
 'use strict';
 
@@ -63,9 +64,9 @@ define('horizontal', ['adminApp'], function(adminApp) {
       },
       // template: '<div ng-bind-html="markdownHtml"></div>',
       templateUrl: 'templates/directive/horizontal/index.html',
-      controller: ['$scope', function ($scope) {
+      controller: ['$scope', function () {
       }]
-    }
+    };
   });
 });
 
@@ -89,8 +90,36 @@ define('item', ['adminApp'], function(adminApp) {
         authorUrl: '@'
       },
       templateUrl: '/templates/directive/item/index.html',
-      controller: ['$scope', function ($scope) {
+      controller: ['$scope', function() {
         // console.log('test => ', $scope.img);
+      }]
+    };
+  });
+});
+'use strict';
+
+define('label-wrapper', ['adminApp'], function(adminApp) {
+
+  adminApp.directive('apLabelWrapper', function () {
+    return {
+      restrict: 'E',
+      scope: {
+        label: '@',
+        for: '@'
+      },
+      template: '<div class="form-group">'
+        + '  <div class="col-md-4 col-sm-4 col-xs-4">'
+        + '    <label class="control-label" for="{{ for }}"'
+        + '           style="line-height: 30px">{{ label }}</label>'
+        + '  </div>'
+        + '  <div class="col-md-8 col-sm-8 col-xs-8" ng-transclude></div>'
+        + '</div>',
+      transclude: true,
+      controller: ['$scope', function($scope) {
+        if ($scope.label === undefined || $scope.label === '') {
+          $scope.label = 'Default label';
+          console.warn('Please set ap-label-wrapper element label argument value.');
+        }
       }]
     };
   });
@@ -138,21 +167,20 @@ define('pagination', ['adminApp'], function(adminApp) {
           } else {
             if ( currentPage <= 4) {
               addArray(arr, 1, currentPage + 1);
-              arr.push('...')
+              arr.push('...');
               addArray(arr, totalPages - 1, totalPages);
             }
 
             else if (currentPage > totalPages - 4){
               addArray(arr, 1, 2);
-              arr.push('...')
+              arr.push('...');
               addArray(arr, currentPage - 1, totalPages);
             }
             else {
-              var arr = [];
               addArray(arr, 1, 2);
-              arr.push('...')
+              arr.push('...');
               addArray(arr, currentPage - 1, currentPage + 1);
-              arr.push('...')
+              arr.push('...');
               addArray(arr, totalPages - 1, totalPages);
             }
             return arr;
@@ -191,6 +219,6 @@ define('pagination', ['adminApp'], function(adminApp) {
           return arr;
         }
       }]
-    }
+    };
   });
 });

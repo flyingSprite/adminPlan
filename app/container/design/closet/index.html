@@ -1,3 +1,21 @@
 <section>
-  <button ng-click="ctrl.showNotification()">Check me!</button>
+  <button
+    class="btn btn-success"
+    ng-click="ctrl.showNotification()"
+  >Notification</button>
+
+</section>
+
+<section>
+  <form class="form-horizontal">
+    <ap-label-wrapper label="id_name_0" for="test">
+      <input class="form-control" type="text" id="id_name_0"/>
+    </ap-label-wrapper>
+    <ap-label-wrapper label="Message" for="test">
+      <input class="form-control" type="text" id="test"/>
+    </ap-label-wrapper>
+    <ap-label-wrapper label="Type" for="test">
+      <input class="form-control" type="text" id="test"/>
+    </ap-label-wrapper>
+  </form>
 </section>
