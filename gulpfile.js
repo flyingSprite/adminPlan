@@ -1,10 +1,13 @@
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
+var chalk = require('chalk');
 var htmlmin = require('gulp-htmlmin');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
+var watch = require('gulp-watch');
 var sourcemaps = require('gulp-sourcemaps');
 
 
@@ -114,16 +117,25 @@ gulp.task('jqueryModule', function () {
     .pipe(gulp.dest('app/dest/common'));
 });
 
+/**
+ * Use Eslint to check the code.
+ */
 gulp.task('eslint', function() {
   gulp.src(['app/templates/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
     .pipe(eslint.result(function(results) {
-      console.log(`Total Results: ${results.length}`);
-      console.log(`Total Warnings: ${results.warningCount}`);
-      console.log(`Total Errors: ${results.errorCount}`);
+      gutil.log('Results:',
+                chalk.red(`${results.warningCount}`),
+                '/',
+                chalk.red(`${results.errorCount}`),
+                chalk.underline.black(`${results.filePath}`));
     }));
+});
+
+gulp.task('watch', function() {
+  gulp.watch('app/templates/**/*.js', ['eslint', 'apDirective', 'apService']);
 });
 
 

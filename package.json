@@ -39,6 +39,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.8",
     "jit-grunt": "^0.9.1",
     "jshint": "^2.8.0",
     "jshint-stylish": "^1.0.0",

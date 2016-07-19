@@ -6,22 +6,10 @@ module.exports = {
     "extends": "eslint:recommended",
     "rules": {
         "no-console": 0,
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
+        "indent": [ "error", 2 ],
+        "quotes": [ "error", "single" ],
+        // "linebreak-style": ["error", "unix"],
+        "semi": [ "error", "always" ]
     },
     "globals": {
         "define": true,

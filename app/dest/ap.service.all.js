@@ -1,18 +1,16 @@
 
-// define([
-//   './templates/services/initService',
-//   './templates/services/notification-service'], function() {});
+/**
+ * Define a server use low wrap:
+ * define('serviceName', ['a', 'b', 'c'], function () {});
+ * then add like below:
+ * require(['serviceName']);
+ */
+require([
+  'initService',
+  'notification-service'
+]);
 
-
-require(['initService', 'notification-service']);
-
-// require(['notification-service'], function () {
-//   console.log('ssssss');
-// });
-
-define('initService',
-  ['adminApp', 'config', 'marked', 'angular', 'angular-ui-router'],
-  function (adminApp, config, marked) {
+define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-router'], function (adminApp, config, marked) {
 
   adminApp.service('InitService', function ($http){
     this.config = function () {
@@ -63,7 +61,7 @@ define('initService',
             });
         }
       }
-    }
+    };
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
@@ -89,13 +87,14 @@ define('initService',
       } else if (config.method.toUpperCase() == 'GET') {
         return $http({
           url: serverUrl + config.url,
-          method:"GET",
+          method: 'GET',
           data: config.data
         });
       }
     };
   }])
   .service('socket', [ '$http', 'logging', function ($http, logging) {
+    console.log(logging);
     $http.defaults.useXDomain = true;
     // var socket = new WebSocket('ws://localhost:8080/solutions/point');
     // var self = this;
@@ -125,20 +124,20 @@ define('initService',
 
 
     this.send = function (data) {
+      console.log(data);
       // if(self.connectSuccess){
       //   socket.send(data);
       // } else {
       //   temporyList.push(data);
       //   logging.warn("Web Socket is connecting ... ");
       // }
-    }
+    };
 
   }]);
 
 });
 
-define('notification-service', ['adminApp'],
-  function (adminApp) {
+define('notification-service', ['adminApp'], function (adminApp) {
   adminApp.service('notification', function () {
     var self = this;
     self.supportNotification = false;
@@ -153,7 +152,7 @@ define('notification-service', ['adminApp'],
     else if (Notification.permission !== 'denied') {
       Notification.requestPermission(function (permission) {
         // If the user accepts, let's create a notification
-        if (permission === "granted") {
+        if (permission === 'granted') {
           self.supportNotification = true;
         }
       });
@@ -163,6 +162,6 @@ define('notification-service', ['adminApp'],
       if (self.supportNotification) {
         new Notification(message);
       }
-    }
+    };
   });
 });

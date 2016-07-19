@@ -24,7 +24,11 @@
 * Pack all angular directive files in one file.
 * Realize demand loading angular controller js files.
 
+## Architecture Design ##
+
 ## Framework Design ##
+
+## Pack stategy ##
 
 ### Common utility framework ###
 
@@ -71,6 +75,9 @@
 * 使用`Material Angular`、 `Material UI`和原生写法，都有区别
 
 
+## Console ##
+Use [gulp-util](https://www.npmjs.com/package/gulp-util) to print log.
+Use [chalk](https://github.com/chalk/chalk) to print log with different color;
 
 
 ## Some Useful ##
