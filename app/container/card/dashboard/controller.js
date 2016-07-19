@@ -1,8 +1,7 @@
 define(['adminApp'], function (adminApp) {
 
-  adminApp.controller('CardDashboardController', [
-    '$scope', '$stateParams', 'breadcrumb', 'adminHttp',
-    function ($scope, $stateParams, breadcrumb, adminHttp){
+  adminApp.controller('CardDashboardController',
+    function (){
       var self = this;
       self.pics = [];
       for(var i = 0; i < 4; i ++) {
@@ -13,5 +12,5 @@ define(['adminApp'], function (adminApp) {
       }
       console.log(self.pics);
     }
-  ]);
+  );
 });

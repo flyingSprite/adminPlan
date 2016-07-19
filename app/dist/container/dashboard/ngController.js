@@ -1,0 +1,1 @@
+define(["adminApp","Raphael","worldmap"],function(o,a,n){o.controller("dashboardIndexController",["$scope","$http","$sce","api",function(o,a,t,l){var c=this;c.count={blog:0,ltaaa:0},l.count(function(o){c.count.blog=o.blog,c.count.ltaaa=o.ltaaa},function(){}),n("world-map")}])});

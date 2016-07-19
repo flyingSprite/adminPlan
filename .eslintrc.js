@@ -12,8 +12,9 @@ module.exports = {
         "semi": [ "error", "always" ]
     },
     "globals": {
-        "define": true,
         "$": true,
+        "angular": true,
+        "define": true,
         "hljs": true
     }
 };

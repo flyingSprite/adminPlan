@@ -10,11 +10,11 @@ define('label-wrapper', ['adminApp'], function(adminApp) {
         for: '@'
       },
       template: '<div class="form-group">'
-        + '  <div class="col-md-4 col-sm-4 col-xs-4">'
+        + '  <div class="col-md-2 col-sm-3 col-xs-4">'
         + '    <label class="control-label" for="{{ for }}"'
         + '           style="line-height: 30px">{{ label }}</label>'
         + '  </div>'
-        + '  <div class="col-md-8 col-sm-8 col-xs-8" ng-transclude></div>'
+        + '  <div class="col-md-10 col-sm-9 col-xs-8" ng-transclude></div>'
         + '</div>',
       transclude: true,
       controller: ['$scope', function($scope) {

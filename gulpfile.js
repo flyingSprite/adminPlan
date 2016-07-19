@@ -7,7 +7,6 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
-var watch = require('gulp-watch');
 var sourcemaps = require('gulp-sourcemaps');
 
 
@@ -41,30 +40,30 @@ gulp.task('demo', function () {
 });
 
 // Let all common js files concat in a file.
-// The file is app/dest/common/common.min.js .
+// The file is app/dist/common/common.min.js .
 gulp.task('commonJs', () => {
   return gulp.src(commonJsFiles)
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('common.min.js'))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dest/common'));
+    .pipe(gulp.dest('app/dist/common'));
 });
 
 // Let all common css files concat in a file.
-// The file is app/dest/common/common.min.css .
+// The file is app/dist/common/common.min.css .
 gulp.task('commonCss', () => {
   return gulp.src(commonCssFiles)
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('common.min.css'))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dest/common'));
+    .pipe(gulp.dest('app/dist/common'));
 });
 
 /* 将container中的js文件单独压缩到dist中 */
 gulp.task('containerJs', () => {
   return gulp.src('app/container/**/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest('app/dest/container'));
+    .pipe(gulp.dest('app/dist/container'));
 });
 
 gulp.task('containerHtml', function () {
@@ -80,33 +79,33 @@ gulp.task('containerHtml', function () {
   };
   return gulp.src('app/container/**/*.html')
     .pipe(htmlmin(options))
-    .pipe(gulp.dest('app/dest/container'));
+    .pipe(gulp.dest('app/dist/container'));
 });
 
 gulp.task('apDirective', function () {
   return gulp.src(directiveFiles)
     // .pipe(rename({ suffix: '.all' }))
     .pipe(concat('ap.directive.all.js'))
-    .pipe(gulp.dest('app/dest/'))
+    .pipe(gulp.dest('app/dist/'))
 
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(uglify())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dest/'));
+    .pipe(gulp.dest('app/dist/'));
 });
 
 gulp.task('apService', function () {
   return gulp.src(serviceFiles)
     // .pipe(rename({ suffix: '.all' }))
     .pipe(concat('ap.service.all.js'))
-    .pipe(gulp.dest('app/dest/'))
+    .pipe(gulp.dest('app/dist/'))
 
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(uglify())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dest/'));
+    .pipe(gulp.dest('app/dist/'));
 });
 
 gulp.task('jqueryModule', function () {
@@ -114,28 +113,47 @@ gulp.task('jqueryModule', function () {
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('jquery.modules.min.js'))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dest/common'));
+    .pipe(gulp.dest('app/dist/common'));
 });
 
 /**
  * Use Eslint to check the code.
  */
-gulp.task('eslint', function() {
+gulp.task('eslint-templates', function() {
   gulp.src(['app/templates/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
     .pipe(eslint.result(function(results) {
-      gutil.log('Results:',
-                chalk.red(`${results.warningCount}`),
-                '/',
-                chalk.red(`${results.errorCount}`),
-                chalk.underline.black(`${results.filePath}`));
+      gutil.log('Eslint:',
+        chalk.red(`${results.warningCount}`),
+        '/',
+        chalk.red(`${results.errorCount}`),
+        chalk.underline.dim(`${results.filePath}`)
+      );
     }));
 });
 
+gulp.task('eslint-container', function() {
+  gulp.src(['app/container/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+    .pipe(eslint.result(function(results) {
+      gutil.log('Eslint:',
+        chalk.red(`${results.warningCount}`),
+        '/',
+        chalk.red(`${results.errorCount}`),
+        chalk.underline.dim(`${results.filePath}`)
+      );
+    }));
+});
+
+gulp.task('eslint', ['eslint-templates', 'eslint-container']);
+
 gulp.task('watch', function() {
   gulp.watch('app/templates/**/*.js', ['eslint', 'apDirective', 'apService']);
+  gulp.watch('app/container/**/*.js', ['eslint-container']);
 });
 
 
@@ -146,5 +164,7 @@ gulp.task('default', [
   'commonCss',
   'containerJs',
   'containerHtml',
-  'jqueryModule'
+  'jqueryModule',
+  'eslint',
+  'watch'
 ]);

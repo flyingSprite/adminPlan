@@ -25,9 +25,9 @@ require.config({
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
 
-    'ap-service': 'dest/ap.service.all.min',
+    'ap-service': 'dist/ap.service.all.min',
     // 'ap-service': 'templates/services/index',
-    'ap-directive': 'dest/ap.directive.all.min',
+    'ap-directive': 'dist/ap.directive.all.min',
 
     // 'ap-directive-module': 'templates/directive/directive',
     // 'ap-directive': 'templates/directive/pagination/controller',

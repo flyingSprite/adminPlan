@@ -7,5 +7,7 @@
  */
 require([
   'initService',
-  'notification-service'
+  'api',
+  'notification-service',
+  'util'
 ]);

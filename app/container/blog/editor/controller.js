@@ -32,7 +32,7 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
                 self.isUpdateModel = false;
               }
             })
-            .error(function (err) {
+            .error(function () {
               self.isUpdateModel = false;
             });
         }
@@ -40,11 +40,11 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
 
       function objectCopy (objectList, from, to) {
         if (typeof(objectList) === 'object'){
-          for(obj in objectList){
+          for(var obj in objectList){
             to[objectList[obj]] = from[objectList[obj]];
           }
         }
-      };
+      }
 
       function getToastPosition() {
         var toastPosition = {
@@ -57,7 +57,7 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
         return Object.keys(toastPosition)
           .filter(function(pos) { return toastPosition[pos]; })
           .join(' ');
-      };
+      }
 
       function showEditorToast () {
         var message = self.isUpdateModel ? 'Editor Success' : 'Create Success' ;
@@ -68,7 +68,7 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
             .position(getToastPosition())
             .hideDelay(3000)
         );
-      };
+      }
 
       self.submitBlog = function () {
         if(self.blog === undefined || self.blog.title === undefined
@@ -85,20 +85,20 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
         delete self.blog.lastUpdateDate;
         delete self.blog.currentDate;
         adminHttp({url: '/blog', data: self.blog, method: method})
-        .success(function (response){
+        .success(function() {
           showEditorToast();
-          $state.go("main.blog.list");
+          $state.go('main.blog.list');
         });
 
       };
 
       self.cancel = function () {
         if ( self.isUpdateModel && self.blog.id) {
-          $state.go("main.blog.info", {id: self.blog.id});
+          $state.go('main.blog.info', {id: self.blog.id});
         } else {
-          $state.go("main.blog.list");
+          $state.go('main.blog.list');
         }
-      }
+      };
 
       initEditorController();
     }

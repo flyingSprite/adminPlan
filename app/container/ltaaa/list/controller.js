@@ -18,18 +18,18 @@ define(['adminApp'], function (adminApp) {
       self.toPage = function (pageNumber) {
         self.pager.page = pageNumber - 1;
         findLtaaaTitle();
-      }
+      };
 
       self.prevPage = function() {
         self.pager.page = self.pager.page - 1;
         self.pager.page = self.pager.page < 0 ? 0 : self.pager.page;
         findLtaaaTitle();
-      }
+      };
 
       self.nextPage = function() {
         self.pager.page = self.pager.page + 1;
         findLtaaaTitle();
-      }
+      };
 
       function toTop() {
         // 将location.hash的值设置为
@@ -45,7 +45,7 @@ define(['adminApp'], function (adminApp) {
           .success(function (res){
             self.ltaaaTitleList.length = 0;
             if (res.data) {
-              angular.forEach(res.data, function(value, index){
+              angular.forEach(res.data, function(value){
                 this.push(value);
               }, self.ltaaaTitleList);
             }
@@ -56,7 +56,7 @@ define(['adminApp'], function (adminApp) {
               self.pager.size = pager.size;
             }
             toTop();
-          }).error(function (err){
+          }).error(function (){
           });
       }
       findLtaaaTitle();

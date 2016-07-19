@@ -15,7 +15,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
   adminApp.config([
     '$stateProvider', '$urlRouterProvider', '$requireProvider',
     function ($stateProvider, $urlRouterProvider, $requireProvider) {
-      angular.forEach(ngRouter, function (value, index) {
+      angular.forEach(ngRouter, function (value) {
         $stateProvider
         .state(value.uiSref, {
           url: '/' + value.name +'?'+ value.params,

@@ -1,0 +1,1 @@
+define(["adminApp","config"],function(r,e){var o=e.rootPath+"container/dashboard/";r.config(["$stateProvider","$urlRouterProvider","$requireProvider",function(r,e,n){r.state("main.dashboard.index",{url:"/index",templateUrl:o+"dashboard.html",controller:"dashboardIndexController",controllerAs:"ctrl",resolve:{deps:n.requireJS([o+"ngController.js"])}})}])});

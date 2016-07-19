@@ -1,6 +1,5 @@
 define(['adminApp', 'config'], function (adminApp, config) {
   var templatePath = config.rootPath + 'container/dashboard/';
-  var adminApp = require('adminApp');
   adminApp.config([
     '$stateProvider', '$urlRouterProvider', '$requireProvider',
     function ($stateProvider, $urlRouterProvider, $requireProvider) {
@@ -16,5 +15,5 @@ define(['adminApp', 'config'], function (adminApp, config) {
           },
         });
     }
-]);
+  ]);
 });

@@ -8,8 +8,8 @@ define(['adminApp', 'config',
 ], function (adminApp, config) {
   var templatePath = config.rootPath + 'container';
   adminApp.config([
-    '$stateProvider', '$urlRouterProvider',
-    function ($stateProvider, $urlRouterProvider) {
+    '$stateProvider',
+    function ($stateProvider) {
       $stateProvider
         .state('main.dashboard', {
           url: 'dashboard',
