@@ -128,4 +128,21 @@
       .item-article-pub-info-comment span {
         margin-left: 3px; }
 
+.item-info {
+  padding: 15px;
+  margin-bottom: 3px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+  .item-info-light {
+    background-color: #ebf1ec; }
+  .item-info-title {
+    padding-right: 15px; }
+
+.content {
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+  .content-light {
+    background-color: #efefef; }
+
 /*# sourceMappingURL=index.css.map */

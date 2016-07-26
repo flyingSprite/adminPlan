@@ -5,6 +5,8 @@ require([
   'angular-slimscroll',
   'horizontal',
   'item',
+  'item-info',
+  'item-news',
   'pagination',
   'label-wrapper'
 ]);

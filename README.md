@@ -80,6 +80,15 @@ Use [gulp-util](https://www.npmjs.com/package/gulp-util) to print log.
 Use [chalk](https://github.com/chalk/chalk) to print log with different color;
 
 
+## Feature Requirement ##
+
+Directive for show file:
+* Show markdown file. (`Done`)
+* Show diff file.
+
+保存部分信息，让其他的信息通过爬出实现。
+
+
 ## Some Useful ##
 
 Credits

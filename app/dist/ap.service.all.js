@@ -9,8 +9,18 @@ define('api', ['adminApp'], function (adminApp) {
       .success(function(count){
         count && success && success(count);
       })
-      .error(function (err) {
-        error && error(err);
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
+
+    this.hotnews = function(success, error) {
+      adminHttp({method: 'GET', url: '/hotnews'})
+      .success(function(hotnews) {
+        hotnews && success && success(hotnews);
+      })
+      .error(function(err) {
+        err && error && error(err);
       });
     };
   }]);
