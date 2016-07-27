@@ -53,7 +53,6 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
-    console.log(config);
     var serverUrl = 'http://' + config.serverHost + '/solutions';
     // var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){
@@ -81,8 +80,7 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
       }
     };
   }])
-  .service('socket', [ '$http', 'logging', function ($http, logging) {
-    console.log(logging);
+  .service('socket', [ '$http', 'logging', function ($http) {
     $http.defaults.useXDomain = true;
     // var socket = new WebSocket('ws://localhost:8080/solutions/point');
     // var self = this;
@@ -111,8 +109,7 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
 
 
 
-    this.send = function (data) {
-      console.log(data);
+    this.send = function () {
       // if(self.connectSuccess){
       //   socket.send(data);
       // } else {

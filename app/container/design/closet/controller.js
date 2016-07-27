@@ -1,7 +1,8 @@
 define(['adminApp', 'moment'], function (adminApp, moment) {
   adminApp.controller('DesignClosetController', [
-    '$scope', '$state', '$anchorScroll', '$location', 'breadcrumb', 'notification', 'util', 'api',
-    function ($scope, $state, $anchorScroll, $location, breadcrumb, notification, util, api){
+    '$scope', '$state', '$anchorScroll', '$location', 'breadcrumb', 'notification', 'util', 'api', 'GenerateUniqueId',
+    function ($scope, $state, $anchorScroll, $location, breadcrumb, notification, util, api, GenerateUniqueId){
+      console.log(GenerateUniqueId.next());
       var self = this;
       self.moment = moment;
       self.showNotification = function () {
@@ -12,10 +13,10 @@ define(['adminApp', 'moment'], function (adminApp, moment) {
       self.list = [];
       self.hotnews = [];
 
+      self.websites = {};
+
       api.hotnews(function(hotnews){
-        console.log(hotnews);
-        self.hotnews.lenght = 0;
-        self.hotnews = self.hotnews.concat(hotnews);
+        setHotnewsByWebsite(hotnews);
       });
 
       self.submit = function() {
@@ -28,6 +29,19 @@ define(['adminApp', 'moment'], function (adminApp, moment) {
           self.data.content = '';
         }
       };
+
+      function setHotnewsByWebsite(hotnews) {
+        angular.forEach(hotnews, function(news) {
+          var website = self.websites[news.website];
+          if (website) {
+            website.push(news);
+          } else {
+            self.websites[news.website] = [];
+            self.websites[news.website].push(news);
+          }
+        });
+        console.log(self.websites);
+      }
     }
   ]);
 });

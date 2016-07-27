@@ -94,7 +94,6 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
-    console.log(config);
     var serverUrl = 'http://' + config.serverHost + '/solutions';
     // var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){
@@ -122,8 +121,7 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
       }
     };
   }])
-  .service('socket', [ '$http', 'logging', function ($http, logging) {
-    console.log(logging);
+  .service('socket', [ '$http', 'logging', function ($http) {
     $http.defaults.useXDomain = true;
     // var socket = new WebSocket('ws://localhost:8080/solutions/point');
     // var self = this;
@@ -152,8 +150,7 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
 
 
 
-    this.send = function (data) {
-      console.log(data);
+    this.send = function () {
       // if(self.connectSuccess){
       //   socket.send(data);
       // } else {
@@ -197,11 +194,28 @@ define('notification-service', ['adminApp'], function (adminApp) {
 
 /** Util service. */
 define('util', ['adminApp'], function (adminApp) {
-  adminApp.service('util', function () {
+
+  adminApp
+  .service('util', function () {
 
     /** Is undefined or '' */
     this.isNull = function(obj) {
       return obj === undefined || obj === '';
+    };
+  })
+  .factory('GenerateUniqueId', function() {
+    var generateUid = function() {
+      // http://www.ietf.org/rfc/rfc4122.txt
+      var d = new Date().getTime();
+      var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c === 'x' ? r : (r&0x7|0x8)).toString(16);
+      });
+      return uuid;
+    };
+    return {
+      next: function() { return generateUid(); }
     };
   });
 });

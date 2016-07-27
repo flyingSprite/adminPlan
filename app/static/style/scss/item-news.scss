@@ -1,0 +1,23 @@
+
+.item-news {
+  min-width: 180px;
+
+  padding: 15px;
+  margin-bottom: 3px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-color: #daf3de;
+
+  .site-link {
+    color: #FFFFFF !important;
+  }
+
+  .title {
+    padding-top: 5px;
+
+    a {
+      color: #000;
+      font-weight: 300;
+    }
+  }
+}

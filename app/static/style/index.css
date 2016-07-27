@@ -138,11 +138,50 @@
   .item-info-title {
     padding-right: 15px; }
 
+.item-news {
+  min-width: 180px;
+  padding: 15px;
+  margin-bottom: 3px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-color: #daf3de; }
+  .item-news .site-link {
+    color: #FFFFFF !important; }
+  .item-news .title {
+    padding-top: 5px; }
+    .item-news .title a {
+      color: #000;
+      font-weight: 300; }
+
 .content {
   padding: 15px;
   border: 1px solid transparent;
   border-radius: 4px; }
   .content-light {
     background-color: #efefef; }
+
+.ap-panel {
+  margin-bottom: 0;
+  border-radius: 0px !important;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
+  .ap-panel-default {
+    border-color: #cac8c8; }
+
+.ap-panel-heading {
+  color: #333;
+  background-color: #63ddff;
+  border-color: #fff;
+  border-bottom: 0;
+  padding: 6px 15px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px; }
+  .ap-panel-heading a {
+    border-bottom: 5px solid transparent;
+    border-color: #ff4b00; }
 
 /*# sourceMappingURL=index.css.map */

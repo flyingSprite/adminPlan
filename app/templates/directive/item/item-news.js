@@ -10,14 +10,20 @@ define('item-news', ['adminApp'], function(adminApp) {
         websiteUrl: '@',
         name: '@',
         date: '@',
-        newHref: '@'
+        newsHref: '@'
       },
-      template: '<div class="item-info item-info-light">'
-        + '<span class="label label-primary">'
-        + '<a class="shades-text text-white" href="{{ websiteUrl }}" target="_black">{{ website }}</a>'
-        + '</span>'
-        + '&nbsp;{{ date }}&nbsp;'
-        + '<a href="{{ newHref }}" target="">{{ name }}</a>'
+      template: '<div class="item-news">'
+        + '<div>'
+        + '  <span class="label label-primary">'
+        + '    <a class="site-link" href="{{ websiteUrl }}" target="_black">{{ website }}</a>'
+        + '  </span>'
+        + '  <div class="pull-right">'
+        + '    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{ date }}'
+        + '  </div>'
+        + '</div>'
+        + '<div class="title">'
+        + '  <a href="{{ newsHref }}" target="_black">{{ name }}</a>'
+        + '</div>'
         + '</div>',
       controller: ['$scope', function() {
       }]

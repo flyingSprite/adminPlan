@@ -1,0 +1,34 @@
+
+.ap-panel {
+  margin-bottom: 0;
+  border-radius: 0px !important;
+
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+
+  &-default {
+    border-color: #cac8c8;
+  }
+}
+
+.ap-panel-heading {
+  color: #333;
+  background-color: #63ddff;
+  border-color: #fff;
+
+  border-bottom: 0;
+
+  padding: 6px 15px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+
+  a {
+    border-bottom: 5px solid transparent;
+    border-color: #ff4b00;
+  }
+
+}
