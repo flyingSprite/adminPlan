@@ -38,13 +38,13 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>44</h3>
-                    <p>User Registrations</p>
+                    <h3>{{ ctrl.count.hotnews }}</h3>
+                    <p>{{ 'Total Hot News' | translate }}</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-user-plus"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -52,8 +52,8 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>65</h3>
-                    <p>Unique Visitors</p>
+                    <h3>{{ ctrl.count.cmsMonitor }}</h3>
+                    <p>{{ 'Total CMS Monitor' | translate }}</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-pie-chart"></i>

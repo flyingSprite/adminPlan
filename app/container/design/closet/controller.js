@@ -1,4 +1,4 @@
-define(['adminApp', 'moment'], function (adminApp, moment) {
+define(['adminApp', 'moment', 'ap-charts'], function (adminApp, moment) {
   adminApp.controller('DesignClosetController', [
     '$scope', '$state', '$anchorScroll', '$location', 'breadcrumb', 'notification', 'util', 'api', 'GenerateUniqueId',
     function ($scope, $state, $anchorScroll, $location, breadcrumb, notification, util, api, GenerateUniqueId){

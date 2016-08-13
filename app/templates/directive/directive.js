@@ -8,6 +8,8 @@ require([
   'item-info',
   'item-news',
   'pagination',
-  'label-wrapper'
+  'label-wrapper',
+
+  'layout-box'
 ]);
 

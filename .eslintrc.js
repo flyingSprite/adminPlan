@@ -15,6 +15,7 @@ module.exports = {
         "$": true,
         "angular": true,
         "define": true,
-        "hljs": true
+        "hljs": true,
+        "Highcharts": true
     }
 };

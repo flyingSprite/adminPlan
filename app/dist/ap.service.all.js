@@ -23,6 +23,16 @@ define('api', ['adminApp'], function (adminApp) {
         err && error && error(err);
       });
     };
+
+    this.lastTenCpuMonitor = function(success, error) {
+      adminHttp({method: 'GET', url: '/cms'})
+      .success(function(hotnews) {
+        hotnews && success && success(hotnews);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
   }]);
 });
 
@@ -94,7 +104,7 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
-    var serverUrl = 'http://' + config.serverHost + '/solutions';
+    var serverUrl = 'http://' + config.serverHost + config.namespace;
     // var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){
       if(config.method.toUpperCase() == 'POST' || config.method.toUpperCase() == 'PUT') {
@@ -102,14 +112,14 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
           url: serverUrl + config.url,
           method: config.method.toUpperCase(),
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
           },
-          transformRequest : function(data){
-            if (data === undefined) {
-              return data;
-            }
-            return $.param(data);
-          },
+          // transformRequest : function(data){
+          //   if (data === undefined) {
+          //     return data;
+          //   }
+          //   return $.param(data);
+          // },
           data: config.data
         });
       } else if (config.method.toUpperCase() == 'GET') {

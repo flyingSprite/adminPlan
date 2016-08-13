@@ -23,5 +23,15 @@ define('api', ['adminApp'], function (adminApp) {
         err && error && error(err);
       });
     };
+
+    this.lastTenCpuMonitor = function(success, error) {
+      adminHttp({method: 'GET', url: '/cms'})
+      .success(function(hotnews) {
+        hotnews && success && success(hotnews);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
   }]);
 });

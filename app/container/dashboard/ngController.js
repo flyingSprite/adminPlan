@@ -7,7 +7,9 @@ define(['adminApp', 'Raphael', 'worldmap'], function (adminApp, Raphael, worldma
       var self = this;
       self.count = {
         blog: 0,
-        ltaaa: 0
+        ltaaa: 0,
+        hotnews: 0,
+        cmsMonitor: 0
       };
       // adminHttp({method: 'GET', url: '/dashboard/count'})
       // .success(function(count){
@@ -22,6 +24,8 @@ define(['adminApp', 'Raphael', 'worldmap'], function (adminApp, Raphael, worldma
       api.count(function(count) {
         self.count.blog = count.blog;
         self.count.ltaaa = count.ltaaa;
+        self.count.hotnews = count.hotnews;
+        self.count.cmsMonitor = count.cmsMonitor;
       }, function() {});
 
 

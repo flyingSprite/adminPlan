@@ -17,7 +17,7 @@
 
 .ap-panel-heading {
   color: #333;
-  background-color: #63ddff;
+  // background-color: #63ddff;
   border-color: #fff;
 
   border-bottom: 0;
@@ -25,10 +25,16 @@
   padding: 6px 15px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+  border-bottom: 1px solid transparent;
+  border-color: #cac8c8;
 
   a {
-    border-bottom: 5px solid transparent;
-    border-color: #ff4b00;
+  }
+
+  h4 {
+    border-left: 5px solid;
+    border-color: #ffcd00;
+    padding-left: 10px;
   }
 
 }

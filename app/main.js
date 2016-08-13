@@ -13,6 +13,7 @@ require.config({
     'codemirror': '../bower_components/codemirror/lib/codemirror',
     'd3': '../bower_components/d3/d3.min',
     'domReady': '../bower_components/requirejs-domready/domReady',
+    'highcharts': '../bower_components/highcharts/highcharts',
     'marked': '../bower_components/marked/marked.min',
     'moment': '../bower_components/moment/min/moment.min',
     'Raphael': '../bower_components/raphael/raphael-min',
@@ -28,6 +29,7 @@ require.config({
     'ap-service': 'dist/ap.service.all.min',
     // 'ap-service': 'templates/services/index',
     'ap-directive': 'dist/ap.directive.all.min',
+    'ap-charts': 'dist/ap.charts.all.min',
 
     // 'ap-directive-module': 'templates/directive/directive',
     // 'ap-directive': 'templates/directive/pagination/controller',
@@ -53,6 +55,7 @@ require.config({
 
     'ap-directive': ['angular'],
     'ap-service': ['angular'],
+    'ap-charts': ['highcharts'],
 
 
     'ngRequire': ['angular-ui-router'],

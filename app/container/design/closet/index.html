@@ -6,33 +6,28 @@
 </section> -->
 
 <section class="container">
-  <!-- <div ng-repeat="item in ctrl.list">
-    Name: {{ item.name }}; Message: {{ item.message }}; Type: {{ item.type }};
-  </div> -->
-  <div
-      class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"
+
+  <ap-box title="CMS Monitor" collapse="{{true}}">
+    <div class="fixed-height-320 row"
+      chart-cpu-monitor id="chart-cpu" chart-id="chart-cpu" ></div>
+  </ap-box>
+
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"
       ng-repeat="(website, hotnews) in ctrl.websites track by $index">
-    <div class="ap-panel ap-panel-default">
-      <div class="ap-panel-heading" role="tab" id="headingOne">
-        <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{ $index }}" aria-expanded="true" aria-controls="collapse_{{ $index ">
-            {{ website }}
-          </a>
-        </h4>
-      </div>
-      <div id="collapse_{{ $index }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-        <div class="panel-body">
-          <ap-item-news
-            ng-repeat="news in hotnews"
-            name="{{ news.name }}"
-            news-href="{{ news.href }}"
-            date="{{ ctrl.moment(news.startTimestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }}"
-            website="{{ news.website }}"
-            website-url="{{ news.websiteUrl }}"
-          />
+      <ap-box title="{{'HotNews'}}" sub-title="{{website}}" collapse="{{true}}" default-hidden="{{true}}">
+        <div id="collapse_{{ $index }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <ap-item-news
+              ng-repeat="news in hotnews"
+              name="{{ news.name }}"
+              news-href="{{ news.href }}"
+              date="{{ ctrl.moment(news.startTimestamp).format('YYYY-MM-DD HH:mm:ss') }}"
+              website="{{ news.website }}"
+              website-url="{{ news.websiteUrl }}"
+            />
+          </div>
         </div>
-      </div>
-    </div>
+      </ap-box>
   </div>
   <div ng-repeat="news in ctrl.hotnews">
     <!-- <span class="label label-primary">

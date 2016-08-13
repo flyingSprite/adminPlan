@@ -29,12 +29,9 @@ var serviceFiles = [
   'app/templates/services/index.js'
 ];
 
-var jqueryModules = [
-  'bower_components/jquery-slimscroll/jquery.slimscroll.min.js'
-];
+var jqueryModules = ['bower_components/jquery-slimscroll/jquery.slimscroll.min.js'];
 
-
-// Gulp task demo.
+// Gulp task demo
 gulp.task('demo', function () {
   console.log('This is a Gulp test.');
 });
@@ -99,6 +96,18 @@ gulp.task('apService', function () {
   return gulp.src(serviceFiles)
     // .pipe(rename({ suffix: '.all' }))
     .pipe(concat('ap.service.all.js'))
+    .pipe(gulp.dest('app/dist/'))
+
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('app/dist/'));
+});
+
+gulp.task('charts', function () {
+  return gulp.src(['app/templates/charts/**/*.js'])
+    .pipe(concat('ap.charts.all.js'))
     .pipe(gulp.dest('app/dist/'))
 
     .pipe(rename({ suffix: '.min' }))

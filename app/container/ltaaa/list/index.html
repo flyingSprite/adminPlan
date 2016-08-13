@@ -1,5 +1,6 @@
 <section flex="100" layout="row" layout-align="center center">
-  <md-content flex="80" layout-padding>
+  <div class="container">
+  <!-- <md-content flex="80" layout-padding> -->
     <input type="checkbox" ng-model="ctrl.newStyle" ng-checked="ctrl.newStyle" />
     <span ng-show="ctrl.newStyle">New Style</span>
     <span ng-hide="ctrl.newStyle">Old Style</span>
@@ -54,5 +55,6 @@
       page="{{ ctrl.pager.page + 1 }}"
       size="{{ ctrl.pager.size }}"
       click="ctrl.toPage"></ap-paginate>
-  </md-content>
+  <!-- </md-content> -->
+  </div>
 </section>

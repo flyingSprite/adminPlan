@@ -80,10 +80,11 @@ define(['adminApp', 'ui-codemirror'], function (adminApp) {
           self.blog.isUpdate = true;
         }
 
-        // var method = self.isUpdateModel ? 'PUT' : 'POST';
-        var method = 'POST';
+        var method = self.isUpdateModel ? 'PUT' : 'POST';
+        // var method = 'POST';
         delete self.blog.lastUpdateDate;
         delete self.blog.currentDate;
+        console.log(self.blog);
         adminHttp({url: '/blog', data: self.blog, method: method})
         .success(function() {
           showEditorToast();
