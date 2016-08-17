@@ -9,5 +9,6 @@ require([
   'initService',
   'api',
   'notification-service',
+  'message-box',
   'util'
 ]);

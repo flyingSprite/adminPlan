@@ -33,5 +33,46 @@ define('api', ['adminApp'], function (adminApp) {
         err && error && error(err);
       });
     };
+
+    this.missionList = function(success, error) {
+      adminHttp({method: 'GET', url: '/mission'})
+      .success(function(missions) {
+        missions && success && success(missions);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
+
+    this.missionAdd = function(mission, success, error) {
+      adminHttp({method: 'POST', url: '/mission', data: mission})
+      .success(function(missions) {
+        missions && success && success(missions);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
+
+    this.missionUpdate = function(mission, success, error) {
+      adminHttp({method: 'PUT', url: '/mission', data: mission})
+      .success(function(missions) {
+        missions && success && success(missions);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
+
+    this.missionDelete = function(id, success, error) {
+      adminHttp({method: 'DELETE', url: '/mission', data: {id: id}})
+      .success(function(res) {
+        res && success && success(res);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
+
   }]);
 });

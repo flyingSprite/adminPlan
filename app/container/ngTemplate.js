@@ -4,7 +4,8 @@ define(['adminApp', 'config',
   './blog/ngRouter',
   './card/ngRouter',
   './design/ngRouter',
-  './ltaaa/ngRouter'
+  './ltaaa/ngRouter',
+  './mission/ngRouter'
 ], function (adminApp, config) {
   var templatePath = config.rootPath + 'container';
   adminApp.config([
@@ -80,6 +81,18 @@ define(['adminApp', 'config',
             },
             'main.container':{
               templateUrl: templatePath + '/ltaaa/ngTemplate.html'
+            }
+          }
+        })
+        .state('main.mission', {
+          url: 'mission',
+          views: {
+            'main.breadcrumb': {
+              templateUrl: templatePath + '/breadcrumb/ngBreadcrumb.html',
+              controller: 'breadcrumbController as ctrl'
+            },
+            'main.container':{
+              templateUrl: templatePath + '/mission/ngTemplate.html'
             }
           }
         });

@@ -11,12 +11,16 @@ var sourcemaps = require('gulp-sourcemaps');
 
 
 var commonCssFiles = [
-  'bower_components/bootstrap/dist/css/bootstrap.min.css'
+  'bower_components/bootstrap/dist/css/bootstrap.min.css',
+  'bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
 ];
 
 var commonJsFiles = [
   'bower_components/jquery/dist/jquery.min.js',
-  'bower_components/bootstrap/dist/js/bootstrap.min.js'
+  'bower_components/bootstrap/dist/js/bootstrap.min.js',
+  'bower_components/moment/min/moment.min.js',
+  'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+  'bower_components/notifyjs/dist/notify.js'
 ];
 
 var directiveFiles = [

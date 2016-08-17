@@ -1,5 +1,5 @@
 define(['adminApp', 'ap-service', 'ap-directive',
-  './dist/container/ngTemplate',
+  './container/ngTemplate',
   ], function (adminApp, d3NgRouter, recordNgRouter) {
 
   adminApp.service('init', function () {

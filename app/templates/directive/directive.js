@@ -10,6 +10,7 @@ require([
   'pagination',
   'label-wrapper',
 
-  'layout-box'
+  'layout-box',
+  'date-picker-attr'
 ]);
 

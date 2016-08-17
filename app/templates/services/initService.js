@@ -56,7 +56,9 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
     var serverUrl = 'http://' + config.serverHost + config.namespace;
     // var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){
-      if(config.method.toUpperCase() == 'POST' || config.method.toUpperCase() == 'PUT') {
+      if(config.method.toUpperCase() == 'POST'
+        || config.method.toUpperCase() == 'PUT'
+        || config.method.toUpperCase() == 'DELETE') {
         return $http({
           url: serverUrl + config.url,
           method: config.method.toUpperCase(),

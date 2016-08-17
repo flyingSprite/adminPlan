@@ -10,7 +10,8 @@ require([
   'pagination',
   'label-wrapper',
 
-  'layout-box'
+  'layout-box',
+  'date-picker-attr'
 ]);
 
 
@@ -55,6 +56,47 @@ define('angular-slimscroll', ['adminApp'], function(adminApp) {
   });
 });
 
+'use strict';
+
+define('date-picker-attr', ['adminApp'], function(adminApp) {
+  //https://docs.angularjs.org/api/ng/service/$parse
+  adminApp.directive('datePickerAttr', ['$parse', function () {
+    return {
+      require: '?ngModel',
+      restrict: 'A',
+      scope: {
+        ngModel: '='
+      },
+      controller: ['$scope', function() {
+      }],
+      link: function($scope, element, attr, ngModel){
+        // Specify how UI should be updated
+        ngModel.$render = function() {
+          element.val(ngModel.$viewValue || '');
+        };
+        // Listen for change events to enable binding
+        element.on('blur keyup change', function() {
+          $scope.$apply(read);
+        });
+        read(); // initialize
+        // Write data to the model
+        function read() {
+          var val = element.val();
+          ngModel.$setViewValue(val);
+        }
+        $(element).datetimepicker({
+          format: 'YYYY-MM-DD hh:mm:ss'
+        });
+        // element.upload({
+        //   success: function(data) {
+        //     $parse(attr['ngModel']).assign($scope, data);
+        //     $scope.$apply();
+        //   },
+        // });
+      }
+    };
+  }]);
+});
 'use strict';
 
 define('horizontal', ['adminApp'], function(adminApp) {
@@ -180,28 +222,24 @@ define('layout-box', ['adminApp'], function(adminApp) {
         close: '@'
       },
       template:
-          '<div class="x_panel tile">'
-        + '  <div class="x_title">'
-        + '    <h2>{{title}}<small>{{subTitle}}</small></h2>'
-        + '    <ul class="nav navbar-right panel_toolbox">'
-        + '      <li ng-show="collapse"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>'
-        + '      <li ng-show="setting" class="dropdown">'
-        + '        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>'
-        + '        <ul class="dropdown-menu" role="menu">'
-        + '          <li><a href="#">Settings 1</a>'
-        + '          </li>'
-        + '          <li><a href="#">Settings 2</a>'
-        + '          </li>'
-        + '        </ul>'
-        + '      </li>'
-        + '      <li ng-show="close"><a class="close-link"><i class="fa fa-close"></i></a></li>'
-        + '    </ul>'
-        + '    <div class="clearfix"></div>'
-        + '  </div>'
-        + '  <div class="x_content" ng-transclude>'
-        + '    xxxxxxx'
-        + '  </div>'
-        + '</div>',
+        '<div class="x_panel tile">' +
+          '<div class="x_title">' +
+            '<h2>{{title}}<small>{{subTitle}}</small></h2>' +
+            '<ul class="nav navbar-right panel_toolbox">' +
+              '<li ng-show="collapse"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>' +
+              '<li ng-show="setting" class="dropdown">' +
+                '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>' +
+                '<ul class="dropdown-menu" role="menu">' +
+                  '<li><a href="#">Settings 1</a></li>' +
+                  '<li><a href="#">Settings 2</a></li>' +
+                '</ul>' +
+              '</li>' +
+              '<li ng-show="close"><a class="close-link"><i class="fa fa-close"></i></a></li>' +
+            '</ul>' +
+            '<div class="clearfix"></div>' +
+          '</div>' +
+          '<div class="x_content" ng-transclude></div>' +
+        '</div>',
       transclude: true,
       controller: ['$scope', function($scope) {
         $scope.title = (!$scope.title || $scope.title === '')

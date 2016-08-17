@@ -68,7 +68,6 @@ define('highcharts-theme', function() {
     rel: 'stylesheet',
     type: 'text/css'
   }, null, document.getElementsByTagName('head')[0]);
-  console.log('sss');
   // Add the background image to the container
   Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
     proceed.call(this);
@@ -131,7 +130,6 @@ define('highcharts-theme', function() {
         shadow: false
       }
     },
-
     // Highstock specific
     navigator: {
       xAxis: {
@@ -153,10 +151,8 @@ define('highcharts-theme', function() {
     scrollbar: {
       trackBorderColor: '#C0C0C8'
     },
-
     // General
     background2: '#E0E0E8'
-
   };
 
   // Apply the theme

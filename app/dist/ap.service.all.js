@@ -33,6 +33,47 @@ define('api', ['adminApp'], function (adminApp) {
         err && error && error(err);
       });
     };
+
+    this.missionList = function(success, error) {
+      adminHttp({method: 'GET', url: '/mission'})
+      .success(function(missions) {
+        missions && success && success(missions);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
+
+    this.missionAdd = function(mission, success, error) {
+      adminHttp({method: 'POST', url: '/mission', data: mission})
+      .success(function(missions) {
+        missions && success && success(missions);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
+
+    this.missionUpdate = function(mission, success, error) {
+      adminHttp({method: 'PUT', url: '/mission', data: mission})
+      .success(function(missions) {
+        missions && success && success(missions);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
+
+    this.missionDelete = function(id, success, error) {
+      adminHttp({method: 'DELETE', url: '/mission', data: {id: id}})
+      .success(function(res) {
+        res && success && success(res);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
+
   }]);
 });
 
@@ -46,6 +87,7 @@ require([
   'initService',
   'api',
   'notification-service',
+  'message-box',
   'util'
 ]);
 
@@ -107,7 +149,9 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
     var serverUrl = 'http://' + config.serverHost + config.namespace;
     // var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){
-      if(config.method.toUpperCase() == 'POST' || config.method.toUpperCase() == 'PUT') {
+      if(config.method.toUpperCase() == 'POST'
+        || config.method.toUpperCase() == 'PUT'
+        || config.method.toUpperCase() == 'DELETE') {
         return $http({
           url: serverUrl + config.url,
           method: config.method.toUpperCase(),
@@ -173,6 +217,25 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
 
 });
 
+
+/** Show message box. */
+define('message-box', ['adminApp'], function (adminApp) {
+
+  adminApp
+  .factory('messageBox', [function () {
+
+    $.notify.defaults({
+      autoHide: true,
+      autoHideDelay: 2000
+    });
+
+    // More detail see https://notifyjs.com/
+    // type: success, info, warn, error
+    return function(type, message) {
+      $.notify(message, type);
+    };
+  }]);
+});
 define('notification-service', ['adminApp'], function (adminApp) {
   adminApp.service('notification', function () {
     var self = this;

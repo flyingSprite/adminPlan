@@ -16,6 +16,7 @@ module.exports = {
         "angular": true,
         "define": true,
         "hljs": true,
-        "Highcharts": true
+        "Highcharts": true,
+        "PNotify": true
     }
 };

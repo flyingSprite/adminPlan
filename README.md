@@ -89,6 +89,12 @@ Directive for show file:
 保存部分信息，让其他的信息通过爬出实现。
 
 
+## Credits ##
+[Date Time Picker](http://eonasdan.github.io/bootstrap-datetimepicker/) - `bower install eonasdan-bootstrap-datetimepicker#latest --save`
+
+
+http://www.nipic.com/show/3/12/8508715k65931861.html
+
 ## Some Useful ##
 
 Credits
