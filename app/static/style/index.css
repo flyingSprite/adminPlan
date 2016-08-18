@@ -644,6 +644,18 @@ h2 {
 .fixed-height-320 {
   height: 320px; }
 
+.fixed-widht-xs {
+  width: 60px; }
+
+.fixed-widht-sm {
+  width: 120px; }
+
+.fixed-widht-md {
+  width: 180px; }
+
+.fixed-widht-lg {
+  width: 240px; }
+
 .mission-create-btn {
   height: 45px;
   background-color: #5cb85c;
@@ -695,5 +707,99 @@ h2 {
 .mission-complate .badge {
   color: #000 !important;
   background-color: #FFF !important; }
+
+.main-header {
+  width: 100%;
+  height: 70px;
+  background-color: #393f4d;
+  z-index: 20;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+  line-height: 70px; }
+  .main-header .main-header-content {
+    letter-spacing: .005em;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin: 0; }
+    .main-header .main-header-content h2 {
+      padding-left: 16px; }
+    .main-header .main-header-content .logo {
+      line-height: 70px;
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      float: left;
+      color: #FC9E00; }
+    .main-header .main-header-content ul > li > a {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 70px;
+      padding: 0px 15px; }
+      .main-header .main-header-content ul > li > a:hover {
+        color: #66ad44; }
+
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px; }
+
+.logo-font {
+  font-size: 24px;
+  font-family: 'Grand Hotel',cursive;
+  font-weight: 600; }
+
+.ap-dropdown {
+  display: inline-block;
+  position: relative;
+  text-align: left; }
+  .ap-dropdown ul {
+    min-width: 160px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0px;
+    border-radius: 0px;
+    background: #fff;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2); }
+  .ap-dropdown .dropdown {
+    min-width: 100%;
+    /* Set width of the dropdown */
+    background: #f2f2f2;
+    display: none;
+    position: absolute;
+    margin-left: -30px;
+    z-index: 999;
+    left: 0; }
+    .ap-dropdown .dropdown li {
+      display: block;
+      height: 30px;
+      line-height: 30px; }
+      .ap-dropdown .dropdown li a {
+        line-height: 30px !important;
+        color: #424222 !important; }
+      .ap-dropdown .dropdown li:hover {
+        background-color: #445678; }
+        .ap-dropdown .dropdown li:hover a {
+          color: #fff !important; }
+  .ap-dropdown:hover .dropdown {
+    display: block;
+    /* Display the dropdown */ }
 
 /*# sourceMappingURL=index.css.map */

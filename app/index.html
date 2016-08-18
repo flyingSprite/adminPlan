@@ -31,7 +31,9 @@
   <link rel="stylesheet" type="text/css" href="../bower_components/highlightjs/styles/default.css">
 </head>
 <body>
-  <header ui-view="header" class="main-header"></header>
+  <header class="main-header">
+    <div class="container" ui-view="header"></div>
+  </header>
   <div class="main-contrainer wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
            <aside ui-view="left-side" ng-hide="true" class="left-side sidebar-offcanvas ng-scope"></aside>

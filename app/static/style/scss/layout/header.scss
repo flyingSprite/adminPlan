@@ -1,0 +1,55 @@
+$header-default-corlor: #393f4d;
+
+.main-header {
+    width: 100%;
+    height: 70px;
+    background-color: #{$header-default-corlor};
+    z-index: 20;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+    line-height: 70px;
+
+    #{&}-content {
+        letter-spacing: .005em;
+        box-sizing: border-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        margin: 0;
+
+        h2 {
+            padding-left: 16px;
+        }
+
+        .logo {
+            line-height: 70px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            float: left;
+            color: #FC9E00;
+        }
+
+        ul > li > a {
+            color: rgba(255,255,255,0.7);
+            line-height: 70px;
+            padding: 0px 15px;
+
+            &:hover {
+                color: #66ad44;
+            }
+        }
+    }
+}
