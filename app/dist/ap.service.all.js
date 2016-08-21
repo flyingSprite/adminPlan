@@ -146,7 +146,7 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
   })
   .factory('adminHttp', ['$http', function ($http){
     $http.defaults.useXDomain = true;
-    var serverUrl = 'http://' + config.serverHost + config.namespace;
+    var serverUrl = config.serverHost + config.namespace;
     // var serverUrl = 'http://www.duastone.com/solutions';
     return function (config){
       if(config.method.toUpperCase() == 'POST'

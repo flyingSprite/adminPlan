@@ -58,6 +58,27 @@ define('angular-slimscroll', ['adminApp'], function(adminApp) {
 
 'use strict';
 
+define('horizontal', ['adminApp'], function(adminApp) {
+
+  adminApp.directive('apHorizontal', function () {
+    return {
+      restrict: 'ACE',
+      scope: {
+        img: '@',
+        content: '@'
+      },
+      // template: '<div ng-bind-html="markdownHtml"></div>',
+      templateUrl: 'templates/directive/horizontal/index.html',
+      controller: ['$scope', function () {
+      }]
+    };
+  });
+});
+
+
+
+'use strict';
+
 define('date-picker-attr', ['adminApp'], function(adminApp) {
   //https://docs.angularjs.org/api/ng/service/$parse
   adminApp.directive('datePickerAttr', ['$parse', function () {
@@ -97,27 +118,6 @@ define('date-picker-attr', ['adminApp'], function(adminApp) {
     };
   }]);
 });
-'use strict';
-
-define('horizontal', ['adminApp'], function(adminApp) {
-
-  adminApp.directive('apHorizontal', function () {
-    return {
-      restrict: 'ACE',
-      scope: {
-        img: '@',
-        content: '@'
-      },
-      // template: '<div ng-bind-html="markdownHtml"></div>',
-      templateUrl: 'templates/directive/horizontal/index.html',
-      controller: ['$scope', function () {
-      }]
-    };
-  });
-});
-
-
-
 'use strict';
 
 define('item', ['adminApp'], function(adminApp) {
