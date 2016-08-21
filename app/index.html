@@ -31,15 +31,12 @@
   <link rel="stylesheet" type="text/css" href="../bower_components/highlightjs/styles/default.css">
 </head>
 <body>
-  <header class="main-header">
-    <div class="container" ui-view="header"></div>
-  </header>
-  <div class="main-contrainer wrapper row-offcanvas row-offcanvas-left">
-            <!-- Left side column. contains the logo and sidebar -->
-           <aside ui-view="left-side" ng-hide="true" class="left-side sidebar-offcanvas ng-scope"></aside>
-
-            <!-- Right side column. Contains the navbar and content of the page -->
-            <aside ui-view="container" class="right-side"></aside>
+  <div class="wrapper" ng-controller="IndexController as indexCtrl">
+    <header class="main-header">
+      <div class="container" ui-view="header"></div>
+    </header>
+    <section class="ap-breadcrumb" ui-view="breadcrumb" ng-show="indexCtrl.currentInfo.needBreadCrumb"></section>
+    <div class="main-contrainer" ui-view="main"></div>
   </div><!-- ./wrapper -->
   <!-- <footer ui-view="footer" class="footer"></footer> -->
 

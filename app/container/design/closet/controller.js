@@ -2,7 +2,8 @@ define(['adminApp', 'moment', 'ap-charts'], function (adminApp, moment) {
   adminApp.controller('DesignClosetController', [
     '$scope', '$state', '$anchorScroll', '$location', 'breadcrumb', 'notification', 'util', 'api', 'GenerateUniqueId',
     function ($scope, $state, $anchorScroll, $location, breadcrumb, notification, util, api, GenerateUniqueId){
-      console.log(GenerateUniqueId.next());
+      console.log(GenerateUniqueId);
+      breadcrumb();
       var self = this;
       self.moment = moment;
       self.showNotification = function () {
@@ -40,7 +41,6 @@ define(['adminApp', 'moment', 'ap-charts'], function (adminApp, moment) {
             self.websites[news.website].push(news);
           }
         });
-        console.log(self.websites);
       }
     }
   ]);

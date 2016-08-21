@@ -1,0 +1,23 @@
+<section class="container section-default">
+  <div class="div-none" ng-repeat="ltaaaTitle in ctrl.ltaaaTitleList">
+    <ap-item-article
+      img="{{ ltaaaTitle.pic }}"
+      title="{{ ltaaaTitle.title }}"
+      url="{{ ltaaaTitle.url }}"
+      content="{{ ltaaaTitle.content }}"
+      author="{{ ltaaaTitle.author_name }}"
+      date="{{ ltaaaTitle.create_date }}"
+      comment="{{ ltaaaTitle.comments }}"
+      author-url="{{ ltaaaTitle.author_href }}"
+    ></ap-item-article>
+  </div>
+<!-- </md-content> -->
+</section>
+<section class="container section-default">
+  <ap-paginate
+    total="{{ ctrl.pager.total }}"
+    page="{{ ctrl.pager.page + 1 }}"
+    size="{{ ctrl.pager.size }}"
+    click="ctrl.toPage">
+  </ap-paginate>
+</section>

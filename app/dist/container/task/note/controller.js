@@ -1,0 +1,1 @@
+define(["adminApp","ap-charts"],function(n){n.controller("TaskNoteController",["$state","breadcrumb",function(n,a){a("Note",[{name:"Task",link:"main.task.detail"},{name:"Note",link:"main.task.note"}])}])});

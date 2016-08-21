@@ -1,55 +1,63 @@
 $dropdown-line-height: 30px;
 
 .ap-dropdown{
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  ul {
+    min-width: 160px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 14px;
     text-align: left;
-    ul {
-        min-width: 160px;
-        margin: 0 auto;
-        padding: 20px;
-        font-size: 14px;
-        text-align: left;
-        list-style: none;
-        background-color: #fff;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        border: 0px;
-        border-radius: 0px;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0px;
+    border-radius: 0px;
 
-        background: #fff;
-        box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
-    }
-    .dropdown{
-        min-width: 100%; /* Set width of the dropdown */
-        background: #f2f2f2;
-        display: none;
-        position: absolute;
-        margin-left: -30px;
-        z-index: 999;
-        left: 0;
+    background: #fff;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+  }
+  .dropdown{
+    min-width: 100%; /* Set width of the dropdown */
+    background: #f2f2f2;
+    display: none;
+    position: absolute;
+    margin-left: -30px;
+    z-index: 999;
+    left: 0;
 
-        li{
-            display: block;
-            height: #{$dropdown-line-height};
-            line-height: #{$dropdown-line-height};
+    li{
+      display: block;
+      height: #{$dropdown-line-height};
+      line-height: #{$dropdown-line-height};
 
-            a {
-              line-height: #{$dropdown-line-height} !important;
-              color: #424222 !important;
-            }
+      a {
+        line-height: #{$dropdown-line-height} !important;
+        color: #424222 !important;
+      }
 
-            &:hover {
-              background-color: #445678;
+      &:hover {
+        @include transition-color;
+        background-color: #445678;
 
-              a {
-                color: #fff !important;
-              }
-            }
+        a {
+          @include transition-color;
+          color: #fff !important;
         }
+      }
     }
-    &:hover .dropdown{
-        display: block; /* Display the dropdown */
+  }
+  &:hover .dropdown{
+    display: block; /* Display the dropdown */
+  }
+  .has-child {
+    &:after {
+      font-family: "FontAwesome";
+      content: " \f107";
     }
- }
+  }
+}
 

@@ -1,0 +1,44 @@
+
+.ap-breadcrumb {
+
+  @mixin link-hover {
+    &:hover {
+      @include transition-color;
+      color: #{$link-hover-color};
+    }
+  }
+
+  #{&}-page-title {
+    background-color: #414857;
+    color: #fff;
+    padding: 30px 0;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-attachment: fixed;
+    .breadcrumb > li > a {
+      color: #fff;
+      font-size: 12px;
+      line-height: 14px;
+
+      @include link-hover;
+    }
+    .breadcrumb > li.active > a {
+      color: #b7b7b7;
+      @include link-hover;
+    }
+    .breadcrumb {
+      background: none;
+      padding: 0;
+      margin: 0 0 7px;
+      line-height: 14px;
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

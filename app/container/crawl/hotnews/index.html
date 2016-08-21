@@ -1,0 +1,19 @@
+<section class="container section-default">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"
+      ng-repeat="(website, hotnews) in ctrl.websites track by $index">
+    <ap-box title="{{'HotNews'}}" sub-title="{{website}}" collapse="{{true}}" default-hidden="{{true}}">
+      <div id="collapse_{{ $index }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          <ap-item-news
+            ng-repeat="news in hotnews"
+            name="{{ news.name }}"
+            news-href="{{ news.href }}"
+            date="{{ ctrl.moment(news.startTimestamp).format('YYYY-MM-DD HH:mm:ss') }}"
+            website="{{ news.website }}"
+            website-url="{{ news.websiteUrl }}"
+          />
+        </div>
+      </div>
+    </ap-box>
+  </div>
+</section>

@@ -4,85 +4,50 @@
     </h2>
     <span flex="" class="flex"></span>
     <ul class="nav nav-pills">
-        <li role="presentation">
-            <a ui-sref="main.ltaaa.list">
-                <i class="fa fa-list-ul"></i>
-                {{ 'Ltaaa' | translate}}
-            </a>
-        </li>
         <!-- <li role="presentation">
             <a ui-sref="main.blog.list">
                 <i class="fa fa-list-alt"></i>
                 {{ 'Blog' | translate}}
             </a>
         </li> -->
-        <li role="presentation">
+        <li role="presentation" ng-class="{active: indexCtrl.title=='Card'}">
             <a ui-sref="main.card.dashboard">
                 <i class="fa fa-futbol-o"></i>
                 {{ 'Card' | translate}}
             </a>
         </li>
-        <li role="presentation">
+        <li role="presentation" ng-class="{active: indexCtrl.title=='Design'}">
             <a ui-sref="main.design.closet">
                 <i class="fa fa-futbol-o"></i>
                 {{ 'Design' | translate}}
             </a>
         </li>
-        <li role="presentation" class="ap-dropdown">
-            <a href="#">
+        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Task'}">
+            <a ui-sref="main.task.detail" class="has-child">
                 {{ 'Task' | translate}}
-                <i class="fa fa-chevron-down"></i>
             </a>
             <ul class="dropdown fixed-widht-md">
-               <li><a ui-sref="main.mission.list">{{ 'Detail' | translate}}</a></li>
-               <li><a href="#">{{ 'Media Type' | translate}}</a></li>
-               <li><a href="#">{{ 'Note' | translate}}</a></li>
+               <li><a ui-sref="main.task.detail"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Detail' | translate}}</a></li>
+               <li><a ui-sref="main.task.type"><i class="fa fa-bookmark-o"></i>&nbsp;&nbsp;{{ 'Media Type' | translate}}</a></li>
+               <li><a ui-sref="main.task.note"><i class="fa fa-sticky-note-o"></i>&nbsp;&nbsp;{{ 'Note' | translate}}</a></li>
             </ul>
         </li>
-        <li role="presentation" class="ap-dropdown">
-            <a href="#">
+        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Crawl'}">
+            <a ui-sref="main.crawl.hotnews" class="has-child">
                 {{ 'Crawl' | translate}}
-                <i class="fa fa-chevron-down"></i>
             </a>
             <ul class="dropdown fixed-widht-md">
-               <li><a href="#">{{ 'Hot News' | translate}}</a></li>
-               <li><a ui-sref="main.ltaaa.list">{{ 'Ltaaa' | translate}}</a></li>
+              <li><a ui-sref="main.crawl.hotnews"><i class="fa fa-anchor"></i>&nbsp;&nbsp;{{ 'Hot News' | translate}}</a></li>
+              <li><a ui-sref="main.crawl.ltaaa"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;{{ 'Ltaaa' | translate}}</a></li>
             </ul>
         </li>
-        <li role="presentation" class="ap-dropdown">
-            <a href="#">
-                {{ 'CMS' | translate}}
-                <i class="fa fa-chevron-down"></i>
+        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Monitor'}">
+            <a ui-sref="main.monitor.cpu" class="has-child">
+                {{ 'Monitor' | translate}}
             </a>
             <ul class="dropdown fixed-widht-md">
-               <li><a href="#">{{ 'CPU' | translate}}</a></li>
+               <li><a ui-sref="main.monitor.cpu"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;{{ 'CPU' | translate}}</a></li>
             </ul>
         </li>
     </ul>
 </div>
-<!-- <md-toolbar >
-  <div class="md-toolbar-tools skip-blue">
-    <h2>
-      <span><a href="#" class="brand-logo logo">AdminPlan</a></span>
-    </h2>
-    <span flex></span>
-    <md-button class="md-icon-button" ui-sref="main.ltaaa.list">
-      <i class="fa fa-list-ul admin-header-icon"></i>
-      <md-tooltip>Ltaaa</md-tooltip>
-    </md-button>
-    <md-button class="md-icon-button" ui-sref="main.blog.list">
-      <i class="fa fa-list-alt admin-header-icon"></i>
-      <md-tooltip>My Blog</md-tooltip>
-    </md-button>
-    <md-button class="md-icon-button" ui-sref="main.ltaaa.list">
-      <i class="fa fa-dot-circle-o admin-header-icon"></i>
-      <md-tooltip>Knowledge Point</md-tooltip>
-    </md-button>
-    <md-button class="md-icon-button" ui-sref="main.card.dashboard">
-      <i class="fa fa-futbol-o admin-header-icon"></i>
-    </md-button>
-    <md-button class="md-icon-button" >
-      <i class="fa fa-user-secret admin-header-icon"></i>
-    </md-button>
-  </div>
-</md-toolbar> -->

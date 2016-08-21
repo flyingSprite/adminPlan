@@ -1,0 +1,1 @@
+define(["adminApp","ap-charts"],function(n){n.controller("MonitorCPUController",["$state","breadcrumb",function(n,o){o("Monitor CPU",[{name:"Monitor",link:"main.monitor.cpu"},{name:"CPU",link:"main.monitor.cpu"}])}])});

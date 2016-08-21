@@ -1,5 +1,5 @@
 define(['adminApp', 'ap-service', 'ap-directive',
-  './container/ngTemplate',
+  './container/ngRouter',
   ], function (adminApp, d3NgRouter, recordNgRouter) {
 
   adminApp.service('init', function () {
@@ -10,30 +10,52 @@ define(['adminApp', 'ap-service', 'ap-directive',
         $(".sidebar .treeview").tree();
       }
     }
-  });
-
-  adminApp.service('breadcrumb', function () {
+  })
+  .service('breadcrumb', function () {
     return {
       title: '',
       subTitle: '',
       list: []
     }
-  });
-
-  adminApp
-
-  .run(['$rootScope', '$location', function ($rootScope, $location) {
-      $rootScope.$on('$stateChangeStart',
-      function (event, toState, toParams, fromState, fromParams){
-        // console.log('StateChange', event, toState, toParams, fromState, fromParams);
+  })
+  .provider('generate', [ '$stateProvider', '$urlRouterProvider', '$requireProvider',
+    function($stateProvider, $urlRouterProvider, $requireProvider) {
+    this.state = function(state) {
+      $stateProvider.state('main.' + state.url, {
+        url: state.url,
+        views: {
+          'main.container':{
+            templateUrl: state.templateUrl,
+            controller: ['$rootScope', function($rootScope) {
+              $rootScope.$broadcast("onHeaderTitle", {title: state.title});
+            }]
+          }
+        }
       });
-
-    }])
-
+    };
+    this.router = function(route) {
+      $stateProvider
+      .state(route.uiSref, {
+        url: '/' + route.name +'?'+ route.params,
+        templateUrl: route.templateUrl,
+        controller: route.controller,
+        controllerAs: 'ctrl',
+        resolve: {
+          deps: $requireProvider.requireJS([route.controllerUrl])
+        },
+        params: { data: {} }
+      });
+    };
+    this.$get = function() {};
+  }])
+  .run(['$rootScope', '$location', function ($rootScope, $location) {
+    $rootScope.$on('$stateChangeStart',
+    function (event, toState, toParams, fromState, fromParams){
+      // console.log('StateChange', event, toState, toParams, fromState, fromParams);
+    });
+  }])
   .config(function ($stateProvider, $urlRouterProvider) {
-
     $stateProvider
-
     // This is home state, will show _header.html, _footer.html
     // And main html
     .state('main', {
@@ -42,19 +64,14 @@ define(['adminApp', 'ap-service', 'ap-directive',
         header: {
           templateUrl: '_common/_header.html'
         },
-        container: {
+        breadcrumb: {
+          templateUrl: '_common/_breadcrumb.html'
+        },
+        main: {
           templateUrl: '_common/_container.html'
         },
         footer: {
           templateUrl: '_common/_footer.html'
-        },
-        'left-side': {
-          templateUrl: '_common/_left_side.html',
-          controller: function ($scope, init){
-            init.treeview();
-            $scope.d3List = d3NgRouter;
-            $scope.recordList = recordNgRouter;
-          }
         }
       }
     });
@@ -63,7 +80,34 @@ define(['adminApp', 'ap-service', 'ap-directive',
       .when('/main.dashboard.index', '/dashboard/index')
       .when('/main', '/dashboard/index')
       .otherwise('main.dashboard.index');
-  });
+  })
+  .factory('breadcrumb', ['$rootScope', function($rootScope) {
+    return function(subTitle, breadcrumbs) {
+      $rootScope.$broadcast(
+        "onBreadcrumb",
+        {subTitle: subTitle, breadcrumbs: breadcrumbs}
+      );
+    };
+  }])
+  .controller('IndexController', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    var self = this;
+    self.currentInfo = {};
 
+    // Set the header title in nav.
+    $scope.$on('onHeaderTitle', function(event, toState) {
+      self.title = toState.title;
+    });
 
+    // Set the breadcrumb
+    $scope.$on('onBreadcrumb', function(event, toState) {
+      self.currentInfo.breadcrumbs = toState.breadcrumbs;
+      self.currentInfo.subTitle = toState.subTitle;
+      var needBreadcrumb = (self.currentInfo.subTitle !== undefined && self.currentInfo.subTitle !== '');
+      self.currentInfo.needBreadCrumb = needBreadcrumb;
+    });
+
+    // On locationChange
+    $rootScope.$on('$locationChangeStart', function() {});
+
+  }]);
 });

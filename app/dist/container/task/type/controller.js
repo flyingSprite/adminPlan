@@ -1,0 +1,1 @@
+define(["adminApp","ap-charts"],function(a){a.controller("TaskMediaTypeController",["breadcrumb",function(a){a("Media Type",[{name:"Task",link:"main.task.detail"},{name:"Media Type",link:"main.task.type"}])}])});

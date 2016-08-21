@@ -12,9 +12,9 @@ define('chart-cup-monitor', ['adminApp'], function(adminApp) {
         api.lastTenCpuMonitor(function(data) {
           var averages = [], maximums = [], minimums = [];
           angular.forEach(data, function(item) {
-            averages.unshift([item.timestamp, item.average]);
-            maximums.unshift([item.timestamp, item.maximum]);
-            minimums.unshift([item.timestamp, item.minimum]);
+            averages.push([item.timestamp, item.average]);
+            maximums.push([item.timestamp, item.maximum]);
+            minimums.push([item.timestamp, item.minimum]);
           });
           success(averages, maximums, minimums);
         });

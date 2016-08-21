@@ -109,7 +109,7 @@ gulp.task('apService', function () {
     .pipe(gulp.dest('app/dist/'));
 });
 
-gulp.task('charts', function () {
+gulp.task('apCharts', function () {
   return gulp.src(['app/templates/charts/**/*.js'])
     .pipe(concat('ap.charts.all.js'))
     .pipe(gulp.dest('app/dist/'))
@@ -165,13 +165,14 @@ gulp.task('eslint-container', function() {
 gulp.task('eslint', ['eslint-templates', 'eslint-container']);
 
 gulp.task('watch', function() {
-  gulp.watch('app/templates/**/*.js', ['eslint', 'apDirective', 'apService']);
+  gulp.watch('app/templates/**/*.js', ['eslint', 'apDirective', 'apService', 'apCharts']);
   gulp.watch('app/container/**/*.js', ['eslint-container']);
 });
 
 
 gulp.task('default', [
   'apDirective',
+  'apCharts',
   'apService',
   'commonJs',
   'commonCss',

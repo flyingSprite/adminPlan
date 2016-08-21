@@ -1,0 +1,19 @@
+
+<div class="col-sm-12 col-md-12 ap-breadcrumb-page-title">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <ol class="breadcrumb">
+          <li><a ui-sref="main.dashboard.index">Home</a></li>
+          <li ng-repeat="breadcrumb in indexCtrl.currentInfo.breadcrumbs"
+            ng-class="{'active': $last}">
+            <a ui-sref="{{ breadcrumb.link }}">{{ breadcrumb.name }}</a>
+          </li>
+        </ol>
+        <h2>{{ indexCtrl.currentInfo.subTitle }}</h2>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
+</div>

@@ -186,6 +186,9 @@
     border-color: #ffcd00;
     padding-left: 10px; }
 
+a, a:hover, a:focus, a:active {
+  text-decoration: none; }
+
 /*
  * Component: Box
  * --------------
@@ -641,6 +644,43 @@ h2 {
   clear: both;
   visibility: hidden; }
 
+.ap-breadcrumb .ap-breadcrumb-page-title {
+  background-color: #414857;
+  color: #fff;
+  padding: 30px 0;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed; }
+  .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb > li > a {
+    color: #fff;
+    font-size: 12px;
+    line-height: 14px; }
+    .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb > li > a:hover {
+      -webkit-transition: background 0.5s ease-in,color 0.3s ease-out;
+      -moz-transition: background 0.5s ease-in,color 0.3s ease-out;
+      -o-transition: background 0.5s ease-in,color 0.3s ease-out;
+      transition: background 0.5s ease-in,color 0.3s ease-out;
+      color: #66ad44; }
+  .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb > li.active > a {
+    color: #b7b7b7; }
+    .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb > li.active > a:hover {
+      -webkit-transition: background 0.5s ease-in,color 0.3s ease-out;
+      -moz-transition: background 0.5s ease-in,color 0.3s ease-out;
+      -o-transition: background 0.5s ease-in,color 0.3s ease-out;
+      transition: background 0.5s ease-in,color 0.3s ease-out;
+      color: #66ad44; }
+  .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 0 0 7px;
+    line-height: 14px; }
+  .ap-breadcrumb .ap-breadcrumb-page-title h2 {
+    font-size: 24px;
+    line-height: 1;
+    margin: 0;
+    padding: 0; }
+
 .fixed-height-320 {
   height: 320px; }
 
@@ -749,7 +789,14 @@ h2 {
       line-height: 70px;
       padding: 0px 15px; }
       .main-header .main-header-content ul > li > a:hover {
+        -webkit-transition: background 0.5s ease-in,color 0.3s ease-out;
+        -moz-transition: background 0.5s ease-in,color 0.3s ease-out;
+        -o-transition: background 0.5s ease-in,color 0.3s ease-out;
+        transition: background 0.5s ease-in,color 0.3s ease-out;
         color: #66ad44; }
+    .main-header .main-header-content ul > li.active > a {
+      color: #66ad44;
+      background-color: #393f4d; }
 
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -759,6 +806,14 @@ body {
   font-size: 24px;
   font-family: 'Grand Hotel',cursive;
   font-weight: 600; }
+
+.wrapper {
+  overflow-x: hidden;
+  -webkit-transition: margin-left 400ms cubic-bezier(0.7, 0, 0.3, 1);
+  transition: margin-left 400ms cubic-bezier(0.7, 0, 0.3, 1); }
+
+.section-default {
+  padding: 15px 0px; }
 
 .ap-dropdown {
   display: inline-block;
@@ -795,11 +850,22 @@ body {
         line-height: 30px !important;
         color: #424222 !important; }
       .ap-dropdown .dropdown li:hover {
+        -webkit-transition: background 0.5s ease-in,color 0.3s ease-out;
+        -moz-transition: background 0.5s ease-in,color 0.3s ease-out;
+        -o-transition: background 0.5s ease-in,color 0.3s ease-out;
+        transition: background 0.5s ease-in,color 0.3s ease-out;
         background-color: #445678; }
         .ap-dropdown .dropdown li:hover a {
+          -webkit-transition: background 0.5s ease-in,color 0.3s ease-out;
+          -moz-transition: background 0.5s ease-in,color 0.3s ease-out;
+          -o-transition: background 0.5s ease-in,color 0.3s ease-out;
+          transition: background 0.5s ease-in,color 0.3s ease-out;
           color: #fff !important; }
   .ap-dropdown:hover .dropdown {
     display: block;
     /* Display the dropdown */ }
+  .ap-dropdown .has-child:after {
+    font-family: "FontAwesome";
+    content: " \f107"; }
 
 /*# sourceMappingURL=index.css.map */
