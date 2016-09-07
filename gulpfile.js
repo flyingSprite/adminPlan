@@ -20,7 +20,7 @@ var commonJsFiles = [
   'bower_components/bootstrap/dist/js/bootstrap.min.js',
   'bower_components/moment/min/moment.min.js',
   'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
-  'bower_components/notifyjs/dist/notify.js'
+  'bower_componentzs/notifyjs/dist/notify.js'
 ];
 
 var directiveFiles = [
@@ -145,6 +145,15 @@ gulp.task('eslint-templates', function() {
         chalk.underline.dim(`${results.filePath}`)
       );
     }));
+});
+
+gulp.task('require', function () {
+  return gulp.src(['bower_components/requirejs/require.js'])
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('app/dist/'));
 });
 
 gulp.task('eslint-container', function() {

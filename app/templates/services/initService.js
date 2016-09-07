@@ -27,7 +27,7 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
         markData: '@'
       },
       template: '<div ng-bind-html="markdownHtml"></div>',
-      controller: function ($scope, $sce, $http) {
+      controller: ['$scope', '$sce', '$http', function ($scope, $sce, $http) {
         marked.setOptions({
           highlight: function (code) {
             return hljs.highlightAuto(code).value;
@@ -48,7 +48,7 @@ define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-ro
               $scope.markdownHtml = $sce.trustAsHtml(marked(data));
             });
         }
-      }
+      }]
     };
   })
   .factory('adminHttp', ['$http', function ($http){

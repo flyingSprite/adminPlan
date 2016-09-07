@@ -2,8 +2,23 @@
 $header-default-color: #393f4d;
 $link-hover-color: #66ad44;
 
+html, body {
+  height: 100%;
+}
+
 a, a:hover, a:focus, a:active {
   text-decoration: none;
+}
+
+.doc_content {
+    color: rgb(26, 37, 54);
+    display: block;
+    font-family: "PT Serif", Georgia, Times, "Times New Roman", "Heiti SC", "Microsoft Yahei", 微软雅黑, 宋体, serif;
+    font-size: 14px;
+    line-height: 150%;
+    background: url("../images/design/paper.png") center top repeat scroll white;
+    margin: 0px 2px;
+    padding: 1px 15px;
 }
 
 @import "transition.scss";
@@ -13,6 +28,7 @@ a, a:hover, a:focus, a:active {
 @import "breadcrumb.scss";
 @import "fixed-height.scss";
 @import "fixed-width.scss";
+@import "form.scss";
 @import "mission.scss";
 @import "header.scss";
 @import "font.scss";

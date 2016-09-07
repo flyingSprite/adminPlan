@@ -23,6 +23,15 @@
             </a>
         </li>
         <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Task'}">
+            <a ui-sref="main.docs.subject" class="has-child">
+                {{ 'Docs' | translate}}
+            </a>
+            <ul class="dropdown fixed-widht-md">
+               <li><a ui-sref="main.docs.subject"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Subject' | translate}}</a></li>
+               <li><a ui-sref="main.docs.wiki"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Wiki' | translate}}</a></li>
+            </ul>
+        </li>
+        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Task'}">
             <a ui-sref="main.task.detail" class="has-child">
                 {{ 'Task' | translate}}
             </a>

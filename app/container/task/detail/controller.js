@@ -1,4 +1,4 @@
-define(['adminApp', 'moment', 'ap-charts'], function (adminApp, moment) {
+define(['adminApp', 'moment'], function (adminApp, moment) {
   adminApp.controller('TaskDetailController', ['api', 'messageBox', 'breadcrumb',
   function(api, messageBox, breadcrumb) {
     breadcrumb('Task Detail', [{
@@ -94,6 +94,18 @@ define(['adminApp', 'moment', 'ap-charts'], function (adminApp, moment) {
         self.selectMission.status = 'complate';
         self.mission.status = 'complate';
         messageBox('success', 'Complate Mission Successful!');
+      });
+    };
+
+    self.unComplateMission = function() {
+      // api.missionUpdate
+      var mission = {};
+      copyMission(self.selectMission, mission);
+      mission.status = 'uncomplate';
+      api.missionUpdate(mission, function(){
+        self.selectMission.status = 'uncomplate';
+        self.mission.status = 'uncomplate';
+        messageBox('success', 'UnComplate Mission Successful!');
       });
     };
 

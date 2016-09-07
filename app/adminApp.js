@@ -4,7 +4,6 @@
 define([
   'angular',
   'ngRequire',
-  'angular-material',
   'angular-ui-router',
   'ui-codemirror',
   'angular-ui-router',
@@ -16,7 +15,6 @@ define([
   var app = angular.module('ngApp',
     [
       'ngRequire',
-      'ngMaterial',
       'ui.codemirror',
       'ui.router',
       'wu.masonry',

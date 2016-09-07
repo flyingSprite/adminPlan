@@ -1,4 +1,4 @@
-define(['adminApp', 'ap-charts'], function (adminApp) {
+define(['adminApp'], function (adminApp) {
   adminApp.controller('TaskNoteController', [
     '$state', 'breadcrumb', function($state, breadcrumb){
       breadcrumb('Note', [{

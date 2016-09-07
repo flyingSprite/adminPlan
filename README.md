@@ -143,13 +143,3 @@ Bootstrap SweetAlert - http://lipis.github.io/bootstrap-sweetalert/
 > Add Eslint in this project.
 
 
-.aca_content {
-    color: rgb(26, 37, 54);
-    display: block;
-    font-family: "PT Serif", Georgia, Times, "Times New Roman", "Heiti SC", "Microsoft Yahei", 微软雅黑, 宋体, serif;
-    font-size: 14px;
-    line-height: 150%;
-    background: url("../../../../librarys/application/views/veda/images/paper.png") center top repeat scroll white;
-    margin: 0px 2px;
-    padding: 1px 15px;
-}

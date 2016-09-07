@@ -24,5 +24,21 @@ define('util', ['adminApp'], function (adminApp) {
     return {
       next: function() { return generateUid(); }
     };
-  });
+  })
+  .factory('copyArray', function () {
+    return function(source, from) {
+      angular.forEach(from, function(o) {
+        this.push(o);
+      }, source);
+    };
+  })
+  .factory('removeArrayById', [function () {
+    return function(source, o) {
+      for (var i = source.length - 1; i >= 0; i --) {
+        if (source[i].id === o.id) {
+          source.splice(i, 1);
+        }
+      }
+    };
+  }]);
 });

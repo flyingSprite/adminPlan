@@ -83,25 +83,31 @@
                 ng-if="ctrl.mission.status != 'complate'"
                 ng-click="ctrl.complateMission()"
               >{{ 'Click To Complate' | translate}}</button>
-              <span ng-if="ctrl.mission.status == 'complate'">Complate</span>
+              <div>
+                <span ng-if="ctrl.mission.status == 'complate'">Complate</span>
+                <button class="btn btn-default btn-xs"
+                  ng-if="ctrl.mission.status == 'complate'"
+                  ng-click="ctrl.unComplateMission()"
+                >{{ 'UnComplate' | translate}}</button>
+              </div>
             </div>
           </div>
           <div class="row">
             <label class="col-lg-4 col-md-4 col-sm-4 control-label">{{ 'Create Date' | translate }}</label>
             <div class="col-lg-8 col-md-8 col-sm-8">
-              {{ctrl.moment(ctrl.mission.createDate).format('YYYY-MM-DD HH:mm:ss')}}
+              <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ctrl.moment(ctrl.mission.createDate).format('YYYY-MM-DD HH:mm:ss')}}
             </div>
           </div>
           <div class="row">
             <label class="col-lg-4 col-md-4 col-sm-4 control-label">{{ 'Start Date' | translate }}</label>
             <div class="col-lg-8 col-md-8 col-sm-8">
-              {{ctrl.moment(ctrl.mission.startDate).format('YYYY-MM-DD HH:mm:ss')}}
+              <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ctrl.moment(ctrl.mission.startDate).format('YYYY-MM-DD HH:mm:ss')}}
             </div>
           </div>
           <div class="row">
             <label class="col-lg-4 col-md-4 col-sm-4 control-label">{{ 'End Date' | translate }}</label>
             <div class="col-lg-8 col-md-8 col-sm-8">
-              {{ctrl.moment(ctrl.mission.endDate).format('YYYY-MM-DD HH:mm:ss')}}
+              <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ctrl.moment(ctrl.mission.endDate).format('YYYY-MM-DD HH:mm:ss')}}
             </div>
           </div>
           <div class="row">

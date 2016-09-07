@@ -1,3 +1,108 @@
 <section class="container section-default">
-  <span>This is Media Type</span>
+
+  <!-- Select Category or Label -->
+  <div class="row distance-default">
+    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
+      <div class="btn-group">
+        <button class="btn btn-default"
+          ng-class="{'btn-primary': ctrl.select === 'Category'}"
+          ng-click="ctrl.selectCategory()">
+          <strong>{{ 'Category' | translate }}</strong>
+        </button>
+        <button class="btn btn-default"
+          ng-class="{'btn-primary': ctrl.select == 'Label'}"
+          ng-click="ctrl.selectLabel()">
+          <strong>{{ 'Label' | translate }}</strong>
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+      <div class="pull-right">
+        <button class="btn btn-success"
+          ng-show="ctrl.select === 'Category'" ng-click="ctrl.createNewCategory()">
+          {{ 'New Category' }}</button>
+        <button class="btn btn-success"
+          ng-show="ctrl.select == 'Label'" ng-click="ctrl.createNewLabel()">{{ 'New Label' | translate }}</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Category-->
+  <div class="distance-default" ng-show="ctrl.select === 'Category' && ctrl.isCreate">
+    <div class=" wrapper-new-label">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
+          <form class="form-horizontal">
+            <div class="control-group">
+              <input type="text" class="form-control" placeholder="Category input" ng-model="ctrl.newCategory" />
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+          <div class="pull-right">
+            <button class="btn btn-default" ng-click="ctrl.cancelCreateCategory()">{{ 'Cancel' | translate }}</button>
+            <button class="btn btn-success" ng-click="ctrl.toCreateNewCategory()">{{ 'Create Category' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Label-->
+  <div class="distance-default" ng-show="ctrl.select === 'Label' && ctrl.isCreate">
+    <div class="wrapper-new-label">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+          <select class="form-control" ng-model="ctrl.selectCategoryIdForLabel" ng-change="ctrl.changeCategoryForLabel()">
+            <option ng-repeat="category in ctrl.categories track by $index" value="{{category.id}}">{{category.value}}</option>
+          </select>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-4 col-xs-4">
+          <input type="text" class="form-control" placeholder="Label Input" ng-model="ctrl.newLabel" />
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+          <div class="pull-right">
+            <button class="btn btn-default" ng-click="ctrl.cancelCreateLabel()">{{ 'Cancel' | translate }}</button>
+            <button class="btn btn-success" ng-click="ctrl.toCreateNewLabel()">{{ 'Create Label' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Category List-->
+  <div class="distance-default" ng-show="ctrl.select === 'Category'">
+    <ap-box title="{{ctrl.categories.length ? ctrl.categories.length : 0}} Categories">
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="category in ctrl.categories track by $index">
+          <button class="btn btn-danger btn-xs pull-right" ng-click="ctrl.deleteCategory(category)">
+            <i class="fa fa-times-circle"></i>&nbsp;{{ 'Delete' | translate }}
+          </button>
+          <i class="fa fa-tag"></i>&nbsp;&nbsp;{{ category.value }}
+        </li>
+      </ul>
+    </ap-box>
+  </div>
+
+  <!-- Label List-->
+  <div class="distance-default" ng-show="ctrl.select === 'Label'">
+    <div class="row distance-default" ng-hide="ctrl.select === 'Label' && ctrl.isCreate">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <select class="form-control" ng-model="ctrl.selectCategoryIdForLabel" ng-change="ctrl.changeCategoryForLabel()">
+          <option ng-repeat="category in ctrl.categories track by $index" value="{{category.id}}">{{category.value}}</option>
+        </select>
+      </div>
+    </div>
+    <ap-box title="{{ctrl.categoryLabels.length ? ctrl.categoryLabels.length : 0}} Labels">
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="label in ctrl.categoryLabels track by $index">
+          <button class="btn btn-danger btn-xs pull-right" ng-click="ctrl.deleteLabelForCategory(label)">
+            <i class="fa fa-times-circle"></i>&nbsp;{{ 'Delete' | translate }}
+          </button>
+          <i class="fa fa-tag"></i>&nbsp;&nbsp;{{ label.value }}
+        </li>
+      </ul>
+    </ap-box>
+  </div>
 </section>

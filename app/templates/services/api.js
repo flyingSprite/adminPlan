@@ -3,6 +3,15 @@
 define('api', ['adminApp'], function (adminApp) {
   adminApp.service('api', ['adminHttp', function (adminHttp) {
 
+    var o = function(options, success, error) {
+      adminHttp(options)
+      .success(function(res){
+        res && success && success(res);
+      })
+      .error(function(err) {
+        err && error && error(err);
+      });
+    };
     /** Get count for dashboard. */
     this.count = function(success, error) {
       adminHttp({method: 'GET', url: '/dashboard/count'})
@@ -72,6 +81,64 @@ define('api', ['adminApp'], function (adminApp) {
       .error(function(err) {
         err && error && error(err);
       });
+    };
+
+    this.label = {
+      get: function(categoryId, success, error) {
+        o({method: 'GET', url: '/label?categoryId=' + categoryId}, success, error);
+      },
+      post: function(label, success, error) {
+        o({method: 'POST', url: '/label', data: label}, success, error);
+      },
+      delete: function(id, success, error) {
+        o({method: 'DELETE', url: '/label', data: {id: id}}, success, error);
+      }
+    };
+
+    this.category = {
+      get: function(success, error) {
+        o({method: 'GET', url: '/category'}, success, error);
+      },
+      post: function(category, success, error) {
+        o({method: 'POST', url: '/category', data: category}, success, error);
+      },
+      delete: function(id, success, error) {
+        o({method: 'DELETE', url: '/category', data: {id: id}}, success, error);
+      }
+    };
+
+    // Doc System interface api.
+    this.doc = {
+      getSubject: function(success, error) {
+        o({method: 'GET', url: '/doc/subject'}, success, error);
+      },
+      getSubjectById: function(subjectId, success, error) {
+        o({method: 'GET', url: '/doc/subject/id?subjectId=' + subjectId}, success, error);
+      },
+      postSubject: function(subject, success, error) {
+        o({method: 'POST', url: '/doc/subject', data: subject}, success, error);
+      },
+      deleteSubject: function(subjectId, success, error) {
+        o({method: 'DELETE', url: '/doc/subject', data: {id: subjectId}}, success, error);
+      },
+      getTitle: function(subjectId, success, error) {
+        o({method: 'GET', url: '/doc/title?subjectId=' + subjectId}, success, error);
+      },
+      postTitle: function(title, success, error) {
+        o({method: 'POST', url: '/doc/title', data: title}, success, error);
+      },
+      deleteTitle: function(titleId, success, error) {
+        o({method: 'DELETE', url: '/doc/title', data: {id: titleId}}, success, error);
+      },
+      getContent: function(titleId, success, error) {
+        o({method: 'GET', url: '/doc/content?titleId=' + titleId}, success, error);
+      },
+      postContent: function(content, success, error) {
+        o({method: 'POST', url: '/doc/content', data: content}, success, error);
+      },
+      putContent: function(content, success, error) {
+        o({method: 'PUT', url: '/doc/content', data: content}, success, error);
+      },
     };
 
   }]);

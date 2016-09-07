@@ -35,7 +35,7 @@
     <header class="main-header">
       <div class="container" ui-view="header"></div>
     </header>
-    <section class="ap-breadcrumb" ui-view="breadcrumb" ng-show="indexCtrl.currentInfo.needBreadCrumb"></section>
+    <div class="ap-breadcrumb" ui-view="breadcrumb" ng-show="indexCtrl.currentInfo.needBreadCrumb"></div>
     <div class="main-contrainer" ui-view="main"></div>
   </div><!-- ./wrapper -->
   <!-- <footer ui-view="footer" class="footer"></footer> -->
@@ -67,6 +67,6 @@
 
 
   <!-- The main js. The angular controllers, services and views. -->
-  <script data-main="main.js" src="../bower_components/requirejs/require.js"></script>
+  <script data-main="main.js" src="dist/require.min.js"></script>
 </body>
 </html>

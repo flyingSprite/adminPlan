@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .div-none {
   padding: 0; }
 
@@ -186,8 +187,21 @@
     border-color: #ffcd00;
     padding-left: 10px; }
 
+html, body {
+  height: 100%; }
+
 a, a:hover, a:focus, a:active {
   text-decoration: none; }
+
+.doc_content {
+  color: #1a2536;
+  display: block;
+  font-family: "PT Serif", Georgia, Times, "Times New Roman", "Heiti SC", "Microsoft Yahei", 微软雅黑, 宋体, serif;
+  font-size: 14px;
+  line-height: 150%;
+  background: url("../images/design/paper.png") center top repeat scroll white;
+  margin: 0px 2px;
+  padding: 1px 15px; }
 
 /*
  * Component: Box
@@ -644,7 +658,7 @@ h2 {
   clear: both;
   visibility: hidden; }
 
-.ap-breadcrumb .ap-breadcrumb-page-title {
+.ap-breadcrumb {
   background-color: #414857;
   color: #fff;
   padding: 30px 0;
@@ -652,30 +666,30 @@ h2 {
   background-position: 50% 50%;
   background-size: cover;
   background-attachment: fixed; }
-  .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb > li > a {
+  .ap-breadcrumb .breadcrumb > li > a {
     color: #fff;
     font-size: 12px;
     line-height: 14px; }
-    .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb > li > a:hover {
+    .ap-breadcrumb .breadcrumb > li > a:hover {
       -webkit-transition: background 0.5s ease-in,color 0.3s ease-out;
       -moz-transition: background 0.5s ease-in,color 0.3s ease-out;
       -o-transition: background 0.5s ease-in,color 0.3s ease-out;
       transition: background 0.5s ease-in,color 0.3s ease-out;
       color: #66ad44; }
-  .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb > li.active > a {
+  .ap-breadcrumb .breadcrumb > li.active > a {
     color: #b7b7b7; }
-    .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb > li.active > a:hover {
+    .ap-breadcrumb .breadcrumb > li.active > a:hover {
       -webkit-transition: background 0.5s ease-in,color 0.3s ease-out;
       -moz-transition: background 0.5s ease-in,color 0.3s ease-out;
       -o-transition: background 0.5s ease-in,color 0.3s ease-out;
       transition: background 0.5s ease-in,color 0.3s ease-out;
       color: #66ad44; }
-  .ap-breadcrumb .ap-breadcrumb-page-title .breadcrumb {
+  .ap-breadcrumb .breadcrumb {
     background: none;
     padding: 0;
     margin: 0 0 7px;
     line-height: 14px; }
-  .ap-breadcrumb .ap-breadcrumb-page-title h2 {
+  .ap-breadcrumb h2 {
     font-size: 24px;
     line-height: 1;
     margin: 0;
@@ -695,6 +709,27 @@ h2 {
 
 .fixed-widht-lg {
   width: 240px; }
+
+.form-control, .single-line {
+  background-color: #FFFFFF;
+  background-image: none;
+  border: 1px solid #e5e6e7;
+  border-radius: 1px;
+  color: inherit;
+  display: block;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+  font-size: 14px; }
+
+.btn-primary {
+  background-color: #1ab394;
+  border-color: #1ab394;
+  color: #FFFFFF; }
+
+.form-control:focus,
+.single-line:focus {
+  border-color: #1ab394 !important; }
 
 .mission-create-btn {
   height: 45px;
@@ -775,8 +810,6 @@ h2 {
     -ms-flex-direction: row;
     flex-direction: row;
     margin: 0; }
-    .main-header .main-header-content h2 {
-      padding-left: 16px; }
     .main-header .main-header-content .logo {
       line-height: 70px;
       display: inline-block;
@@ -807,13 +840,32 @@ body {
   font-family: 'Grand Hotel',cursive;
   font-weight: 600; }
 
+.font-sm {
+  font-size: 12px;
+  font-weight: 300; }
+
+.font-md {
+  font-size: 12px;
+  font-weight: 300; }
+
 .wrapper {
+  height: 100%;
   overflow-x: hidden;
   -webkit-transition: margin-left 400ms cubic-bezier(0.7, 0, 0.3, 1);
   transition: margin-left 400ms cubic-bezier(0.7, 0, 0.3, 1); }
 
 .section-default {
-  padding: 15px 0px; }
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.distance-default {
+  padding-bottom: 20px; }
+
+.wrapper-new-label {
+  background-color: #fafafa;
+  border: 1px solid #e5e6e7;
+  padding: 12px;
+  width: 100%; }
 
 .ap-dropdown {
   display: inline-block;

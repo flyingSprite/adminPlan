@@ -5,7 +5,8 @@ define(['adminApp', 'config',
   './dashboard/ngRouter',
   './design/ngRouter',
   './monitor/ngRouter',
-  './task/ngRouter'
+  './task/ngRouter',
+  './docs/ngRouter'
 ], function (adminApp, config) {
   var templatePath = config.rootPath + 'container/ngTemplate.html';
   adminApp
@@ -29,6 +30,10 @@ define(['adminApp', 'config',
     }, {
       url: 'design',
       title: 'Design',
+      templateUrl: templatePath
+    }, {
+      url: 'docs',
+      title: 'Docs',
       templateUrl: templatePath
     }, {
       url: 'task',
