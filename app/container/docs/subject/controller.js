@@ -5,7 +5,7 @@ define(['adminApp'], function (adminApp) {
         name: 'Document',
         link: 'main.docs.suject'
       }, {
-        name: 'Document Subject',
+        name: 'Subject',
         link: 'main.docs.suject'
       }]);
 

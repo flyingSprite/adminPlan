@@ -1,6 +1,6 @@
-define(['adminApp', 'ap-service', 'ap-directive',
+define(['adminApp', 'config', 'ap-service', 'ap-directive',
   './container/ngRouter',
-  ], function (adminApp, d3NgRouter, recordNgRouter) {
+  ], function (adminApp, config) {
 
   adminApp.service('init', function () {
     return {
@@ -90,6 +90,9 @@ define(['adminApp', 'ap-service', 'ap-directive',
     };
   }])
   .controller('IndexController', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    console.log(config);
+    $scope.staticUrl = config.staticUrl;
+    console.log($scope.staticUrl);
     var self = this;
     self.currentInfo = {};
 

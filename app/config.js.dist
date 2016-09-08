@@ -2,6 +2,7 @@
 define(function () {
   return {
     rootPath: 'dist/',
+    staticUrl: '/ap',
     namespace: 'stalactite',
     serverHost: 'http://localhost:8080/'
   };

@@ -161,6 +161,12 @@
   .content-light {
     background-color: #efefef; }
 
+.closet-content {
+  background-color: #f2f2f2;
+  text-align: center; }
+  .closet-content img {
+    height: 100%; }
+
 .ap-panel {
   margin-bottom: 0;
   border-radius: 0px !important;

@@ -1,6 +1,6 @@
 <div class="main-header-content">
     <h2>
-        <span><a href="#" class="logo logo-font">AdminPlan</a></span>
+        <span><a href="#" class="logo logo-font">Admin Plan</a></span>
     </h2>
     <span flex="" class="flex"></span>
     <ul class="nav nav-pills">
@@ -22,13 +22,12 @@
                 {{ 'Design' | translate}}
             </a>
         </li>
-        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Task'}">
+        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Docs'}">
             <a ui-sref="main.docs.subject" class="has-child">
                 {{ 'Docs' | translate}}
             </a>
             <ul class="dropdown fixed-widht-md">
                <li><a ui-sref="main.docs.subject"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Subject' | translate}}</a></li>
-               <li><a ui-sref="main.docs.wiki"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Wiki' | translate}}</a></li>
             </ul>
         </li>
         <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Task'}">

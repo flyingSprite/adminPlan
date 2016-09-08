@@ -58,27 +58,6 @@ define('angular-slimscroll', ['adminApp'], function(adminApp) {
 
 'use strict';
 
-define('horizontal', ['adminApp'], function(adminApp) {
-
-  adminApp.directive('apHorizontal', function () {
-    return {
-      restrict: 'ACE',
-      scope: {
-        img: '@',
-        content: '@'
-      },
-      // template: '<div ng-bind-html="markdownHtml"></div>',
-      templateUrl: 'templates/directive/horizontal/index.html',
-      controller: ['$scope', function () {
-      }]
-    };
-  });
-});
-
-
-
-'use strict';
-
 define('date-picker-attr', ['adminApp'], function(adminApp) {
   //https://docs.angularjs.org/api/ng/service/$parse
   adminApp.directive('datePickerAttr', ['$parse', function () {
@@ -118,6 +97,27 @@ define('date-picker-attr', ['adminApp'], function(adminApp) {
     };
   }]);
 });
+'use strict';
+
+define('horizontal', ['adminApp'], function(adminApp) {
+
+  adminApp.directive('apHorizontal', function () {
+    return {
+      restrict: 'ACE',
+      scope: {
+        img: '@',
+        content: '@'
+      },
+      // template: '<div ng-bind-html="markdownHtml"></div>',
+      templateUrl: 'templates/directive/horizontal/index.html',
+      controller: ['$scope', function () {
+      }]
+    };
+  });
+});
+
+
+
 'use strict';
 
 define('item', ['adminApp'], function(adminApp) {
@@ -286,34 +286,6 @@ define('layout-box', ['adminApp'], function(adminApp) {
 
 'use strict';
 
-define('label-wrapper', ['adminApp'], function(adminApp) {
-
-  adminApp.directive('apLabelWrapper', function () {
-    return {
-      restrict: 'E',
-      scope: {
-        label: '@',
-        for: '@'
-      },
-      template: '<div class="form-group">'
-        + '  <div class="col-md-2 col-sm-3 col-xs-4">'
-        + '    <label class="control-label" for="{{ for }}"'
-        + '           style="line-height: 30px">{{ label }}</label>'
-        + '  </div>'
-        + '  <div class="col-md-10 col-sm-9 col-xs-8" ng-transclude></div>'
-        + '</div>',
-      transclude: true,
-      controller: ['$scope', function($scope) {
-        if ($scope.label === undefined || $scope.label === '') {
-          $scope.label = 'Default label';
-          console.warn('Please set ap-label-wrapper element label argument value.');
-        }
-      }]
-    };
-  });
-});
-'use strict';
-
 define('pagination', ['adminApp'], function(adminApp) {
   adminApp.directive('apPaginate', function () {
     return {
@@ -405,6 +377,35 @@ define('pagination', ['adminApp'], function(adminApp) {
             arr.push(start);
           }
           return arr;
+        }
+      }]
+    };
+  });
+});
+
+'use strict';
+
+define('label-wrapper', ['adminApp'], function(adminApp) {
+
+  adminApp.directive('apLabelWrapper', function () {
+    return {
+      restrict: 'E',
+      scope: {
+        label: '@',
+        for: '@'
+      },
+      template: '<div class="form-group">'
+        + '  <div class="col-md-2 col-sm-3 col-xs-4">'
+        + '    <label class="control-label" for="{{ for }}"'
+        + '           style="line-height: 30px">{{ label }}</label>'
+        + '  </div>'
+        + '  <div class="col-md-10 col-sm-9 col-xs-8" ng-transclude></div>'
+        + '</div>',
+      transclude: true,
+      controller: ['$scope', function($scope) {
+        if ($scope.label === undefined || $scope.label === '') {
+          $scope.label = 'Default label';
+          console.warn('Please set ap-label-wrapper element label argument value.');
         }
       }]
     };

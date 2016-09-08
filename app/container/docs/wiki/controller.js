@@ -6,6 +6,9 @@ define(['adminApp'], function (adminApp) {
         name: 'Document',
         link: 'main.docs.subject'
       }, {
+        name: 'Subject',
+        link: 'main.docs.subject'
+      }, {
         name: 'Wiki',
         link: 'main.docs.wiki'
       }]);
@@ -68,14 +71,15 @@ define(['adminApp'], function (adminApp) {
       };
 
       self.cancelEditDocContent = function() {
-        self.isEidtDocConent = false;
+        self.isEditDocContent = false;
         self.editContent = '';
       };
 
       self.editDocContent = function() {
         self.docContent.content = self.editContent;
         if (self.editContent) {
-          var method, options = {
+          var method;
+          var options = {
             subjectId: self.id,
             titleId: self.selectTitle.id,
             content: self.editContent,
