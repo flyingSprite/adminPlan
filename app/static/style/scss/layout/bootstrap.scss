@@ -1,0 +1,109 @@
+
+// bootstrap button
+.btn {
+  border-radius: 0px;
+}
+
+.btn-primary {
+  background-color: #1ab394;
+  border-color: #1ab394;
+  color: #FFFFFF;
+  @mixin primary-hover {
+    background-color: #18a689;
+    border-color: #18a689;
+    color: #FFFFFF;
+  }
+  &:hover {
+    @include primary-hover;
+  }
+
+  &:active {
+    @include primary-hover;
+    &:hover {
+      @include primary-hover;
+    }
+    &:focus {
+      @include primary-hover;
+    }
+  }
+
+  &:focus {
+    @include primary-hover;
+  }
+
+  .active {
+    @include primary-hover;
+    &:focus {
+      @include primary-hover;
+    }
+    &:hover {
+      @include primary-hover;
+    }
+  }
+}
+
+.btn-success {
+  background-color: #1c84c6;
+  border-color: #1c84c6;
+  color: #FFFFFF;
+  @mixin success-hover {
+    background-color: #1a7bb9;
+    border-color: #1a7bb9;
+    color: #FFFFFF;
+  }
+  &:hover {
+    @include success-hover;
+  }
+
+  &:active {
+    @include success-hover;
+    &:hover {
+      @include success-hover;
+    }
+    &:focus {
+      @include success-hover;
+    }
+  }
+
+  &:focus {
+    @include success-hover;
+  }
+
+  .active {
+    @include success-hover;
+    &:focus {
+      @include success-hover;
+    }
+    &:hover {
+      @include success-hover;
+    }
+  }
+}
+
+// bootstrap list
+.list-group {
+  border-radius: 0px;
+
+  .list-group-item {
+    border-radius: 0px;
+
+    &:hover {
+      background-color: #1cc09f;
+      border-color: #1cc09f;
+      color: #FFF;
+    }
+
+    .title-item {
+      cursor: pointer;
+    }
+  }
+
+  .active {
+    background-color: #1cc09f;
+    color: #FFF;
+    border-color: #1cc09f;
+  }
+}
+
+
+

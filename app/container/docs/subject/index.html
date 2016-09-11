@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="distance-default" ng-show="ctrl.newDocSubject">
-    <div class=" wrapper-new-label">
+    <div class="wrapper-new-label">
       <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
           <form class="form-horizontal">
@@ -37,7 +37,7 @@
           <button class="btn btn-danger btn-xs pull-right" ng-click="ctrl.toDeleteDocSubject(subject)">
             <i class="fa fa-times-circle"></i>&nbsp;{{ 'Delete' | translate }}
           </button>
-          <span ng-click="ctrl.innerToSubject(subject)">
+          <span class="title-item" ng-click="ctrl.innerToSubject(subject)">
             <i class="fa fa-tag"></i>&nbsp;&nbsp;{{ subject.name }}
           </span>
         </li>

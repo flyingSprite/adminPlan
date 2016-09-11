@@ -21,3 +21,14 @@
     padding: 12px;
     width: 100%;
 }
+
+.header-title-wrapper {
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: #393f4d;
+
+  h3 {
+    padding: 3px 3px 3px 10px;
+    font-family: Georgia, Times, "Times New Roman", "Heiti SC", "Microsoft Yahei", 微软雅黑, 宋体, serif;
+  }
+}
