@@ -90,11 +90,14 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
     };
   }])
   .controller('IndexController', ['$scope', '$rootScope', function ($scope, $rootScope) {
-    console.log(config);
     $scope.staticUrl = config.staticUrl;
-    console.log($scope.staticUrl);
     var self = this;
     self.currentInfo = {};
+
+    // Authorzation
+    self.supportDocEdit = false;
+    self.supportTypeEdit = false;
+    self.userImg = $scope.staticUrl + '/static/images/user.png';
 
     // Set the header title in nav.
     $scope.$on('onHeaderTitle', function(event, toState) {

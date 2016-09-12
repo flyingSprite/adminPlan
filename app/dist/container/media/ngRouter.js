@@ -1,0 +1,1 @@
+define(["adminApp","config"],function(e,o){var i=o.rootPath+"container/media/",r="main.media.",n=[{title:"Media Video",name:"video",params:":id",uiSref:r+"video",templateUrl:i+"video/index.html",controller:"MediaVideoController",controllerUrl:i+"video/controller"}];e.config(["generateProvider",function(e){angular.forEach(n,function(o){e.router(o)})}])});

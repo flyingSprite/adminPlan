@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-      <div class="pull-right">
+      <div class="pull-right" ng-if="indexCtrl.supportTypeEdit">
         <button class="btn btn-success"
           ng-show="ctrl.select === 'Category'" ng-click="ctrl.createNewCategory()">
           {{ 'New Category' }}</button>
@@ -28,8 +28,8 @@
   </div>
 
   <!-- New Category-->
-  <div class="distance-default" ng-show="ctrl.select === 'Category' && ctrl.isCreate">
-    <div class=" wrapper-new-label">
+  <div class="distance-default" ng-show="ctrl.select === 'Category' && ctrl.isCreate" ng-if="indexCtrl.supportTypeEdit">
+    <div class="wrapper-new-label">
       <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
           <form class="form-horizontal">
@@ -49,7 +49,7 @@
   </div>
 
   <!-- New Label-->
-  <div class="distance-default" ng-show="ctrl.select === 'Label' && ctrl.isCreate">
+  <div class="distance-default" ng-show="ctrl.select === 'Label' && ctrl.isCreate" ng-if="indexCtrl.supportTypeEdit">
     <div class="wrapper-new-label">
       <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -76,7 +76,8 @@
     <ap-box title="{{ctrl.categories.length ? ctrl.categories.length : 0}} Categories">
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="category in ctrl.categories track by $index">
-          <button class="btn btn-danger btn-xs pull-right" ng-click="ctrl.deleteCategory(category)">
+          <button class="btn btn-danger btn-xs pull-right"
+              ng-click="ctrl.deleteCategory(category)" ng-if="indexCtrl.supportTypeEdit">
             <i class="fa fa-times-circle"></i>&nbsp;{{ 'Delete' | translate }}
           </button>
           <i class="fa fa-tag"></i>&nbsp;&nbsp;{{ category.value }}
@@ -97,7 +98,8 @@
     <ap-box title="{{ctrl.categoryLabels.length ? ctrl.categoryLabels.length : 0}} Labels">
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="label in ctrl.categoryLabels track by $index">
-          <button class="btn btn-danger btn-xs pull-right" ng-click="ctrl.deleteLabelForCategory(label)">
+          <button class="btn btn-danger btn-xs pull-right"
+              ng-click="ctrl.deleteLabelForCategory(label)" ng-if="indexCtrl.supportTypeEdit">
             <i class="fa fa-times-circle"></i>&nbsp;{{ 'Delete' | translate }}
           </button>
           <i class="fa fa-tag"></i>&nbsp;&nbsp;{{ label.value }}

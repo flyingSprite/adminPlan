@@ -4,6 +4,7 @@ $link-hover-color: #66ad44;
 
 html, body {
   height: 100%;
+  background-color: #F2F2F2;
 }
 
 a, a:hover, a:focus, a:active {
@@ -21,6 +22,10 @@ a, a:hover, a:focus, a:active {
     padding: 1px 15px;
 }
 
+.verticlal-space {
+    padding-bottom: 15px;
+}
+
 @import "transition.scss";
 
 @import "box.scss";
@@ -33,4 +38,5 @@ a, a:hover, a:focus, a:active {
 @import "mission.scss";
 @import "header.scss";
 @import "font.scss";
+@import "user.scss";
 @import "wrapper.scss";

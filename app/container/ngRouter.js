@@ -4,6 +4,7 @@ define(['adminApp', 'config',
   './crawl/ngRouter',
   './dashboard/ngRouter',
   './design/ngRouter',
+  './media/ngRouter',
   './monitor/ngRouter',
   './task/ngRouter',
   './docs/ngRouter'
@@ -34,6 +35,10 @@ define(['adminApp', 'config',
     }, {
       url: 'docs',
       title: 'Docs',
+      templateUrl: templatePath
+    }, {
+      url: 'media',
+      title: 'Media',
       templateUrl: templatePath
     }, {
       url: 'task',

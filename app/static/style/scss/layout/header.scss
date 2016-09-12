@@ -56,5 +56,11 @@
       color: #{$link-hover-color};
       background-color: #{$header-default-color};
     }
+
+    ul li:last-child {
+      a {
+        padding-right: 0px;
+      }
+    }
   }
 }

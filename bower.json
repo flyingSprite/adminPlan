@@ -40,7 +40,8 @@
     "highcharts": "^4.2.6",
     "eonasdan-bootstrap-datetimepicker": "^4.17.37",
     "pnotify": "^3.0.0",
-    "notifyjs": "^0.4.2"
+    "notifyjs": "^0.4.2",
+    "require-css": "^0.1.8"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",

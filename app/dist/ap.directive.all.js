@@ -3,15 +3,15 @@
 
 require([
   'angular-slimscroll',
+  'date-picker-attr',
   'horizontal',
   'item',
   'item-info',
   'item-news',
-  'pagination',
   'label-wrapper',
-
   'layout-box',
-  'date-picker-attr'
+  'media-video',
+  'pagination'
 ]);
 
 
@@ -280,6 +280,30 @@ define('layout-box', ['adminApp'], function(adminApp) {
           $$panel.remove();
         });
       }
+    };
+  });
+});
+
+
+
+'use strict';
+
+/**
+ * MUST use plugin.js
+ */
+define('media-video', ['adminApp'], function(adminApp) {
+
+  adminApp.directive('apVideo', function () {
+    return {
+      restrict: 'E',
+      scope: {
+        src: '@'
+      },
+      template:'<div class="video-wrapper"><video id="video-demo" width="300" height="300"></video></div>',
+      transclude: true,
+      controller: ['$scope', function($scope) {
+        console.log($scope);
+      }]
     };
   });
 });

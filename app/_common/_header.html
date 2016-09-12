@@ -40,6 +40,14 @@
                <li><a ui-sref="main.task.note"><i class="fa fa-sticky-note-o"></i>&nbsp;&nbsp;{{ 'Note' | translate}}</a></li>
             </ul>
         </li>
+        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Media'}">
+            <a ui-sref="main.media.video" class="has-child">
+                {{ 'Media' | translate}}
+            </a>
+            <ul class="dropdown fixed-widht-md">
+               <li><a ui-sref="main.media.video"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Video' | translate}}</a></li>
+            </ul>
+        </li>
         <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Crawl'}">
             <a ui-sref="main.crawl.hotnews" class="has-child">
                 {{ 'Crawl' | translate}}

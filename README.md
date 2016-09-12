@@ -7,6 +7,9 @@
 * Angular-ui-router + Require.js实现按需加载，参考：[angular-require](https://github.com/Treri/angular-require)
 * 使用gulp打包require.js依赖[https://segmentfault.com/a/1190000002876583](https://segmentfault.com/a/1190000002876583)
 
+## 参考网站 ##
+[http://wrapbootstrap.com/preview/WB0R5L90S](http://wrapbootstrap.com/preview/WB0R5L90S)
+
 ## What admin plan need to do? ##
 
 * Add the knowledge you have learned.

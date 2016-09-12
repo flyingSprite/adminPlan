@@ -1,4 +1,4 @@
-define(['adminApp'], function (adminApp) {
+define(['adminApp', 'pnotify'], function (adminApp) {
   adminApp.controller('DocsWikiController', [
     '$state', '$stateParams', 'breadcrumb', 'api', 'copyArray', 'removeArrayById',
     function($state, $stateParams, breadcrumb, api, copyArray, removeArrayById){

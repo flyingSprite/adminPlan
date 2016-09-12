@@ -3,14 +3,14 @@
 
 require([
   'angular-slimscroll',
+  'date-picker-attr',
   'horizontal',
   'item',
   'item-info',
   'item-news',
-  'pagination',
   'label-wrapper',
-
   'layout-box',
-  'date-picker-attr'
+  'media-video',
+  'pagination'
 ]);
 

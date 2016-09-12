@@ -12,6 +12,23 @@
       <h2>{{ indexCtrl.currentInfo.subTitle }}</h2>
     </div>
     <div class="col-sm-4">
+      <div class="profile-picture pull-right ap-dropdown">
+          <img ng-src="{{indexCtrl.userImg}}" class="img-circle m-b" alt="logo">
+          <ul class="dropdown">
+            <li>
+              <i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Support Doc Edit' | translate}}
+              <div class="pull-right">
+                <input type="checkbox" ng-model="indexCtrl.supportDocEdit" />
+              </div>
+            </li>
+            <li>
+              <i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Support Type Edit' | translate}}
+              <div class="pull-right">
+                <input type="checkbox" ng-model="indexCtrl.supportTypeEdit" />
+              </div>
+            </li>
+          </ul>
+      </div>
     </div>
   </div>
 </div>

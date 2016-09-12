@@ -1,4 +1,4 @@
-define(['adminApp'], function (adminApp) {
+define(['adminApp', 'pnotify'], function (adminApp, PNotify) {
   adminApp.controller('DocsSubjectController', [
     '$state', 'breadcrumb', 'api', function($state, breadcrumb, api){
       breadcrumb('Document Subject', [{
@@ -8,6 +8,15 @@ define(['adminApp'], function (adminApp) {
         name: 'Subject',
         link: 'main.docs.suject'
       }]);
+
+      new PNotify({
+            title: 'Regular Notice',
+            text: 'Check me out! I\'m a notice.',
+              buttons: {
+                        closer: true,
+                        sticker: true
+                    }
+        });
 
       var self = this;
       self.newDocSubject = false;
