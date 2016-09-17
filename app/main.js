@@ -16,10 +16,10 @@ require.config({
     'highcharts': '../bower_components/highcharts/highcharts',
     'jquery': '../bower_components/jquery/dist/jquery.min',
     'marked': '../bower_components/marked/marked.min',
-    'media': '/static/script/media',
+    'media': 'static/script/media',
     'moment': '../bower_components/moment/min/moment.min',
-    'pnotify': '/static/lib/pnotify/pnotify.custom.min',
-    'pnotify-css': '/static/lib/pnotify/pnotify.custom.min',
+    'pnotify': 'static/lib/pnotify/pnotify.custom.min',
+    'pnotify-css': 'static/lib/pnotify/pnotify.custom.min',
     'Raphael': '../bower_components/raphael/raphael-min',
     'ui-codemirror': '../bower_components/angular-ui-codemirror/ui-codemirror.min',
 
