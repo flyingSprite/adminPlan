@@ -40,6 +40,13 @@ define(['adminApp', 'pnotify'], function (adminApp) {
         }
       };
 
+      self.initFirstLoad = function() {
+        if (self.titles.length > 0) {
+          var firstTitle = self.titles[0];
+          self.showDocContent(firstTitle);
+        }
+      };
+
       self.deleteTitle = function(docTitle) {
         api.doc.deleteTitle(docTitle.id, function(res) {
           if (res && res.code === 200) {
@@ -64,7 +71,6 @@ define(['adminApp', 'pnotify'], function (adminApp) {
 
       self.toEditDocContent = function() {
         self.isEditDocContent = true;
-        console.log(self.isEditDocContent);
         if (self.hasDocContent) {
           self.editContent = self.docContent.content;
         }
@@ -104,17 +110,16 @@ define(['adminApp', 'pnotify'], function (adminApp) {
       function init() {
         self.id = $stateParams.id;
         api.doc.getSubjectById(self.id, function(res) {
-          console.log(res);
           if (res && res.code === 200 && res.data) {
             self.docSubject = res.data;
           }
         });
 
         api.doc.getTitle(self.id, function(res) {
-          console.log(res);
           if (res && res.code === 200 && res.data) {
-            self.titles.lenght = 0;
+            self.titles.length = 0;
             copyArray(self.titles, res.data);
+            self.initFirstLoad();
           }
         });
       }

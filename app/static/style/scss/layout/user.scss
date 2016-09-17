@@ -2,8 +2,13 @@
 .profile-picture{
 
   cursor: pointer;
-  padding: 30px 0px;
+  padding: 30px 15px;
   margin: -30px 0px;
+
+  &:hover {
+    background-color: #4d5669;
+    @include transition-color;
+  }
 
   img {
     border-radius: 50%;

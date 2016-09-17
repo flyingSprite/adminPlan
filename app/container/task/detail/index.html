@@ -5,7 +5,8 @@
     </div>
     <ap-box title="Mission List">
       <ul class="list-group mission-list">
-        <li class="list-group-item {{mission.status == 'complate' ? 'mission-complate' : ''}}"
+        <li class="list-group-item"
+          ng-class="{'active': mission.status == 'complate'}"
           ng-repeat="mission in ctrl.missionList"
           ng-click="ctrl.showMissionItem(mission)"
         >
