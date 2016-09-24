@@ -217,7 +217,8 @@ define('layout-box', ['adminApp'], function(adminApp) {
         title: '@',
         subTitle: '@',
         defaultHidden: '@',
-        settingOptions: '@',
+        showEdit: '@',
+        editAction: '&',
         collapse: '@',
         close: '@'
       },
@@ -227,11 +228,12 @@ define('layout-box', ['adminApp'], function(adminApp) {
             '<h2>{{title}}<small>{{subTitle}}</small></h2>' +
             '<ul class="nav navbar-right panel_toolbox">' +
               '<li ng-show="collapse"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>' +
-              '<li ng-show="setting" class="dropdown">' +
+              '<li ng-show="toShowEdit"><a ng-click="editAction()"><i class="fa fa-edit"></i></a></li>' +
+              '<li ng-show="false" class="dropdown">' +
                 '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>' +
                 '<ul class="dropdown-menu" role="menu">' +
-                  '<li><a href="#">Settings 1</a></li>' +
-                  '<li><a href="#">Settings 2</a></li>' +
+                  '<li><a href="#">Test 1</a></li>' +
+                  '<li><a href="#">Test 2</a></li>' +
                 '</ul>' +
               '</li>' +
               '<li ng-show="close"><a class="close-link"><i class="fa fa-close"></i></a></li>' +
@@ -246,6 +248,12 @@ define('layout-box', ['adminApp'], function(adminApp) {
             ? 'Title'
             : $scope.title;
         $scope.setting = (!!$scope.settingOptions);
+        $scope.toShowEdit = $scope.showEdit === 'true';
+
+        $scope.$watch('showEdit', function() {
+          console.log($scope.showEdit);
+          $scope.toShowEdit = $scope.showEdit === 'true';
+        });
       }],
       link: function($scope, element) {
         var $$element = $(element),

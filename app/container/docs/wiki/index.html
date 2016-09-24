@@ -32,10 +32,14 @@
     </div>
   </div>
   <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
-      <ap-box title="{{ctrl.selectTitle.title}}" ng-show="ctrl.selectTitle.title">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-show="ctrl.selectTitle.title" ng-if="indexCtrl.supportDocEdit">
+      <ap-box title="{{ctrl.selectTitle.title}}"
+        ng-show="ctrl.selectTitle.title"
+        show-edit="{{indexCtrl.supportDocEdit}}"
+        edit-action="ctrl.toEditDocContent()"
+      >
+        <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-show="ctrl.selectTitle.title" ng-if="indexCtrl.supportDocEdit">
           <i class="fa fa-edit" ng-click="ctrl.toEditDocContent()"></i>
-        </div>
+        </div> -->
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-hide="ctrl.isEditDocContent">
           <div class="doc_content">
             <markd mark-data="{{ctrl.docContent.content}}"></markd>
