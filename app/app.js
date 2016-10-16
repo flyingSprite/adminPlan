@@ -1,5 +1,5 @@
 define(['adminApp', 'config', 'ap-service', 'ap-directive',
-  './container/ngRouter',
+  './container/ngRoute',
   ], function (adminApp, config) {
 
   adminApp.service('init', function () {
@@ -7,52 +7,54 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
       imagePath: 'static/image/',
       treeview: function () {
         /* Sidebar tree view */
-        $(".sidebar .treeview").tree();
+        $('.sidebar .treeview').tree();
       }
-    }
+    };
   })
   .service('breadcrumb', function () {
     return {
       title: '',
       subTitle: '',
       list: []
-    }
+    };
   })
   .provider('generate', [ '$stateProvider', '$urlRouterProvider', '$requireProvider',
     function($stateProvider, $urlRouterProvider, $requireProvider) {
-    this.state = function(state) {
-      $stateProvider.state('main.' + state.url, {
-        url: state.url,
-        views: {
-          'main.container':{
-            templateUrl: state.templateUrl,
-            controller: ['$rootScope', function($rootScope) {
-              $rootScope.$broadcast("onHeaderTitle", {title: state.title});
-            }]
+      this.state = function(state) {
+        $stateProvider.state('main.' + state.url, {
+          url: state.url,
+          views: {
+            'main.container':{
+              templateUrl: state.templateUrl,
+              controller: ['$rootScope', function($rootScope) {
+                $rootScope.$broadcast('onHeaderTitle', {title: state.title});
+              }]
+            }
           }
-        }
-      });
-    };
-    this.router = function(route) {
-      $stateProvider
-      .state(route.uiSref, {
-        url: '/' + route.name +'?'+ route.params,
-        templateUrl: route.templateUrl,
-        controller: route.controller,
-        controllerAs: 'ctrl',
-        resolve: {
-          deps: $requireProvider.requireJS([route.controllerUrl])
-        },
-        params: { data: {} }
-      });
-    };
-    this.$get = function() {};
-  }])
-  .run(['$rootScope', '$location', function ($rootScope, $location) {
+        });
+      };
+      this.router = function(route) {
+        $stateProvider
+        .state(route.uiSref, {
+          url: '/' + route.name +'?'+ route.params,
+          templateUrl: route.templateUrl,
+          controller: route.controller,
+          controllerAs: 'ctrl',
+          resolve: {
+            deps: $requireProvider.requireJS([route.controllerUrl])
+          },
+          params: { data: {} }
+        });
+      };
+      this.$get = function() {};
+    }
+  ])
+  .run(['$rootScope', '$location', function ($rootScope) {
     $rootScope.$on('$stateChangeStart',
-    function (event, toState, toParams, fromState, fromParams){
-      // console.log('StateChange', event, toState, toParams, fromState, fromParams);
-    });
+      function (event, toState, toParams, fromState, fromParams){
+        console.log('StateChange', event, toState, toParams, fromState, fromParams);
+      }
+    );
   }])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -84,7 +86,7 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
   .factory('breadcrumb', ['$rootScope', function($rootScope) {
     return function(subTitle, breadcrumbs) {
       $rootScope.$broadcast(
-        "onBreadcrumb",
+        'onBreadcrumb',
         {subTitle: subTitle, breadcrumbs: breadcrumbs}
       );
     };

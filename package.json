@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "init": "node install && bower install --allow-root",
-    "install": "npm install",
     "bower": "bower install --allow-root"
   },
   "devDependencies": {
