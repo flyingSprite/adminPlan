@@ -66,9 +66,9 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
         header: {
           templateUrl: '_common/_header.html'
         },
-        breadcrumb: {
-          templateUrl: '_common/_breadcrumb.html'
-        },
+        // breadcrumb: {
+        //   templateUrl: '_common/_breadcrumb.html'
+        // },
         main: {
           templateUrl: '_common/_container.html'
         },

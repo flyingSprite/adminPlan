@@ -18,10 +18,8 @@
 </head>
 <body>
   <div class="wrapper" ng-controller="IndexController as indexCtrl">
-    <header class="main-header">
-      <div class="container" ui-view="header"></div>
-    </header>
-    <div class="ap-breadcrumb" ui-view="breadcrumb" ng-show="indexCtrl.currentInfo.needBreadCrumb"></div>
+
+    <div ui-view="header"></div>
     <div class="main-contrainer" ui-view="main"></div>
   </div><!-- ./wrapper -->
   <!-- <footer ui-view="footer" class="footer"></footer> -->

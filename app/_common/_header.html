@@ -1,69 +1,109 @@
-<div class="main-header-content">
-    <h2>
-        <span><a href="#" class="logo logo-font">Admin Plan</a></span>
-    </h2>
-    <span flex="" class="flex"></span>
-    <ul class="nav nav-pills">
-        <!-- <li role="presentation">
-            <a ui-sref="main.blog.list">
-                <i class="fa fa-list-alt"></i>
-                {{ 'Blog' | translate}}
-            </a>
-        </li> -->
-        <li role="presentation" ng-class="{active: indexCtrl.title=='Card'}">
-            <a ui-sref="main.card.dashboard">
-                <i class="fa fa-futbol-o"></i>
-                {{ 'Card' | translate}}
-            </a>
-        </li>
-        <li role="presentation" ng-class="{active: indexCtrl.title=='Design'}">
-            <a ui-sref="main.design.closet">
-                <i class="fa fa-futbol-o"></i>
-                {{ 'Design' | translate}}
-            </a>
-        </li>
-        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Docs'}">
-            <a ui-sref="main.docs.subject" class="has-child">
-                {{ 'Docs' | translate}}
-            </a>
-            <ul class="dropdown fixed-widht-md">
-               <li><a ui-sref="main.docs.subject"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Subject' | translate}}</a></li>
+<header class="main-header">
+  <div class="container">
+    <div class="main-header-content">
+        <h2>
+            <span><a href="#" class="logo logo-font">Admin Plan</a></span>
+        </h2>
+        <span flex="" class="flex"></span>
+        <ul class="nav nav-pills">
+            <!-- <li role="presentation">
+                <a ui-sref="main.blog.list">
+                    <i class="fa fa-list-alt"></i>
+                    {{ 'Blog' | translate}}
+                </a>
+            </li> -->
+            <li role="presentation" ng-class="{active: indexCtrl.title=='Card'}">
+                <a ui-sref="main.card.dashboard">
+                    <i class="fa fa-futbol-o"></i>
+                    {{ 'Card' | translate}}
+                </a>
+            </li>
+            <li role="presentation" ng-class="{active: indexCtrl.title=='Design'}">
+                <a ui-sref="main.design.closet">
+                    <i class="fa fa-futbol-o"></i>
+                    {{ 'Design' | translate}}
+                </a>
+            </li>
+            <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Docs'}">
+                <a ui-sref="main.docs.subject" class="has-child">
+                    {{ 'Docs' | translate}}
+                </a>
+                <ul class="dropdown fixed-widht-md">
+                   <li><a ui-sref="main.docs.subject"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Subject' | translate}}</a></li>
+                </ul>
+            </li>
+            <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Task'}">
+                <a ui-sref="main.task.detail" class="has-child">
+                    {{ 'Task' | translate}}
+                </a>
+                <ul class="dropdown fixed-widht-md">
+                   <li><a ui-sref="main.task.detail"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Detail' | translate}}</a></li>
+                   <li><a ui-sref="main.task.type"><i class="fa fa-bookmark-o"></i>&nbsp;&nbsp;{{ 'Media Type' | translate}}</a></li>
+                   <li><a ui-sref="main.task.note"><i class="fa fa-sticky-note-o"></i>&nbsp;&nbsp;{{ 'Note' | translate}}</a></li>
+                </ul>
+            </li>
+            <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Media'}">
+                <a ui-sref="main.media.video" class="has-child">
+                    {{ 'Media' | translate}}
+                </a>
+                <ul class="dropdown fixed-widht-md">
+                   <li><a ui-sref="main.media.video"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Video' | translate}}</a></li>
+                </ul>
+            </li>
+            <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Crawl'}">
+                <a ui-sref="main.crawl.hotnews" class="has-child">
+                    {{ 'Crawl' | translate}}
+                </a>
+                <ul class="dropdown fixed-widht-md">
+                  <li><a ui-sref="main.crawl.hotnews"><i class="fa fa-anchor"></i>&nbsp;&nbsp;{{ 'Hot News' | translate}}</a></li>
+                  <li><a ui-sref="main.crawl.ltaaa"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;{{ 'Ltaaa' | translate}}</a></li>
+                </ul>
+            </li>
+            <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Monitor'}">
+                <a ui-sref="main.monitor.cpu" class="has-child">
+                    {{ 'Monitor' | translate}}
+                </a>
+                <ul class="dropdown fixed-widht-md">
+                   <li><a ui-sref="main.monitor.cpu"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;{{ 'CPU' | translate}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+  </div>
+</header>
+<div class="ap-breadcrumb" ng-show="indexCtrl.currentInfo.needBreadCrumb">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <ol class="breadcrumb">
+          <li><a ui-sref="main.dashboard.index">Home</a></li>
+          <li ng-repeat="breadcrumb in indexCtrl.currentInfo.breadcrumbs"
+            ng-class="{'active': $last}">
+            <a ui-sref="{{ breadcrumb.link }}">{{ breadcrumb.name }}</a>
+          </li>
+        </ol>
+        <h2>{{ indexCtrl.currentInfo.subTitle }}</h2>
+      </div>
+      <div class="col-sm-4">
+        <div class="profile-picture pull-right ap-dropdown">
+            <img ng-src="{{indexCtrl.userImg}}" class="img-circle m-b" alt="logo">
+            <ul class="dropdown">
+              <li>
+                <i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Support Doc Edit' | translate}}
+                <div class="pull-right">
+                  <input type="checkbox" ng-model="indexCtrl.supportDocEdit" />
+                </div>
+              </li>
+              <li>
+                <i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Support Type Edit' | translate}}
+                <div class="pull-right">
+                  <input type="checkbox" ng-model="indexCtrl.supportTypeEdit" />
+                </div>
+              </li>
             </ul>
-        </li>
-        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Task'}">
-            <a ui-sref="main.task.detail" class="has-child">
-                {{ 'Task' | translate}}
-            </a>
-            <ul class="dropdown fixed-widht-md">
-               <li><a ui-sref="main.task.detail"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Detail' | translate}}</a></li>
-               <li><a ui-sref="main.task.type"><i class="fa fa-bookmark-o"></i>&nbsp;&nbsp;{{ 'Media Type' | translate}}</a></li>
-               <li><a ui-sref="main.task.note"><i class="fa fa-sticky-note-o"></i>&nbsp;&nbsp;{{ 'Note' | translate}}</a></li>
-            </ul>
-        </li>
-        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Media'}">
-            <a ui-sref="main.media.video" class="has-child">
-                {{ 'Media' | translate}}
-            </a>
-            <ul class="dropdown fixed-widht-md">
-               <li><a ui-sref="main.media.video"><i class="fa fa-object-group"></i>&nbsp;&nbsp;{{ 'Video' | translate}}</a></li>
-            </ul>
-        </li>
-        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Crawl'}">
-            <a ui-sref="main.crawl.hotnews" class="has-child">
-                {{ 'Crawl' | translate}}
-            </a>
-            <ul class="dropdown fixed-widht-md">
-              <li><a ui-sref="main.crawl.hotnews"><i class="fa fa-anchor"></i>&nbsp;&nbsp;{{ 'Hot News' | translate}}</a></li>
-              <li><a ui-sref="main.crawl.ltaaa"><i class="fa fa-list-ul"></i>&nbsp;&nbsp;{{ 'Ltaaa' | translate}}</a></li>
-            </ul>
-        </li>
-        <li role="presentation" class="ap-dropdown" ng-class="{active: indexCtrl.title=='Monitor'}">
-            <a ui-sref="main.monitor.cpu" class="has-child">
-                {{ 'Monitor' | translate}}
-            </a>
-            <ul class="dropdown fixed-widht-md">
-               <li><a ui-sref="main.monitor.cpu"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;{{ 'CPU' | translate}}</a></li>
-            </ul>
-        </li>
-    </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
