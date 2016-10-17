@@ -19,6 +19,7 @@ require.config({
     'marked': '../bower_components/marked/marked.min',
     'media': 'static/script/media',
     'moment': '../bower_components/moment/min/moment.min',
+    'oclazyload': '../bower_components/oclazyload/dist/ocLazyload.min',
     'pnotify': 'static/lib/pnotify/pnotify.custom.min',
     'pnotify-css': 'static/lib/pnotify/pnotify.custom.min',
     'Raphael': '../bower_components/raphael/raphael-min',

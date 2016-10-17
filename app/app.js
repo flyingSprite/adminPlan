@@ -56,6 +56,25 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
       }
     );
   }])
+  .config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
+    console.log('sadfasdfasdf');
+    $ocLazyLoadProvider.config({
+      debug: true,
+      events: true,
+      modules: [
+        {
+          name:'ui.codemirror',
+          module:true,
+          files:[
+            '../bower_components/angular-ui-codemirror/ui-codemirror.min.js'
+          ]
+        }
+      ]
+    });
+    // $scope.$on('ocLazyLoad.moduleLoaded', function(e, module) {
+    //   console.log('module loaded', module);
+    // });
+  }])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
     // This is home state, will show _header.html, _footer.html
@@ -91,7 +110,7 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
       );
     };
   }])
-  .controller('IndexController', ['$scope', '$rootScope', function ($scope, $rootScope) {
+  .controller('IndexController', ['$scope', '$rootScope', '$ocLazyLoad', function ($scope, $rootScope, $ocLazyLoad) {
     $scope.staticUrl = config.staticUrl;
     var self = this;
     self.currentInfo = {};
@@ -113,6 +132,14 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
       var needBreadcrumb = (self.currentInfo.subTitle !== undefined && self.currentInfo.subTitle !== '');
       self.currentInfo.needBreadCrumb = needBreadcrumb;
     });
+
+    $scope.$on('ocLazyLoad.moduleLoaded', function(e, module) {
+      console.log('module loaded', module);
+    });
+    // Refer http://www.tuicool.com/articles/3Mbi2y6
+    // Refer http://www.jb51.net/article/77813.htm
+    // Refer https://oclazyload.readme.io/docs/oclazyloadprovider
+    $ocLazyLoad.load('ui.codemirror');
 
     // On locationChange
     $rootScope.$on('$locationChangeStart', function() {});

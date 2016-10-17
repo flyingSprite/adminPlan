@@ -5,21 +5,23 @@ define([
   'angular',
   'ngRequire',
   'angular-ui-router',
-  'ui-codemirror',
+  // 'ui-codemirror',
   'angular-ui-router',
-  'ui-codemirror',
+  // 'ui-codemirror',
   'angular-masonry',
-  'angular-bootstrap-toggle-switch'
+  'angular-bootstrap-toggle-switch',
+  'oclazyload'
 ], function () {
 
   var app = angular.module('ngApp',
     [
       'ngRequire',
-      'ui.codemirror',
+      // 'ui.codemirror',
       'ui.router',
       'wu.masonry',
       'pascalprecht.translate',
-      'toggle-switch'
+      'toggle-switch',
+      'oc.lazyLoad'
     ]
   );
   return app;

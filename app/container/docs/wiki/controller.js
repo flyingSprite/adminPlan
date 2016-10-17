@@ -1,7 +1,7 @@
 define(['adminApp', 'pnotify'], function (adminApp) {
   adminApp.controller('DocsWikiController', [
     '$state', '$stateParams', 'breadcrumb', 'api', 'copyArray', 'removeArrayById',
-    function($state, $stateParams, breadcrumb, api, copyArray, removeArrayById){
+    function($ocLazyLoad, $state, $stateParams, breadcrumb, api, copyArray, removeArrayById){
       breadcrumb('Wiki', [{
         name: 'Document',
         link: 'main.docs.subject'
