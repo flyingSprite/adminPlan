@@ -158,7 +158,7 @@ require([
   'util'
 ]);
 
-define('initService', ['adminApp', 'config', 'marked', 'angular', 'angular-ui-router'], function (adminApp, config, marked) {
+define('initService', ['adminApp', 'config', 'marked', 'highlightjs'], function (adminApp, config, marked, hljs) {
 
   adminApp.service('InitService', function ($http){
     this.config = function () {

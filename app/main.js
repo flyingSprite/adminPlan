@@ -1,7 +1,7 @@
-'user strict'
+'user strict';
 
 require.config({
-  baseUrl: "",
+  baseUrl: '',
   paths:{
     'angular': '../bower_components/angular/angular.min',
     'angular-animate': '../bower_components/angular-animate/angular-animate.min',
@@ -14,6 +14,7 @@ require.config({
     'd3': '../bower_components/d3/d3.min',
     'domReady': '../bower_components/requirejs-domready/domReady',
     'highcharts': '../bower_components/highcharts/highcharts',
+    'highlightjs': '../bower_components/highlightjs/highlight.pack.min',
     'jquery': '../bower_components/jquery/dist/jquery.min',
     'marked': '../bower_components/marked/marked.min',
     'media': 'static/script/media',
@@ -61,6 +62,7 @@ require.config({
     'ap-service': ['angular'],
     'ap-charts': ['highcharts'],
 
+    'highlightjs': {exports: 'hljs'},
 
     'ngRequire': ['angular-ui-router'],
     'ui-codemirror': ['angular', 'codemirror']
