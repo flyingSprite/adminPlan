@@ -23,9 +23,9 @@ define(['adminApp', 'config'], function (adminApp, config) {
       title: 'Dashboard Index',
       name: 'index',
       uiSref: dashboardUiSref + 'index',
-      templateUrl: dashboardTemplatePath + 'dashboard.html',
-      controller: 'dashboardIndexController',
-      controllerUrl: dashboardTemplatePath + 'ngController'
+      templateUrl: dashboardTemplatePath + 'index.html',
+      controller: 'DashboardIndexController',
+      controllerUrl: dashboardTemplatePath + 'controller.js'
     }
   ];
 
@@ -33,10 +33,12 @@ define(['adminApp', 'config'], function (adminApp, config) {
     {
       title: 'Card Dashboard',
       name: 'dashboard',
+      params: ':id',
       uiSref: cardUiSref + 'dashboard',
       templateUrl: cardTemplatePath + 'dashboard/index.html',
+      depsModule: ['wu.masonry'],
       controller: 'CardDashboardController',
-      controllerUrl: cardTemplatePath + 'dashboard/controller'
+      controllerUrl: cardTemplatePath + 'dashboard/controller.js'
     },
   ];
 
@@ -48,7 +50,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
       uiSref: crawlUiSref + 'ltaaa',
       templateUrl: crawlTemplatePath + 'ltaaa/index.html',
       controller: 'CrawlLtaaaController',
-      controllerUrl: crawlTemplatePath + 'ltaaa/controller'
+      controllerUrl: crawlTemplatePath + 'ltaaa/controller.js'
     },
     {
       title: 'Crawl Hot News',
@@ -57,7 +59,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
       uiSref: crawlUiSref + 'hotnews',
       templateUrl: crawlTemplatePath + 'hotnews/index.html',
       controller: 'CrawlHotnewsController',
-      controllerUrl: crawlTemplatePath + 'hotnews/controller'
+      controllerUrl: crawlTemplatePath + 'hotnews/controller.js'
     }
   ];
 
@@ -69,7 +71,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
       uiSref: designUiSref + 'closet',
       templateUrl: designTemplatePath + 'closet/index.html',
       controller: 'DesignClosetController',
-      controllerUrl: designTemplatePath + 'closet/controller'
+      controllerUrl: designTemplatePath + 'closet/controller.js'
     }
   ];
 
@@ -81,15 +83,16 @@ define(['adminApp', 'config'], function (adminApp, config) {
       uiSref: docsUiSref + 'subject',
       templateUrl: docsTemplatePath + 'subject/index.html',
       controller: 'DocsSubjectController',
-      controllerUrl: docsTemplatePath + 'subject/controller'
+      controllerUrl: docsTemplatePath + 'subject/controller.js'
     }, {
       title: 'Document Wiki',
       name: 'wiki',
       params: ':id',
       uiSref: docsUiSref + 'wiki',
       templateUrl: docsTemplatePath + 'wiki/index.html',
+      depsModule: ['ui.codemirror'],
       controller: 'DocsWikiController',
-      controllerUrl: docsTemplatePath + 'wiki/controller'
+      controllerUrl: docsTemplatePath + 'wiki/controller.js'
     }
   ];
 
@@ -101,7 +104,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
       uiSref: mediaUiSref + 'video',
       templateUrl: mediaTemplatePath + 'video/index.html',
       controller: 'MediaVideoController',
-      controllerUrl: mediaTemplatePath + 'video/controller'
+      controllerUrl: mediaTemplatePath + 'video/controller.js'
     }
   ];
 
@@ -113,7 +116,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
       uiSref: monitorUiSref + 'cpu',
       templateUrl: monitorTemplatePath + 'cpu/index.html',
       controller: 'MonitorCPUController',
-      controllerUrl: monitorTemplatePath + 'cpu/controller'
+      controllerUrl: monitorTemplatePath + 'cpu/controller.js'
     }
   ];
 
@@ -125,7 +128,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
       uiSref: taskUiSref + 'detail',
       templateUrl: taskTemplatePath + 'detail/index.html',
       controller: 'TaskDetailController',
-      controllerUrl: taskTemplatePath + 'detail/controller'
+      controllerUrl: taskTemplatePath + 'detail/controller.js'
     },
     {
       title: 'Media Type',
@@ -134,7 +137,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
       uiSref: taskUiSref + 'type',
       templateUrl: taskTemplatePath + 'type/index.html',
       controller: 'TaskMediaTypeController',
-      controllerUrl: taskTemplatePath + 'type/controller'
+      controllerUrl: taskTemplatePath + 'type/controller.js'
     },
     {
       title: 'Note',
@@ -143,7 +146,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
       uiSref: taskUiSref + 'note',
       templateUrl: taskTemplatePath + 'note/index.html',
       controller: 'TaskNoteController',
-      controllerUrl: taskTemplatePath + 'note/controller'
+      controllerUrl: taskTemplatePath + 'note/controller.js'
     }
   ];
   var routes = [
@@ -195,6 +198,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
   }];
 
   adminApp.config(['generateProvider', function(generateProvider) {
+
     angular.forEach(states, function(state) {
       generateProvider.state(state);
     });
@@ -203,5 +207,31 @@ define(['adminApp', 'config'], function (adminApp, config) {
         generateProvider.router(route);
       });
     });
+    //   title: 'Document Wiki',
+    //   name: 'wiki',
+    //   params: ':id',
+    //   uiSref: docsUiSref + 'wiki',
+    //   templateUrl: docsTemplatePath + 'wiki/index.html',
+    //   controller: 'DocsWikiController',
+    //   controllerUrl: docsTemplatePath + 'wiki/controller.js'
+    // $stateProvider
+    // .state(docsUiSref + 'wiki',{
+    //   url: '/wiki?:id',
+    //   views:{
+    //     '': {
+    //       templateUrl: docsTemplatePath + 'wiki/index.html',
+    //       controller: 'DocsWikiController',
+    //       controllerAs: 'ctrl'
+    //     }
+    //   },
+    //   resolve:{
+    //     deps:['$ocLazyLoad', function($ocLazyLoad) {
+    //       return $ocLazyLoad.load('ui.codemirror').then(function() {
+    //         return $ocLazyLoad.load(docsTemplatePath + 'wiki/controller.js');
+    //       });
+    //     }]
+    //   },
+    //   params: { data: {} }
+    // });
   }]);
 });

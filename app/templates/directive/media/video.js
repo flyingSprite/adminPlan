@@ -14,8 +14,7 @@ define('media-video', ['adminApp'], function(adminApp) {
       },
       template:'<div class="video-wrapper"><video id="video-demo" width="300" height="300"></video></div>',
       transclude: true,
-      controller: ['$scope', function($scope) {
-        console.log($scope);
+      controller: [function() {
       }]
     };
   });

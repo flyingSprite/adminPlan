@@ -47,7 +47,7 @@ define('layout-box', ['adminApp'], function(adminApp) {
         $scope.toShowEdit = $scope.showEdit === 'true';
 
         $scope.$watch('showEdit', function() {
-          console.log($scope.showEdit);
+          // console.log($scope.showEdit);
           $scope.toShowEdit = $scope.showEdit === 'true';
         });
       }],

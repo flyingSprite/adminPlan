@@ -20,7 +20,7 @@ define('label-wrapper', ['adminApp'], function(adminApp) {
       controller: ['$scope', function($scope) {
         if ($scope.label === undefined || $scope.label === '') {
           $scope.label = 'Default label';
-          console.warn('Please set ap-label-wrapper element label argument value.');
+          // console.warn('Please set ap-label-wrapper element label argument value.');
         }
       }]
     };

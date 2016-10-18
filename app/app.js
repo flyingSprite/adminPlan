@@ -1,7 +1,6 @@
 define(['adminApp', 'config', 'ap-service', 'ap-directive',
   './container/ngRoute',
   ], function (adminApp, config) {
-
   adminApp.service('init', function () {
     return {
       imagePath: 'static/image/',
@@ -18,8 +17,8 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
       list: []
     };
   })
-  .provider('generate', [ '$stateProvider', '$urlRouterProvider', '$requireProvider',
-    function($stateProvider, $urlRouterProvider, $requireProvider) {
+  .provider('generate', [ '$stateProvider',
+    function($stateProvider) {
       this.state = function(state) {
         $stateProvider.state('main.' + state.url, {
           url: state.url,
@@ -37,11 +36,22 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
         $stateProvider
         .state(route.uiSref, {
           url: '/' + route.name +'?'+ route.params,
-          templateUrl: route.templateUrl,
-          controller: route.controller,
-          controllerAs: 'ctrl',
+          views: {
+            '': {
+              templateUrl: route.templateUrl,
+              controller: route.controller,
+              controllerAs: 'ctrl'
+            }
+          },
           resolve: {
-            deps: $requireProvider.requireJS([route.controllerUrl])
+            // deps: $requireProvider.requireJS([route.controllerUrl])
+            deps: ['$ocLazyLoad', function($ocLazyLoad) {
+              return route.depsModule
+              ? $ocLazyLoad.load(route.depsModule).then(function() {
+                return $ocLazyLoad.load(route.controllerUrl);
+              })
+              : $ocLazyLoad.load(route.controllerUrl);
+            }]
           },
           params: { data: {} }
         });
@@ -49,33 +59,35 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
       this.$get = function() {};
     }
   ])
-  .run(['$rootScope', '$location', function ($rootScope) {
-    $rootScope.$on('$stateChangeStart',
-      function (event, toState, toParams, fromState, fromParams){
-        console.log('StateChange', event, toState, toParams, fromState, fromParams);
-      }
-    );
+  .run(['$rootScope', '$location', function () {
+    // $rootScope.$on('$stateChangeStart',
+    //   function (event, toState, toParams, fromState, fromParams){
+    //     console.log('StateChange', event, toState, toParams, fromState, fromParams);
+    //   }
+    // );
   }])
   .config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
-    console.log('sadfasdfasdf');
     $ocLazyLoadProvider.config({
       debug: true,
       events: true,
       modules: [
         {
-          name:'ui.codemirror',
-          module:true,
-          files:[
+          name: 'ui.codemirror',
+          module: true,
+          files: [
             '../bower_components/angular-ui-codemirror/ui-codemirror.min.js'
+          ]
+        }, {
+          name: 'wu.masonry',
+          module: true,
+          files: [
+            '../bower_components/angular-masonry/angular-masonry.js'
           ]
         }
       ]
     });
-    // $scope.$on('ocLazyLoad.moduleLoaded', function(e, module) {
-    //   console.log('module loaded', module);
-    // });
   }])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
     // This is home state, will show _header.html, _footer.html
     // And main html
@@ -101,7 +113,7 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
       .when('/main.dashboard.index', '/dashboard/index')
       .when('/main', '/dashboard/index')
       .otherwise('main.dashboard.index');
-  })
+  }])
   .factory('breadcrumb', ['$rootScope', function($rootScope) {
     return function(subTitle, breadcrumbs) {
       $rootScope.$broadcast(
@@ -110,8 +122,9 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
       );
     };
   }])
-  .controller('IndexController', ['$scope', '$rootScope', '$ocLazyLoad', function ($scope, $rootScope, $ocLazyLoad) {
+  .controller('IndexController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.staticUrl = config.staticUrl;
+    console.log(config.staticUrl);
     var self = this;
     self.currentInfo = {};
 
@@ -139,7 +152,7 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
     // Refer http://www.tuicool.com/articles/3Mbi2y6
     // Refer http://www.jb51.net/article/77813.htm
     // Refer https://oclazyload.readme.io/docs/oclazyloadprovider
-    $ocLazyLoad.load('ui.codemirror');
+
 
     // On locationChange
     $rootScope.$on('$locationChangeStart', function() {});

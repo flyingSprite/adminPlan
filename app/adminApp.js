@@ -2,27 +2,29 @@
  * Load all necessary tools.
  */
 define([
-  'angular',
-  'ngRequire',
   'angular-ui-router',
-  // 'ui-codemirror',
-  'angular-ui-router',
-  // 'ui-codemirror',
-  'angular-masonry',
-  'angular-bootstrap-toggle-switch',
   'oclazyload'
 ], function () {
 
-  var app = angular.module('ngApp',
-    [
-      'ngRequire',
-      // 'ui.codemirror',
-      'ui.router',
-      'wu.masonry',
-      'pascalprecht.translate',
-      'toggle-switch',
-      'oc.lazyLoad'
-    ]
-  );
-  return app;
+  var app = angular.module('ngApp',[
+    'oc.lazyLoad',
+    'ui.router',
+    'pascalprecht.translate'
+  ]);
+  return app.config([
+    '$provide',
+    '$compileProvider',
+    '$controllerProvider',
+    '$filterProvider',
+    function($provide, $compileProvider, $controllerProvider, $filterProvider){
+      app.controller = $controllerProvider.register;
+      app.directive = $compileProvider.directive;
+      app.filter = $filterProvider.register;
+      app.factory = $provide.factory;
+      app.service = $provide.service;
+      app.provider = $provide.provider;
+      app.value = $provide.value;
+      app.constant = $provide.constant;
+      app.decorator = $provide.decorator;
+    }]);
 });

@@ -1,6 +1,6 @@
 
 
-define(['require', 'angular', 'angular', 'app'], function (require){
+define(['angular', 'app'], function (){
   'use strict';
 
   require(['domReady!'], function (document) {

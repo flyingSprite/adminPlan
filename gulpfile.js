@@ -42,7 +42,7 @@ gulp.task('demo', function () {
 
 // Let all common js files concat in a file.
 // The file is app/dist/common/common.min.js .
-gulp.task('commonJs', () => {
+gulp.task('commonJs', function() {
   return gulp.src(commonJsFiles)
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('common.min.js'))
@@ -52,7 +52,7 @@ gulp.task('commonJs', () => {
 
 // Let all common css files concat in a file.
 // The file is app/dist/common/common.min.css .
-gulp.task('commonCss', () => {
+gulp.task('commonCss', function() {
   return gulp.src(commonCssFiles)
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('common.min.css'))
@@ -61,7 +61,7 @@ gulp.task('commonCss', () => {
 });
 
 /* 将container中的js文件单独压缩到dist中 */
-gulp.task('containerJs', () => {
+gulp.task('containerJs', function() {
   return gulp.src('app/container/**/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('app/dist/container'));
@@ -180,6 +180,7 @@ gulp.task('watch', function() {
 
 
 gulp.task('default', [
+  'require',
   'apDirective',
   'apCharts',
   'apService',

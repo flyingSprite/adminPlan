@@ -1,8 +1,8 @@
 define(['adminApp', 'Raphael', 'worldmap'], function (adminApp, Raphael, worldmap) {
 
-  adminApp.controller('dashboardIndexController', [
-    '$scope', '$http', '$sce', 'api', 'breadcrumb',
-    function ($scope, $http, $sce, api, breadcrumb){
+  adminApp.controller('DashboardIndexController', [
+    '$scope', 'api', 'breadcrumb',
+    function ($scope, api, breadcrumb){
       breadcrumb();
       var self = this;
       self.count = {

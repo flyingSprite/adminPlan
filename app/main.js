@@ -19,7 +19,7 @@ require.config({
     'marked': '../bower_components/marked/marked.min',
     'media': 'static/script/media',
     'moment': '../bower_components/moment/min/moment.min',
-    'oclazyload': '../bower_components/oclazyload/dist/ocLazyload.min',
+    'oclazyload': '../bower_components/oclazyload/dist/ocLazyLoad.require.min',
     'pnotify': 'static/lib/pnotify/pnotify.custom.min',
     'pnotify-css': 'static/lib/pnotify/pnotify.custom.min',
     'Raphael': '../bower_components/raphael/raphael-min',
@@ -51,7 +51,7 @@ require.config({
     'angular-bootstrap-toggle-switch': ['angular'],
     'angular-masonry': ['angular'],
     'angular-translate': ['angular'],
-    'angular-ui-router': ['angular-translate'],
+    'angular-ui-router': ['angular', 'angular-translate'],
     'pnotify': ['css!pnotify-css'],
 
     // 'ap-directive-module': ['angular'],
@@ -65,7 +65,8 @@ require.config({
 
     'highlightjs': {exports: 'hljs'},
 
-    'ngRequire': ['angular-ui-router'],
+    // 'ngRequire': ['angular-ui-router'],
+    'ngRequire': ['angular'],
     'ui-codemirror': ['angular', 'codemirror']
   },
   deps: ['bootstrap']
