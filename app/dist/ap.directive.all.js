@@ -99,6 +99,27 @@ define('date-picker-attr', ['adminApp'], function(adminApp) {
 });
 'use strict';
 
+define('horizontal', ['adminApp'], function(adminApp) {
+
+  adminApp.directive('apHorizontal', function () {
+    return {
+      restrict: 'ACE',
+      scope: {
+        img: '@',
+        content: '@'
+      },
+      // template: '<div ng-bind-html="markdownHtml"></div>',
+      templateUrl: 'templates/directive/horizontal/index.html',
+      controller: ['$scope', function () {
+      }]
+    };
+  });
+});
+
+
+
+'use strict';
+
 define('item', ['adminApp'], function(adminApp) {
 
   adminApp.directive('apItemArticle', function () {
@@ -181,27 +202,6 @@ define('item-news', ['adminApp'], function(adminApp) {
   });
 });
 
-'use strict';
-
-define('horizontal', ['adminApp'], function(adminApp) {
-
-  adminApp.directive('apHorizontal', function () {
-    return {
-      restrict: 'ACE',
-      scope: {
-        img: '@',
-        content: '@'
-      },
-      // template: '<div ng-bind-html="markdownHtml"></div>',
-      templateUrl: 'templates/directive/horizontal/index.html',
-      controller: ['$scope', function () {
-      }]
-    };
-  });
-});
-
-
-
 
 'use strict';
 
@@ -251,7 +251,7 @@ define('layout-box', ['adminApp'], function(adminApp) {
         $scope.toShowEdit = $scope.showEdit === 'true';
 
         $scope.$watch('showEdit', function() {
-          console.log($scope.showEdit);
+          // console.log($scope.showEdit);
           $scope.toShowEdit = $scope.showEdit === 'true';
         });
       }],
@@ -309,8 +309,7 @@ define('media-video', ['adminApp'], function(adminApp) {
       },
       template:'<div class="video-wrapper"><video id="video-demo" width="300" height="300"></video></div>',
       transclude: true,
-      controller: ['$scope', function($scope) {
-        console.log($scope);
+      controller: [function() {
       }]
     };
   });
@@ -437,7 +436,7 @@ define('label-wrapper', ['adminApp'], function(adminApp) {
       controller: ['$scope', function($scope) {
         if ($scope.label === undefined || $scope.label === '') {
           $scope.label = 'Default label';
-          console.warn('Please set ap-label-wrapper element label argument value.');
+          // console.warn('Please set ap-label-wrapper element label argument value.');
         }
       }]
     };
