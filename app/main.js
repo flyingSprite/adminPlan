@@ -67,6 +67,7 @@ require.config({
 
     // 'ngRequire': ['angular-ui-router'],
     'ngRequire': ['angular'],
+    'oclazyload': ['angular'],
     'ui-codemirror': ['angular', 'codemirror']
   },
   deps: ['bootstrap']
