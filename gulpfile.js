@@ -12,7 +12,8 @@ var sourcemaps = require('gulp-sourcemaps');
 
 var commonCssFiles = [
   'bower_components/bootstrap/dist/css/bootstrap.min.css',
-  'bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
+  'bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
+  'bower_components/font-awesome/css/font-awesome.min.css'
 ];
 
 var commonJsFiles = [
@@ -20,7 +21,14 @@ var commonJsFiles = [
   'bower_components/bootstrap/dist/js/bootstrap.min.js',
   'bower_components/moment/min/moment.min.js',
   'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
-  'bower_componentzs/notifyjs/dist/notify.js'
+  'bower_components/notifyjs/dist/notify.js'
+];
+
+var angularFiles = [
+  'bower_components/angular/angular.min.js',
+  'bower_components/angular-translate/angular-translate.min.js',
+  'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+  'bower_components/oclazyload/dist/ocLazyLoad.require.min.js'
 ];
 
 var directiveFiles = [
@@ -56,6 +64,14 @@ gulp.task('commonCss', function() {
   return gulp.src(commonCssFiles)
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('common.min.css'))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('app/dist/common'));
+});
+
+gulp.task('angular', function() {
+  return gulp.src(angularFiles)
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(concat('angular.all.min.js'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('app/dist/common'));
 });

@@ -3,12 +3,13 @@
 require.config({
   baseUrl: '',
   paths:{
-    'angular': '../bower_components/angular/angular.min',
+    'angular-all': 'dist/common/angular.all.min',
+    // 'angular': '../bower_components/angular/angular.min',
     'angular-animate': '../bower_components/angular-animate/angular-animate.min',
     'angular-aria': '../bower_components/angular-aria/angular-aria.min',
     'angular-masonry': '../bower_components/angular-masonry/angular-masonry',
-    'angular-translate': '../bower_components/angular-translate/angular-translate.min',
-    'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
+    // 'angular-translate': '../bower_components/angular-translate/angular-translate.min',
+    // 'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
     'codemirror': '../bower_components/codemirror/lib/codemirror',
     'css': '../bower_components/require-css/css.min',
     'd3': '../bower_components/d3/d3.min',
@@ -19,7 +20,7 @@ require.config({
     'marked': '../bower_components/marked/marked.min',
     'media': 'static/script/media',
     'moment': '../bower_components/moment/min/moment.min',
-    'oclazyload': '../bower_components/oclazyload/dist/ocLazyLoad.require.min',
+    // 'oclazyload': '../bower_components/oclazyload/dist/ocLazyLoad.require.min',
     'pnotify': 'static/lib/pnotify/pnotify.custom.min',
     'pnotify-css': 'static/lib/pnotify/pnotify.custom.min',
     'Raphael': '../bower_components/raphael/raphael-min',
@@ -46,12 +47,13 @@ require.config({
     'adminApp': 'adminApp'
   },
   shim: {
-    'angular-animate': ['angular'],
-    'angular-aria': ['angular'],
-    'angular-bootstrap-toggle-switch': ['angular'],
-    'angular-masonry': ['angular'],
-    'angular-translate': ['angular'],
-    'angular-ui-router': ['angular', 'angular-translate'],
+    'angular-all': {exports: 'angular'},
+    // 'angular-animate': ['angular'],
+    // 'angular-aria': ['angular'],
+    // 'angular-bootstrap-toggle-switch': ['angular'],
+    // 'angular-masonry': ['angular'],
+    // 'angular-translate': ['angular'],
+    // 'angular-ui-router': ['angular', 'angular-translate'],
     'pnotify': ['css!pnotify-css'],
 
     // 'ap-directive-module': ['angular'],
@@ -59,16 +61,16 @@ require.config({
     // 'ap-directive-horizontal': ['ap-directive-module'],
     // 'ap-directive': ['ap-directive-horizontal', 'ap-item-article'],
 
-    'ap-directive': ['angular'],
-    'ap-service': ['angular'],
+    'ap-directive': ['angular-all'],
+    'ap-service': ['angular-all'],
     'ap-charts': ['highcharts'],
 
     'highlightjs': {exports: 'hljs'},
 
     // 'ngRequire': ['angular-ui-router'],
-    'ngRequire': ['angular'],
-    'oclazyload': ['angular'],
-    'ui-codemirror': ['angular', 'codemirror']
+    // 'ngRequire': ['angular'],
+    // 'oclazyload': ['angular'],
+    'ui-codemirror': ['angular-all', 'codemirror']
   },
   deps: ['bootstrap']
 });

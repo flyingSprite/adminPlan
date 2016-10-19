@@ -1,24 +1,6 @@
 define('initService', ['adminApp', 'config', 'marked', 'highlightjs'], function (adminApp, config, marked, hljs) {
 
-  adminApp.service('InitService', function ($http){
-    this.config = function () {
-      return $http({method: 'GET', url: '/config.json'});
-    };
-  })
-  .service('logging', function(){
-    this.info = function(args) {
-      console.log(args);
-    };
-
-    this.warn = function(args) {
-      console.warn(args);
-    };
-
-    this.err = function(args) {
-      console.err(args);
-    };
-  })
-  .directive('markd', function () {
+  adminApp.directive('markd', function () {
     return {
       restrict: 'E',
       replace: true,
@@ -50,39 +32,26 @@ define('initService', ['adminApp', 'config', 'marked', 'highlightjs'], function 
         }
       }]
     };
-  })
-  .factory('adminHttp', ['$http', function ($http){
-    $http.defaults.useXDomain = true;
-    var serverUrl = config.serverHost + config.namespace;
-    // var serverUrl = 'http://www.duastone.com/solutions';
-    return function (config){
-      if(config.method.toUpperCase() == 'POST'
-        || config.method.toUpperCase() == 'PUT'
-        || config.method.toUpperCase() == 'DELETE') {
-        return $http({
-          url: serverUrl + config.url,
-          method: config.method.toUpperCase(),
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          // transformRequest : function(data){
-          //   if (data === undefined) {
-          //     return data;
-          //   }
-          //   return $.param(data);
-          // },
-          data: config.data
-        });
-      } else if (config.method.toUpperCase() == 'GET') {
-        return $http({
-          url: serverUrl + config.url,
-          method: 'GET',
-          data: config.data
-        });
-      }
+  });
+  adminApp.service('InitService', ['$http', function ($http){
+    this.config = function () {
+      return $http({method: 'GET', url: '/config.json'});
     };
-  }])
-  .service('socket', [ '$http', 'logging', function ($http) {
+  }]);
+  adminApp.service('logging', function(){
+    this.info = function(args) {
+      console.log(args);
+    };
+
+    this.warn = function(args) {
+      console.warn(args);
+    };
+
+    this.err = function(args) {
+      console.err(args);
+    };
+  });
+  adminApp.service('socket', [ '$http', 'logging', function ($http) {
     $http.defaults.useXDomain = true;
     // var socket = new WebSocket('ws://localhost:8080/solutions/point');
     // var self = this;

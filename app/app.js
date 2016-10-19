@@ -124,7 +124,6 @@ define(['adminApp', 'config', 'ap-service', 'ap-directive',
   }])
   .controller('IndexController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.staticUrl = config.staticUrl;
-    console.log(config.staticUrl);
     var self = this;
     self.currentInfo = {};
 

@@ -1,7 +1,39 @@
 
 /** All server api will define in here. */
-define('api', ['adminApp'], function (adminApp) {
-  adminApp.service('api', ['adminHttp', function (adminHttp) {
+define('api', ['adminApp', 'config'], function (adminApp, config) {
+  adminApp
+  .factory('adminHttp', ['$http', function ($http){
+    $http.defaults.useXDomain = true;
+    var serverUrl = config.serverHost + config.namespace;
+    // var serverUrl = 'http://www.duastone.com/solutions';
+    return function (config){
+      if(config.method.toUpperCase() == 'POST'
+        || config.method.toUpperCase() == 'PUT'
+        || config.method.toUpperCase() == 'DELETE') {
+        return $http({
+          url: serverUrl + config.url,
+          method: config.method.toUpperCase(),
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          // transformRequest : function(data){
+          //   if (data === undefined) {
+          //     return data;
+          //   }
+          //   return $.param(data);
+          // },
+          data: config.data
+        });
+      } else if (config.method.toUpperCase() == 'GET') {
+        return $http({
+          url: serverUrl + config.url,
+          method: 'GET',
+          data: config.data
+        });
+      }
+    };
+  }])
+  .service('api', ['adminHttp', function (adminHttp) {
 
     var o = function(options, success, error) {
       adminHttp(options)

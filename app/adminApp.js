@@ -2,10 +2,8 @@
  * Load all necessary tools.
  */
 define([
-  'angular-ui-router',
-  'oclazyload'
+  'angular-all'
 ], function () {
-
   var module = angular.module;
   angular.module = function() {
     var args = [].slice.call(arguments);
