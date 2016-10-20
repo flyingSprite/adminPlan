@@ -24,7 +24,10 @@ require.config({
     'pnotify': 'static/lib/pnotify/pnotify.custom.min',
     'pnotify-css': 'static/lib/pnotify/pnotify.custom.min',
     'Raphael': '../bower_components/raphael/raphael-min',
-    'ui-codemirror': '../bower_components/angular-ui-codemirror/ui-codemirror.min',
+    // 'ui-codemirror': '../bower_components/angular-ui-codemirror/ui-codemirror.min',
+
+    'simplex-markdown': 'simplex/markdown',
+    'simplex-ui-codemirror': 'simplex/ui-codemirror',
 
     // Bootstrap
     'angular-bootstrap-toggle-switch': '../bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.min',
@@ -65,12 +68,14 @@ require.config({
     'ap-service': ['angular-all'],
     'ap-charts': ['highcharts'],
 
+    'codemirror': {exports: 'CodeMirror'},
+
     'highlightjs': {exports: 'hljs'},
 
     // 'ngRequire': ['angular-ui-router'],
     // 'ngRequire': ['angular'],
     // 'oclazyload': ['angular'],
-    'ui-codemirror': ['angular-all', 'codemirror']
+    // 'ui-codemirror': ['angular-all', 'codemirror']
   },
   deps: ['bootstrap']
 });

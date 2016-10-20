@@ -1,6 +1,10 @@
-define(['adminApp', 'config', 'ap-service', 'ap-directive',
+define('app', [
+  'adminApp',
+  'config',
+  'ap-service',
+  'ap-directive',
   './container/ngRoute',
-  ], function (adminApp, config) {
+], function (adminApp, config) {
   adminApp.service('init', function () {
     return {
       imagePath: 'static/image/',

@@ -1,6 +1,6 @@
 
 
-define(['angular-all', 'app'], function (){
+define('bootstrap', ['angular-all', 'app'], function (){
   'use strict';
 
   require(['domReady!'], function (document) {

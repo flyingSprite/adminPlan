@@ -1,4 +1,9 @@
-define(['adminApp', 'pnotify'], function (adminApp) {
+define([
+  'adminApp',
+  'pnotify',
+  'simplex-markdown',
+  'simplex-ui-codemirror'
+], function (adminApp) {
   adminApp.controller('DocsWikiController', [
     '$state', '$stateParams', 'breadcrumb', 'api', 'copyArray', 'removeArrayById',
     function($state, $stateParams, breadcrumb, api, copyArray, removeArrayById){

@@ -48,5 +48,8 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "gulp-minify-css": "^1.2.4"
   }
 }

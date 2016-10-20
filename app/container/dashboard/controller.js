@@ -1,5 +1,5 @@
-define(['adminApp', 'Raphael', 'worldmap'], function (adminApp, Raphael, worldmap) {
-
+// define(['adminApp', 'Raphael', 'worldmap'], function (adminApp, Raphael, worldmap) {
+define(['adminApp'], function (adminApp) {
   adminApp.controller('DashboardIndexController', [
     '$scope', 'api', 'breadcrumb',
     function ($scope, api, breadcrumb){
@@ -27,10 +27,8 @@ define(['adminApp', 'Raphael', 'worldmap'], function (adminApp, Raphael, worldma
         self.count.hotnews = count.hotnews;
         self.count.cmsMonitor = count.cmsMonitor;
       }, function() {});
-
-
       // Show world map
-      worldmap('world-map');
+      // worldmap('world-map');
     }
   ]);
 });

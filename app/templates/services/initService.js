@@ -1,38 +1,6 @@
-define('initService', ['adminApp', 'config', 'marked', 'highlightjs'], function (adminApp, config, marked, hljs) {
+define('initService', ['adminApp'], function (adminApp) {
 
-  adminApp.directive('markd', function () {
-    return {
-      restrict: 'E',
-      replace: true,
-      scope: {
-        markurl: '@',
-        markData: '@'
-      },
-      template: '<div ng-bind-html="markdownHtml"></div>',
-      controller: ['$scope', '$sce', '$http', function ($scope, $sce, $http) {
-        marked.setOptions({
-          highlight: function (code) {
-            return hljs.highlightAuto(code).value;
-          }
-        });
-        if ($scope.markData != undefined) {
-          $scope.markdownHtml = $sce.trustAsHtml(marked($scope.markData));
-          $scope.$watch(function () {
-            return $scope.markData;
-          }, function () {
-            $scope.markdownHtml = $sce.trustAsHtml(marked($scope.markData));
-          });
-        }
 
-        if($scope.markData == undefined || $scope.markurl != undefined){
-          $http.get($scope.markurl)
-            .success(function(data) {
-              $scope.markdownHtml = $sce.trustAsHtml(marked(data));
-            });
-        }
-      }]
-    };
-  });
   adminApp.service('InitService', ['$http', function ($http){
     this.config = function () {
       return $http({method: 'GET', url: '/config.json'});

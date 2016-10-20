@@ -1,7 +1,7 @@
 /**
  * Load all necessary tools.
  */
-define([
+define('adminApp', [
   'angular-all'
 ], function () {
   var module = angular.module;

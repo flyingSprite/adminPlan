@@ -90,7 +90,7 @@ define(['adminApp', 'config'], function (adminApp, config) {
       params: ':id',
       uiSref: docsUiSref + 'wiki',
       templateUrl: docsTemplatePath + 'wiki/index.html',
-      depsModule: ['ui.codemirror'],
+      // depsModule: ['ui.codemirror'],
       controller: 'DocsWikiController',
       controllerUrl: docsTemplatePath + 'wiki/controller.js'
     }
