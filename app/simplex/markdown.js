@@ -1,8 +1,8 @@
 define([
   'adminApp',
-  'marked',
-  'highlightjs'
-], function (adminApp, marked, hljs) {
+  'marked'
+  // 'highlightjs'
+], function (adminApp, marked) {
 
   adminApp.directive('markd', function () {
     return {
@@ -14,11 +14,11 @@ define([
       },
       template: '<div ng-bind-html="markdownHtml"></div>',
       controller: ['$scope', '$sce', '$http', function ($scope, $sce, $http) {
-        marked.setOptions({
-          highlight: function (code) {
-            return hljs.highlightAuto(code).value;
-          }
-        });
+        // marked.setOptions({
+        //   highlight: function (code) {
+        //     return hljs.highlightAuto(code).value;
+        //   }
+        // });
         if ($scope.markData != undefined) {
           $scope.markdownHtml = $sce.trustAsHtml(marked($scope.markData));
           $scope.$watch(function () {
