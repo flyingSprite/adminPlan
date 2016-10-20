@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
+var minifyCss = require('gulp-minify-css');
 var sourcemaps = require('gulp-sourcemaps');
 
 
@@ -64,6 +65,20 @@ gulp.task('commonCss', function() {
   return gulp.src(commonCssFiles)
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('common.min.css'))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('app/dist/common'));
+});
+
+gulp.task('mainCss', function() {
+  var csses = [
+    'app/static/style/solutions.css',
+    'app/static/style/index.css',
+    'app/static/style/main.css',
+  ];
+  return gulp.src(csses)
+    .pipe(minifyCss())
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(concat('main.min.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('app/dist/common'));
 });
