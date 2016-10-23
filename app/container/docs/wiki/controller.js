@@ -1,6 +1,6 @@
 define([
   'adminApp',
-  'pnotify',
+  // 'pnotify',
   'simplex-markdown',
   'simplex-ui-codemirror'
 ], function (adminApp) {
@@ -113,7 +113,7 @@ define([
       };
 
       function init() {
-        console.log($stateParams.id);
+        // console.log($stateParams.id);
         self.id = $stateParams.id;
         api.doc.getSubjectById(self.id, function(res) {
           if (res && res.code === 200 && res.data) {
