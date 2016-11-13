@@ -1,0 +1,117 @@
+
+$default-color: #1ab394;
+$default-hover-color: #18a689;
+$white: #fff;
+$zero: 0;
+
+// bootstrap button
+.btn {
+  border-radius: $zero;
+}
+
+.btn-primary {
+  background-color: $default-color;
+  border-color: $default-color;
+  color: $white;
+  @mixin primary-hover {
+    background-color: $default-hover-color;
+    border-color: $default-hover-color;
+    color: $white;
+  }
+
+  &:hover {
+    @include primary-hover;
+  }
+
+  &:active {
+    @include primary-hover;
+
+    &:hover {
+      @include primary-hover;
+    }
+
+    &:focus {
+      @include primary-hover;
+    }
+  }
+
+  &:focus {
+    @include primary-hover;
+  }
+
+  .active {
+    @include primary-hover;
+
+    &:focus {
+      @include primary-hover;
+
+    }
+
+    &:hover {
+      @include primary-hover;
+    }
+  }
+}
+
+.btn-success {
+  background-color: #1c84c6;
+  border-color: #1c84c6;
+  color: #FFFFFF;
+  @mixin success-hover {
+    background-color: #1a7bb9;
+    border-color: #1a7bb9;
+    color: #FFFFFF;
+  }
+  &:hover {
+    @include success-hover;
+  }
+
+  &:active {
+    @include success-hover;
+    &:hover {
+      @include success-hover;
+    }
+    &:focus {
+      @include success-hover;
+    }
+  }
+
+  &:focus {
+    @include success-hover;
+  }
+
+  .active {
+    @include success-hover;
+    &:focus {
+      @include success-hover;
+    }
+    &:hover {
+      @include success-hover;
+    }
+  }
+}
+
+// bootstrap list
+.list-group {
+  border-radius: $zero;
+
+  .list-group-item {
+    border-radius: $zero;
+
+    &:hover {
+      background-color: #1cc09f;
+      border-color: #1cc09f;
+      color: $white;
+    }
+
+    .title-item {
+      cursor: pointer;
+    }
+  }
+
+  .active {
+    background-color: #1cc09f;
+    border-color: #1cc09f;
+    color: $white;
+  }
+}

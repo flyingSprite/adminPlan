@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
+var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var sourcemaps = require('gulp-sourcemaps');
 
@@ -200,6 +201,20 @@ gulp.task('eslint-container', function() {
         chalk.underline.dim(`${results.filePath}`)
       );
     }));
+});
+
+gulp.task('sass', function() {
+  return gulp.src('./app/static/style/sass/**/*.scss')
+  .pipe(sass().on('error', sass.logError))
+  .pipe(minifyCss())
+  .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(concat('sass.min.css'))
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest('app/static/style'));
+});
+
+gulp.task('sass-watch', function() {
+  gulp.watch('app/static/style/sass/**/*.scss', ['sass']);
 });
 
 gulp.task('eslint', ['eslint-templates', 'eslint-container']);

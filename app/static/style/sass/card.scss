@@ -1,0 +1,27 @@
+
+$default-white: #fff;
+$default-color: #ddd;
+
+.normal-font {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.field-line {
+  padding: 0 0 4px;
+}
+
+.card-sample {
+  background-color: $default-white;
+  border: 1px solid $default-color;
+  display: dispaly;
+  padding: 8px;
+}
+
+.card-sample-radius {
+  background-color: $default-white;
+  border: 1px solid $default-color;
+  border-radius: 4px;
+  display: dispaly;
+  padding: 8px;
+}

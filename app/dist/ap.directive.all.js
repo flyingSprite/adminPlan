@@ -9,11 +9,12 @@ require([
   'item-info',
   'item-news',
   'label-wrapper',
+  'layout-card',
   'layout-box',
+  'layout-progress',
   'media-video',
   'pagination'
 ]);
-
 
 
 'use strict';
@@ -293,27 +294,100 @@ define('layout-box', ['adminApp'], function(adminApp) {
 });
 
 
-
-'use strict';
-
 /**
- * MUST use plugin.js
+ * Design Card
+ *
+ * @author Quesle
+ * @github Quesle
+ * @email zrwuxian@126.com
  */
-define('media-video', ['adminApp'], function(adminApp) {
-
-  adminApp.directive('apVideo', function () {
+define('layout-card', ['adminApp'], function(adminApp) {
+  adminApp.directive('apComponent', function () {
     return {
       restrict: 'E',
       scope: {
-        src: '@'
+        componentName: '@',
+        className: '@',
+        code: '@'
       },
-      template:'<div class="video-wrapper"><video id="video-demo" width="300" height="300"></video></div>',
       transclude: true,
-      controller: [function() {
+      template: '<div class="row">'
+      + '<div class="col-lg-12 col-md-12 col-sm-12 field-line">'
+      + '<div class="col-lg-2 col-md-2 col-sm-2"><strong>Component:</strong></div>'
+      + '<div class="col-lg-10 col-md-10 col-sm-10">{{componentName}}</div></div>'
+      + '<div class="col-lg-12 col-md-12 col-sm-12 field-line">'
+      + '<div class="col-lg-2 col-md-2 col-sm-2"><strong>Class Name:</strong></div>'
+      + '<div class="col-lg-10 col-md-10 col-sm-10">{{className}}</div></div>'
+      + '<div class="col-lg-12 col-md-12 col-sm-12 field-line">'
+      + '<div class="col-lg-2 col-md-2 col-sm-2"><strong>Code:</strong></div>'
+      + '<div class="col-lg-10 col-md-10 col-sm-10">{{code}}</div></div>'
+      + '</div>'
+    };
+  })
+  .directive('apCard', function () {
+    return {
+      restrict: 'E',
+      scope: {},
+      transclude: true,
+      template: '<div class="card-sample normal-font" ng-transclude></div>'
+    };
+  })
+  .directive('apCardRadius', function() {
+    return {
+      restrict: 'E',
+      scope: {},
+      transclude: true,
+      template: '<div class="card-sample-radius" ng-transclude></div>'
+    };
+  });
+});
+
+
+define('layout-progress', ['adminApp'], function(adminApp) {
+  console.log('asdfasdfasdf');
+  adminApp.directive('apProgress', function() {
+    return {
+      restrict: 'E',
+      scope: {
+        progress: '='
+      },
+      template: '<div class="progress">'
+      + '<div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">'
+      + '{{progress}}%</div>'
+      + '</div>',
+      controller: ['$scope', function($scope) {
+        console.log($scope.progress);
+        $scope.$watch(function() {
+          return $scope.progress;
+        }, function(){
+          console.log($scope.progress);
+        });
+        console.log($scope);
+        console.log($scope.$parent);
       }]
     };
   });
 });
+
+
+define('layout-tab', ['adminApp', function(adminApp) {
+  adminApp.directive('apTabContext', function() {
+    return {
+      restrict: 'E',
+      scope: {},
+      transclude: true,
+      template: ''
+    };
+  })
+  .directive('apTab', function() {
+    return {
+      restrict: 'E',
+      scope: {},
+      transclude: true,
+      template: ''
+    };
+  });
+}]);
 
 'use strict';
 
@@ -409,6 +483,29 @@ define('pagination', ['adminApp'], function(adminApp) {
           }
           return arr;
         }
+      }]
+    };
+  });
+});
+
+
+
+'use strict';
+
+/**
+ * MUST use plugin.js
+ */
+define('media-video', ['adminApp'], function(adminApp) {
+
+  adminApp.directive('apVideo', function () {
+    return {
+      restrict: 'E',
+      scope: {
+        src: '@'
+      },
+      template:'<div class="video-wrapper"><video id="video-demo" width="300" height="300"></video></div>',
+      transclude: true,
+      controller: [function() {
       }]
     };
   });

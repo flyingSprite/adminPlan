@@ -1,6 +1,40 @@
 <section class="container section-default">
 
-  <ap-box title="CMS Monitor" collapse="{{true}}">
+  <h3>Layout:</h3>
+
+  <h5>apCard:</h5>
+  <ap-card>
+    <ap-component
+      component-name="apCard"
+      class-name="card-sample"
+      code="<ap-cord> ... </ap-cord>"
+    >
+    <ap-component>
+  </ap-card>
+
+  <h5>apCardRadius:</h5>
+  <ap-card-radius>
+    <ap-component
+      component-name="apCardRadius"
+      class-name="card-sample-radius"
+      code="<ap-card-radius> ... </ap-card-radius>"
+    >
+    <ap-component>
+  </ap-card-radius>
+
+  <h5>apProgress:</h5>
+  <ap-progress progress="ctrl.progressNum"></ap-progress>
+
+  <ap-card>
+    <ap-component
+      component-name="apProgress"
+      code="<ap-process> ... </ap-process>"
+    >
+    <ap-component>
+  </ap-card>
+
+
+  <!-- <ap-box title="CMS Monitor" collapse="{{true}}">
     <div class="fixed-height-320 row"
       chart-cpu-monitor id="chart-cpu" chart-id="chart-cpu" ></div>
   </ap-box>
@@ -28,7 +62,7 @@
     </span>
     {{ ctrl.moment(news.startTimestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }}
     <a href="{{ news.href }}" target="">{{ news.name }}</a> -->
-    <ap-item-news
+    <!-- <ap-item-news
       name="{{ news.name }}"
       news-href="{{ news.href }}"
       date="{{ ctrl.moment(news.startTimestamp * 1000).format('YYYY-MM-DD HH:mm:ss') }}"
@@ -49,5 +83,5 @@
       </ap-label-wrapper>
       <button class="btn btn-success " ng-disabled="myForm.$invalid" ng-click="ctrl.submit()">Create</button>
     </form>
-  </div>
+  </div> -->
 </section>

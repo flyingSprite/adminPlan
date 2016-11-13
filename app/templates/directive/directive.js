@@ -9,8 +9,9 @@ require([
   'item-info',
   'item-news',
   'label-wrapper',
+  'layout-card',
   'layout-box',
+  'layout-progress',
   'media-video',
   'pagination'
 ]);
-
