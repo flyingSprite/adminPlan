@@ -11,6 +11,7 @@ require([
   'label-wrapper',
   'layout-card',
   'layout-box',
+  'layout-header',
   'layout-progress',
   'media-video',
   'pagination'
@@ -338,6 +339,20 @@ define('layout-card', ['adminApp'], function(adminApp) {
       scope: {},
       transclude: true,
       template: '<div class="card-sample-radius" ng-transclude></div>'
+    };
+  });
+});
+
+
+define('layout-header', ['adminApp'], function(adminApp) {
+  adminApp.directive('apHeaderNormal', function() {
+    return {
+      restrict: 'E',
+      scope: {
+        title: '@'
+      },
+      transclude: true,
+      template: '<div class="header-normal">{{title}}</div>'
     };
   });
 });

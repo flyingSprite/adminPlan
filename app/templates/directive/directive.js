@@ -11,6 +11,7 @@ require([
   'label-wrapper',
   'layout-card',
   'layout-box',
+  'layout-header',
   'layout-progress',
   'media-video',
   'pagination'
