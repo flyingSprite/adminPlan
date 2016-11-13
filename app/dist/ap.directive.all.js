@@ -344,7 +344,6 @@ define('layout-card', ['adminApp'], function(adminApp) {
 
 
 define('layout-progress', ['adminApp'], function(adminApp) {
-  console.log('asdfasdfasdf');
   adminApp.directive('apProgress', function() {
     return {
       restrict: 'E',
@@ -354,17 +353,7 @@ define('layout-progress', ['adminApp'], function(adminApp) {
       template: '<div class="progress">'
       + '<div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">'
       + '{{progress}}%</div>'
-      + '</div>',
-      controller: ['$scope', function($scope) {
-        console.log($scope.progress);
-        $scope.$watch(function() {
-          return $scope.progress;
-        }, function(){
-          console.log($scope.progress);
-        });
-        console.log($scope);
-        console.log($scope.$parent);
-      }]
+      + '</div>'
     };
   });
 });
@@ -388,6 +377,29 @@ define('layout-tab', ['adminApp', function(adminApp) {
     };
   });
 }]);
+
+
+
+'use strict';
+
+/**
+ * MUST use plugin.js
+ */
+define('media-video', ['adminApp'], function(adminApp) {
+
+  adminApp.directive('apVideo', function () {
+    return {
+      restrict: 'E',
+      scope: {
+        src: '@'
+      },
+      template:'<div class="video-wrapper"><video id="video-demo" width="300" height="300"></video></div>',
+      transclude: true,
+      controller: [function() {
+      }]
+    };
+  });
+});
 
 'use strict';
 
@@ -483,29 +495,6 @@ define('pagination', ['adminApp'], function(adminApp) {
           }
           return arr;
         }
-      }]
-    };
-  });
-});
-
-
-
-'use strict';
-
-/**
- * MUST use plugin.js
- */
-define('media-video', ['adminApp'], function(adminApp) {
-
-  adminApp.directive('apVideo', function () {
-    return {
-      restrict: 'E',
-      scope: {
-        src: '@'
-      },
-      template:'<div class="video-wrapper"><video id="video-demo" width="300" height="300"></video></div>',
-      transclude: true,
-      controller: [function() {
       }]
     };
   });
