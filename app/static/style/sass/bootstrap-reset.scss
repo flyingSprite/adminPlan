@@ -1,8 +1,10 @@
 
-$default-color: #1ab394;
-$default-hover-color: #18a689;
+$btn-primary-color: #1ab394;
+$btn-primary-hover-color: #18a689;
 $white: #fff;
 $zero: 0;
+$theme-light-color: #e5e6e7;
+$short-duration: 0.15s;
 
 // bootstrap button
 .btn {
@@ -10,13 +12,13 @@ $zero: 0;
 }
 
 .btn-primary {
-  background-color: $default-color;
-  border-color: $default-color;
+  background-color: $btn-primary-color;
+  border-color: $btn-primary-color;
   color: $white;
   @mixin primary-hover {
-    background-color: $default-hover-color;
-    border-color: $default-hover-color;
-    color: $white;
+    background-color: $btn-primary-hover-color important;
+    border-color: $btn-primary-hover-color important;
+    color: $white important;
   }
 
   &:hover {
@@ -25,6 +27,7 @@ $zero: 0;
 
   &:active {
     @include primary-hover;
+    background-image: none;
 
     &:hover {
       @include primary-hover;
@@ -114,4 +117,23 @@ $zero: 0;
     border-color: #1cc09f;
     color: $white;
   }
+}
+
+
+.form-control,
+.single-line {
+  background-color: $white;
+  background-image: none;
+  border: 1px solid $theme-light-color;
+  border-radius: 1px;
+  color: inherit;
+  display: block;
+  font-size: 14px;
+  padding: 6px 12px;
+  transition: border-color $short-duration ease-in-out 0s, box-shadow $short-duration ease-in-out 0s;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 5px;
 }

@@ -14,6 +14,16 @@ define(['adminApp', 'moment', 'ap-charts'], function (adminApp) {
         }
       };
 
+      // self.validator = ['ipv4'];
+      self.validator = 'ipv4-netmask';
+
+      self.components = {
+        apMultiEditInput: {
+          name: 'apMultiEditInput',
+          code: '<ap-mulit-edit-input ng-model="ctrl.selectList" ng-validate="ctrl.validator"></ap-mulit-edit-input>'
+        }
+      };
+
       function start() {
         self.setProgress();
         $timeout(start, 500);

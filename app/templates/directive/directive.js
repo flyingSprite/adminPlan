@@ -4,6 +4,7 @@
 require([
   'angular-slimscroll',
   'date-picker-attr',
+  'form-multi-edit-input',
   'horizontal',
   'item',
   'item-info',

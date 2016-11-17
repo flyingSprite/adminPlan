@@ -10,5 +10,6 @@ require([
   'api',
   'notification-service',
   'message-box',
-  'util'
+  'util',
+  'validator'
 ]);

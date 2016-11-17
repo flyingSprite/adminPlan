@@ -43,4 +43,14 @@
     >
     <ap-component>
   </ap-card>
+  <ap-header-normal title="apMultiEditInput"></ap-header-normal>
+  <ap-multi-edit-input ng-model="ctrl.selectList" ng-validate="ctrl.validator"></ap-multi-edit-input>
+  <ap-card>
+    <ap-component
+      component-name="{{ ctrl.components.apMultiEditInput.name }}"
+      class-name="{{ ctrl.components.apMultiEditInput.className }}"
+      code="{{ ctrl.components.apMultiEditInput.code }}"
+    >
+    <ap-component>
+  </ap-card>
 </section>
