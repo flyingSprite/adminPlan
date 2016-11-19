@@ -41,3 +41,4 @@ config.codekit
 
 # Project config, use config.js.dist instead it.
 app/config.js
+app/dist

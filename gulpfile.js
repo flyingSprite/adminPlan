@@ -208,9 +208,9 @@ gulp.task('sass', function() {
   .pipe(sass().on('error', sass.logError))
   .pipe(minifyCss())
   .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(concat('sass.min.css'))
+    .pipe(concat('main.min.css'))
   .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest('app/static/style'));
+  .pipe(gulp.dest('app/dist/'));
 });
 
 gulp.task('sass-watch', function() {
@@ -224,9 +224,9 @@ gulp.task('watch', function() {
   gulp.watch('app/container/**/*.js', ['eslint-container']);
 });
 
-
-gulp.task('default', [
+gulp.task('dist', [
   'require',
+  'angular',
   'apDirective',
   'apCharts',
   'apService',
@@ -234,7 +234,15 @@ gulp.task('default', [
   'commonCss',
   'containerJs',
   'containerHtml',
+  'mainCss',
   'jqueryModule',
   'eslint',
+  'sass'
+]);
+
+gulp.task('build', ['dist']);
+
+gulp.task('default', [
+  'dist',
   'watch'
 ]);

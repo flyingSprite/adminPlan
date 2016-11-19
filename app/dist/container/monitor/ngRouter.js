@@ -1,1 +1,0 @@
-define(["adminApp","config"],function(o,r){var n=r.rootPath+"container/monitor/",t="main.monitor.",e=[{title:"Monitor CPU",name:"cpu",params:":id",uiSref:t+"cpu",templateUrl:n+"cpu/index.html",controller:"MonitorCPUController",controllerUrl:n+"cpu/controller"}];o.config(["generateProvider",function(o){angular.forEach(e,function(r){o.router(r)})}])});
