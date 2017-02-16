@@ -1,4 +1,3 @@
-'user strict';
 
 require.config({
   baseUrl: '',
@@ -46,8 +45,6 @@ require.config({
     // 'ap-directive-horizontal': 'templates/directive/horizontal/controller',
     // 'ap-item-article': 'templates/directive/item/controller',
 
-    'config': 'config',
-    'adminApp': 'adminApp'
   },
   shim: {
     'angular-all': {exports: 'angular'},

@@ -11,6 +11,15 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var sourcemaps = require('gulp-sourcemaps');
 
+var jsFile = {
+  main: [
+    'app/library/adminApp.js',
+    'app/library/app.js',
+    'app/library/bootstrap.js',
+    'app/library/ngRoute.js',
+    'app/library/main.js'
+  ]
+};
 
 var commonCssFiles = [
   'bower_components/bootstrap/dist/css/bootstrap.min.css',
@@ -43,7 +52,7 @@ var serviceFiles = [
   'app/templates/services/index.js'
 ];
 
-var jqueryModules = ['bower_components/jquery-slimscroll/jquery.slimscroll.min.js'];
+var jqueryModules = [ 'bower_components/jquery-slimscroll/jquery.slimscroll.min.js' ];
 
 // Gulp task demo
 gulp.task('demo', function () {
@@ -115,6 +124,13 @@ gulp.task('containerHtml', function () {
     .pipe(gulp.dest('app/dist/container'));
 });
 
+gulp.task('main', function () {
+  return gulp.src(jsFile.main)
+    .pipe(concat('main.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('app'));
+});
+
 gulp.task('apDirective', function () {
   return gulp.src(directiveFiles)
     // .pipe(rename({ suffix: '.all' }))
@@ -171,10 +187,10 @@ gulp.task('eslint-templates', function() {
     .pipe(eslint.failAfterError())
     .pipe(eslint.result(function(results) {
       gutil.log('Eslint:',
-        chalk.red(`${results.warningCount}`),
+        chalk.red(results.warningCount),
         '/',
-        chalk.red(`${results.errorCount}`),
-        chalk.underline.dim(`${results.filePath}`)
+        chalk.red(results.errorCount),
+        chalk.underline.dim(results.filePath)
       );
     }));
 });
@@ -195,10 +211,10 @@ gulp.task('eslint-container', function() {
     .pipe(eslint.failAfterError())
     .pipe(eslint.result(function(results) {
       gutil.log('Eslint:',
-        chalk.red(`${results.warningCount}`),
+        chalk.red(results.warningCount),
         '/',
-        chalk.red(`${results.errorCount}`),
-        chalk.underline.dim(`${results.filePath}`)
+        chalk.red(results.errorCount),
+        chalk.underline.dim(results.filePath)
       );
     }));
 });

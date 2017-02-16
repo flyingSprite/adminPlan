@@ -1,4 +1,4 @@
-define(['adminApp', 'config'], function (adminApp, config) {
+define('ngRoute', ['adminApp', 'config'], function (adminApp, config) {
   var templatePath = config.rootPath + 'container/ngTemplate.html';
   var dashboardTemplatePath = config.rootPath + 'container/dashboard/',
     cardTemplatePath = config.rootPath + 'container/card/',
@@ -207,31 +207,5 @@ define(['adminApp', 'config'], function (adminApp, config) {
         generateProvider.router(route);
       });
     });
-    //   title: 'Document Wiki',
-    //   name: 'wiki',
-    //   params: ':id',
-    //   uiSref: docsUiSref + 'wiki',
-    //   templateUrl: docsTemplatePath + 'wiki/index.html',
-    //   controller: 'DocsWikiController',
-    //   controllerUrl: docsTemplatePath + 'wiki/controller.js'
-    // $stateProvider
-    // .state(docsUiSref + 'wiki',{
-    //   url: '/wiki?:id',
-    //   views:{
-    //     '': {
-    //       templateUrl: docsTemplatePath + 'wiki/index.html',
-    //       controller: 'DocsWikiController',
-    //       controllerAs: 'ctrl'
-    //     }
-    //   },
-    //   resolve:{
-    //     deps:['$ocLazyLoad', function($ocLazyLoad) {
-    //       return $ocLazyLoad.load('ui.codemirror').then(function() {
-    //         return $ocLazyLoad.load(docsTemplatePath + 'wiki/controller.js');
-    //       });
-    //     }]
-    //   },
-    //   params: { data: {} }
-    // });
   }]);
 });

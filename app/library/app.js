@@ -3,7 +3,7 @@ define('app', [
   'config',
   'ap-service',
   'ap-directive',
-  './container/ngRoute',
+  'ngRoute',
 ], function (adminApp, config) {
   adminApp.service('init', function () {
     return {

@@ -5,7 +5,6 @@
     "requirejs": "~2.1.22",
     "requirejs-domready": "~2.0.1",
     "jquery": "~2.1.4",
-    "bootstrap": "~3.3.6",
     "jquery-ui": "~1.11.4",
     "font-awesome": "~4.5.0",
     "d3": "~3.5.12",
@@ -22,7 +21,6 @@
     "moment": "^2.13.0",
     "masonry": "^4.0.0",
     "imagesloaded": "^4.1.0",
-    "prettyphoto": "*",
     "angular-masonry": "^0.16.0",
     "jquery-bridget": "^2.0.0",
     "ev-emitter": "^1.0.2",
@@ -36,7 +34,8 @@
     "pnotify": "^3.0.0",
     "notifyjs": "^0.4.2",
     "require-css": "^0.1.8",
-    "oclazyload": "^1.0.9"
+    "oclazyload": "^1.0.9",
+    "domReady": "requirejs-domready#^2.0.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",
