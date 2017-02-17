@@ -40,8 +40,10 @@
 ## Library design
 
 > JS部分
-* `lib.common.min.js`: 基础加载包，包含`jquery`, `bootstrap`, 和`angular`等。
+* `lib.common.min.js`: 基础加载包，包含`jquery`, `bootstrap`等。
+* `lib.angular.min.js`: `Angular`所有包
 * `lib.form.min.js`: form基础包，创建form表单时加载，包含`iCheck`， `inputMask`等。
+* `lib.dev.min.js`: 存放开发的各种`Service`和`Directive`包 
 
 > CSS部分
 * `lib.common.min.css`: 基础加载包，包含`bootstrap`等。

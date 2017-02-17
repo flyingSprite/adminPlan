@@ -18,65 +18,107 @@ var jsFile = {
     'app/library/bootstrap.js',
     'app/library/ngRoute.js',
     'app/library/main.js'
+  ],
+  libCommonJs: [
+    'bower_components/jquery/dist/jquery.min.js',
+    'bower_components/bootstrap/dist/js/bootstrap.min.js',
+    'bower_components/moment/min/moment.min.js',
+    'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+    'bower_components/notifyjs/dist/notify.js'
+  ],
+  libCommonCss: [
+    'bower_components/bootstrap/dist/css/bootstrap.min.css',
+    'bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
+    'bower_components/font-awesome/css/font-awesome.min.css'
+  ],
+  libAngularJs: [
+    'bower_components/angular/angular.min.js',
+    'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+    'bower_components/angular-translate/angular-translate.min.js',
+    'bower_components/oclazyload/dist/ocLazyLoad.require.min.js'
+  ],
+  directives: [
+    'app/templates/directive/directive.js',
+    'app/templates/directive/**/*.js'
+  ],
+  services: [
+    'app/templates/services/**/*.js',
+    'app/templates/services/index.js'
   ]
 };
 
-var commonCssFiles = [
-  'bower_components/bootstrap/dist/css/bootstrap.min.css',
-  'bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
-  'bower_components/font-awesome/css/font-awesome.min.css'
-];
+function minJs(filename, dir, files) {
+  return gulp.src(files)
+    .pipe(concat(filename))
+    .pipe(gulp.dest(dir))
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(dir));
+}
 
-var commonJsFiles = [
-  'bower_components/jquery/dist/jquery.min.js',
-  'bower_components/bootstrap/dist/js/bootstrap.min.js',
-  'bower_components/moment/min/moment.min.js',
-  'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
-  'bower_components/notifyjs/dist/notify.js'
-];
+function minCss(filename, dir, files) {
+  return gulp.src(files)
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(concat(filename))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(dir));
+}
 
-var angularFiles = [
-  'bower_components/angular/angular.min.js',
-  'bower_components/angular-translate/angular-translate.min.js',
-  'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-  'bower_components/oclazyload/dist/ocLazyLoad.require.min.js'
-];
+function minPackage(filename, dir, files) {
+  return gulp.src(files)
+    // .pipe(rename({ suffix: '.all' }))
+    .pipe(concat(filename))
+    .pipe(gulp.dest(dir))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(dir));
+}
 
-var directiveFiles = [
-  'app/templates/directive/directive.js',
-  'app/templates/directive/**/*.js'
-];
+gulp.task('main', function () {
+  return minJs('main.min.js', 'app', jsFile.main);
+});
+gulp.task('angular', function () {
+  return minJs('lib.angular.min.js', 'app/dist/lib', jsFile.libAngularJs);
+});
+gulp.task('commonJs', function () {
+  return minJs('lib.common.min.js', 'app/dist/lib', jsFile.libCommonJs);
+});
 
-var serviceFiles = [
-  'app/templates/services/**/*.js',
-  'app/templates/services/index.js'
-];
+gulp.task('commonCss', function() {
+  return minCss('lib.common.min.css', 'app/dist/lib', jsFile.libCommonCss);
+});
+
+gulp.task('package', function() {
+  var packages = jsFile.services.concat(jsFile.directives);
+  return minPackage('lib.dev.js', 'app/dist/lib', packages);
+});
+
+gulp.task('chart', function() {
+  var files = ['app/templates/charts/**/*.js'];
+  return minPackage('lib.charts.js', 'app/dist/lib', files);
+});
+
+
+gulp.task('lib', ['main', 'angular', 'commonJs', 'commonCss', 'package', 'chart']);
+
+// var directiveFiles = [
+//   'app/templates/directive/directive.js',
+//   'app/templates/directive/**/*.js'
+// ];
+//
+// var serviceFiles = [
+//   'app/templates/services/**/*.js',
+//   'app/templates/services/index.js'
+// ];
 
 var jqueryModules = [ 'bower_components/jquery-slimscroll/jquery.slimscroll.min.js' ];
 
 // Gulp task demo
 gulp.task('demo', function () {
   console.log('This is a Gulp test.');
-});
-
-// Let all common js files concat in a file.
-// The file is app/dist/common/common.min.js .
-gulp.task('commonJs', function() {
-  return gulp.src(commonJsFiles)
-    .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(concat('common.min.js'))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dist/common'));
-});
-
-// Let all common css files concat in a file.
-// The file is app/dist/common/common.min.css .
-gulp.task('commonCss', function() {
-  return gulp.src(commonCssFiles)
-    .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(concat('common.min.css'))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dist/common'));
 });
 
 gulp.task('mainCss', function() {
@@ -89,14 +131,6 @@ gulp.task('mainCss', function() {
     .pipe(minifyCss())
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('main.min.css'))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dist/common'));
-});
-
-gulp.task('angular', function() {
-  return gulp.src(angularFiles)
-    .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(concat('angular.all.min.js'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('app/dist/common'));
 });
@@ -124,50 +158,42 @@ gulp.task('containerHtml', function () {
     .pipe(gulp.dest('app/dist/container'));
 });
 
-gulp.task('main', function () {
-  return gulp.src(jsFile.main)
-    .pipe(concat('main.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('app'));
-});
+// gulp.task('apDirective', function () {
+//   return gulp.src(directiveFiles)
+//     // .pipe(rename({ suffix: '.all' }))
+//     .pipe(concat('ap.directive.all.js'))
+//     .pipe(gulp.dest('app/dist/'))
+//     .pipe(rename({ suffix: '.min' }))
+//     .pipe(sourcemaps.init({loadMaps: true}))
+//       .pipe(uglify())
+//     .pipe(sourcemaps.write('./'))
+//     .pipe(gulp.dest('app/dist/'));
+// });
 
-gulp.task('apDirective', function () {
-  return gulp.src(directiveFiles)
-    // .pipe(rename({ suffix: '.all' }))
-    .pipe(concat('ap.directive.all.js'))
-    .pipe(gulp.dest('app/dist/'))
+// gulp.task('apService', function () {
+//   return gulp.src(serviceFiles)
+//     // .pipe(rename({ suffix: '.all' }))
+//     .pipe(concat('ap.service.all.js'))
+//     .pipe(gulp.dest('app/dist/'))
+//
+//     .pipe(rename({ suffix: '.min' }))
+//     .pipe(sourcemaps.init({loadMaps: true}))
+//       .pipe(uglify())
+//     .pipe(sourcemaps.write('./'))
+//     .pipe(gulp.dest('app/dist/'));
+// });
 
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dist/'));
-});
-
-gulp.task('apService', function () {
-  return gulp.src(serviceFiles)
-    // .pipe(rename({ suffix: '.all' }))
-    .pipe(concat('ap.service.all.js'))
-    .pipe(gulp.dest('app/dist/'))
-
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dist/'));
-});
-
-gulp.task('apCharts', function () {
-  return gulp.src(['app/templates/charts/**/*.js'])
-    .pipe(concat('ap.charts.all.js'))
-    .pipe(gulp.dest('app/dist/'))
-
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('app/dist/'));
-});
+// gulp.task('apCharts', function () {
+//   return gulp.src(['app/templates/charts/**/*.js'])
+//     .pipe(concat('ap.charts.all.js'))
+//     .pipe(gulp.dest('app/dist/'))
+//
+//     .pipe(rename({ suffix: '.min' }))
+//     .pipe(sourcemaps.init({loadMaps: true}))
+//       .pipe(uglify())
+//     .pipe(sourcemaps.write('./'))
+//     .pipe(gulp.dest('app/dist/'));
+// });
 
 gulp.task('jqueryModule', function () {
   return gulp.src(jqueryModules)

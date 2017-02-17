@@ -2,7 +2,8 @@
 require.config({
   baseUrl: '',
   paths:{
-    'angular-all': 'dist/common/angular.all.min',
+    // 'angular-all': 'dist/common/angular.all.min',
+    'angular-all': 'dist/lib/lib.angular.min',
     // 'angular': '../bower_components/angular/angular.min',
     'angular-animate': '../bower_components/angular-animate/angular-animate.min',
     'angular-aria': '../bower_components/angular-aria/angular-aria.min',
@@ -35,11 +36,12 @@ require.config({
     'ngRequire': 'static/lib/angular-require',
     'worldmap': 'static/lib/world',
 
-    'ap-service': 'dist/ap.service.all.min',
-    // 'ap-service': 'templates/services/index',
-    'ap-directive': 'dist/ap.directive.all.min',
-    'ap-charts': 'dist/ap.charts.all.min',
-
+    // 'ap-service': 'dist/ap.service.all.min',
+    // // 'ap-service': 'templates/services/index',
+    // 'ap-directive': 'dist/ap.directive.all.min',
+    'ap-package': 'dist/lib/lib.dev.min',
+    // 'ap-charts': 'dist/ap.charts.all.min',
+    'ap-charts': 'dist/lib/lib.charts.min'
     // 'ap-directive-module': 'templates/directive/directive',
     // 'ap-directive': 'templates/directive/pagination/controller',
     // 'ap-directive-horizontal': 'templates/directive/horizontal/controller',
@@ -61,8 +63,9 @@ require.config({
     // 'ap-directive-horizontal': ['ap-directive-module'],
     // 'ap-directive': ['ap-directive-horizontal', 'ap-item-article'],
 
-    'ap-directive': ['angular-all'],
-    'ap-service': ['angular-all'],
+    // 'ap-directive': ['angular-all'],
+    // 'ap-service': ['angular-all'],
+    'ap-package': ['angular-all'],
     'ap-charts': ['highcharts'],
 
     'codemirror': {exports: 'CodeMirror'},
